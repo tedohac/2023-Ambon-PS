@@ -15,11 +15,11 @@ class AuthController extends Controller
     public function form()
     {
         if(Auth::check()) return redirect()->route('/');
-        
-        // echo Hash::make('polman407');
+
+        echo Hash::make('qwerty');
         return view('login');
     }
-    
+
     public function process(Request $request)
     {
         $data = [
