@@ -2,7 +2,7 @@
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>
-
+    Options +FollowSymlinks
     RewriteEngine On
 
     # Handle Authorization Header
@@ -18,4 +18,6 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+
+    RewriteBase /personalsite
 </IfModule>
