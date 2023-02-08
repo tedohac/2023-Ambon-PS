@@ -10,7 +10,7 @@ use Validator;
 use Session;
 use Auth;
 
-class LoginController extends Controller
+class AuthController extends Controller
 {
     use RoleTrait;
 
@@ -24,13 +24,12 @@ class LoginController extends Controller
     public function process(Request $request)
     {
         $rules = [
-            'user_email'   => 'required|email',
+            'user_npk'   => 'required|email',
             'user_password'    => 'required'
         ];
  
         $messages = [
-            'user_email.required'  => 'Masukan e-mail',
-            'user_email.email'     => 'E-mail tidak valid',
+            'user_npk.required'  => 'Masukan NPK',
             'user_password.required'   => 'Masukan password'
         ];
  
@@ -41,29 +40,18 @@ class LoginController extends Controller
         }
         
         $data = [
-            'user_email'=> $request->user_email,
+            'user_npk'=> $request->user_npk,
             'password'  => $request->user_password
         ];
         
-        // verification check
-        $isverified = User::where('user_email',$request->user_email)->first();
-        
-        if(!empty($isverified) && $isverified->user_email_verified_at == "") return redirect()->route('verifyneeded');
-        else if(!empty($isverified) && $isverified->user_status=='0')
-        {
-            //Login Fail
-            Session::flash('error', 'Akun anda sedang dalam pengawasan, silahkan hubungi admin MagangHub untuk informasi lebih lanjut');
-            return redirect()->route('login')->withInput($request->all);
-        }
-
         if(!Auth::attempt($data, isset($request->login_remember)))
         {
             //Login Fail
-            Session::flash('error', 'Email atau password salah');
+            Session::flash('error', 'NPK atau password salah');
             return redirect()->route('login')->withInput($request->all);
         }
 
-        Session::flash('success', 'Selamat datang, '.Auth::user()->user_role.'!');
+        Session::flash('success', 'Selamat datang, '.Auth::user()->user_npk.'!');
         if(Auth::check()) return $this->redirectRole();
     }
 
