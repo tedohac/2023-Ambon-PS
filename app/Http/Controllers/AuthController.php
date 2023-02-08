@@ -1,60 +1,45 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Traits\RoleTrait;
 use App\User;
 use Validator;
 use Session;
 use Auth;
+use Hash;
 
 class AuthController extends Controller
 {
-    use RoleTrait;
-
     public function form()
     {
-        if(Auth::check()) return $this->redirectRole();
+        if(Auth::check()) return redirect()->route('/');
         
-        return view('auth.login');
+        // echo Hash::make('polman407');
+        return view('login');
     }
-
+    
     public function process(Request $request)
     {
-        $rules = [
-            'user_npk'   => 'required|email',
-            'user_password'    => 'required'
-        ];
- 
-        $messages = [
-            'user_npk.required'  => 'Masukan NPK',
-            'user_password.required'   => 'Masukan password'
-        ];
- 
-        $validator = Validator::make($request->all(), $rules, $messages);
- 
-        if($validator->fails()){
-            return redirect()->back()->withErrors($validator)->withInput($request->all);
-        }
-        
         $data = [
             'user_npk'=> $request->user_npk,
             'password'  => $request->user_password
         ];
-        
-        if(!Auth::attempt($data, isset($request->login_remember)))
+
+        print_r($data);
+
+        if(!Auth::attempt($data))
         {
             //Login Fail
-            Session::flash('error', 'NPK atau password salah');
+            Session::flash('error', 'Invalid NPK or password');
             return redirect()->route('login')->withInput($request->all);
         }
 
-        Session::flash('success', 'Selamat datang, '.Auth::user()->user_npk.'!');
-        if(Auth::check()) return $this->redirectRole();
+        Session::flash('success', 'Welcome, '.Auth::user()->user_npk.'!');
+        if(Auth::check()) return redirect()->route('main');
     }
-
+    
     public function logout()
     {
         Auth::logout();

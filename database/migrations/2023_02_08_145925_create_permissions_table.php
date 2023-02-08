@@ -14,8 +14,11 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('permission_user_npk', 10);
+            $table->string('permission_role_code', 30);
+            $table->primary(array('permission_user_npk', 'permission_role_code'));
+            $table->foreign('permission_user_npk')->references('user_npk')->on('users');
+            $table->foreign('permission_role_code')->references('role_code')->on('roles');
         });
     }
 

@@ -13,11 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('/')->middleware('web');
 
-Route::group(['middleware' => 'web'], function () {
+Route::get('/','MainController@index')->name('main')->middleware('CheckPermission:');
+
+Route::group(['prefix' => 'login', 'middleware' => 'web'], function () {
+    
     Route::get('/login', 'AuthController@form')->name('login');
     Route::post('/login', 'AuthController@process');
 
