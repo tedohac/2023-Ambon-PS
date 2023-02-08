@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>AppCenter2</title>
+    <title>Personal Site</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -20,7 +20,7 @@
 <body class="hold-transition login-page">
     <div class="login-box">
     <div class="login-logo">
-        <a href="#"><b>App</b>Center<b>2</b></a>
+        <a href="#"><b>Personal</b>Site</a>
     </div>
     <!-- /.login-logo -->
     <div class="card">
@@ -42,7 +42,7 @@
             @csrf
                 <div class="form-group mb-3">
                     <div class="input-group">
-                        <input type="email" name="user_email" class="form-control" placeholder="E-Mail" id="inputEmail">
+                        <input type="text" name="user_npk" class="form-control" placeholder="NPK" id="inputNpk">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -83,21 +83,21 @@
         $(function () {
             $('#quickForm').validate({
                 rules: {
-                    user_email: {
+                    user_npk: {
                         required: true,
-                        email: true
+                        number: true
                     },
                     user_password: {
                         required: true
                     }
                 },
                 messages: {
-                    user_email: {
-                        required: "Please enter a email address",
-                        email: "Please enter a vaild email address"
+                    user_npk: {
+                        required: "Please enter NPK",
+                        number: "Please enter a vaild NPK"
                     },
                     user_password: {
-                        required: "Please enter a password"
+                        required: "Please enter password"
                     },
                 },
                 errorElement: 'span',
