@@ -31,6 +31,7 @@
                 
                 reader.onload = function() {
                     $('#previewpict1').attr('src', reader.result);
+                    console.log('asd'+reader.result);
                 }
                 
                 reader.readAsDataURL(this.files[0]); // convert to base64 string
