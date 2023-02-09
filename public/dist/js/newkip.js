@@ -37,15 +37,8 @@
                     $("#kip_foto_sebelum").addClass("is-invalid text-danger");
                     return;
                 }
-                console.log(reader.target.result);
                 
-                $("#profilethumb1").empty();
-                reader.onload = function(e) {
-                    $("#profilethumb1").append('<img id="previewpict1" style="max-width: 200px;" class="bg-white border p-1"');
-                    $('#previewpict1').attr('src', e.target.result);
-                }
-                
-                reader.readAsDataURL(this.files[0]); // convert to base64 string
+                $('#previewpict1').attr('src', URL.createObjectURL(this.target.files[0]));
             }
         });
         
@@ -64,13 +57,7 @@
                     return;
                 }
                 
-                $("#profilethumb2").empty();
-                reader.onload = function(e) {
-                    $("#profilethumb2").append('<img id="previewpict2" style="max-width: 200px;" class="bg-white border p-1"');
-                    $('#previewpict2').attr('src', e.target.result);
-                }
-                
-                reader.readAsDataURL(this.files[0]); // convert to base64 string
+                $('#previewpict2').attr('src', URL.createObjectURL(this.target.files[0]));
             }
         });
 
