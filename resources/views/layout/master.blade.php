@@ -72,8 +72,11 @@
                 </div>
             </section>
             
-            <footer class="my-5 pt-5 text-muted text-center text-small">
-                <p class="mb-1">&copy; 2023 Personal Site</p>
+            <footer class="main-footer">
+                <div class="float-right d-none d-sm-block">
+                    <b>Version</b> 1.0.0
+                </div>
+                <strong>Copyright &copy; 2023 All rights reserved.
             </footer>
         </div>
         
