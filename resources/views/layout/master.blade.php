@@ -32,7 +32,7 @@
 
         @include('layout.navbar')
         
-        @yield('sidebar-module')
+        @yield('sidebar')
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
