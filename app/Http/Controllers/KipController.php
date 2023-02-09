@@ -10,4 +10,9 @@ class KipController extends Controller
     {
     	return view('kip.list_own');
     }
+    
+    public function new()
+    {
+    	return view('kip.new');
+    }
 }
