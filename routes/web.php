@@ -26,7 +26,7 @@ Route::group(['middleware' => 'web'], function () {
 
 Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
 
-    Route::get('list','KipController@listown')->name('kip.listown');
+    Route::get('listown','KipController@listown')->name('kip.listown');
 
     // Route::get('detail/{id}','ManageKampusController@detail')->name('kampus.detail');
 

@@ -33,7 +33,7 @@ class CreateKipsTable extends Migration
             $table->text('kip_pengontrolan')->nullable();
             $table->text('kip_saran')->nullable();
             $table->primary('kip_no');
-            $table->foreign('kip_user_npk')->references('user_npk')->on('users');
+            $table->foreign('kip_created_by')->references('user_npk')->on('users');
         });
     }
 
