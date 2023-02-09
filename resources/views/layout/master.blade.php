@@ -27,7 +27,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="{{ asset('img/komatsu_logo.png') }}" height="60">
+            <img class="animation__shake" src="{{ asset('img/topy_logo.png') }}" height="60">
         </div>
 
         @include('layout.navbar')

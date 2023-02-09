@@ -6,7 +6,7 @@
     <a href="{{ route('main') }}" class="brand-link">
 
         {{-- Small brand logo --}}
-        <img src="{{ asset('img/komtrax-square-white.png') }}"
+        <img src="{{ asset('img/person_logo.png') }}"
             class="brand-image elevation-3'">
 
         {{-- Brand text --}}

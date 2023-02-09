@@ -14,8 +14,21 @@ class CreateKipsTable extends Migration
     public function up()
     {
         Schema::create('kips', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->string('kip_no', 30);
+            $table->date('kip_penemuan_date');
+            $table->mediumText('kip_permasalahan');
+            $table->mediumText('kip_keadaan_seharusnya');
+            $table->mediumText('kip_aktivitas_perbaikan');
+            $table->bigInteger('kip_pemborosan_biaya')->nullable();
+            $table->string('kip_created_by');
+            $table->datetime('kip_created_on');
+            $table->datetime('kip_submit_date')->nullable();
+            $table->string('foto_before')->nullable();
+            $table->string('foto_after')->nullable();
+            $table->integer('biaya_perbaikan')->nullable();
+            $table->integer('perhitungan_benefit')->nullable();
+            $table->string('lampiran_benefit')->nullable();
+            $table->tinyInteger('status')->default('0');
         });
     }
 
