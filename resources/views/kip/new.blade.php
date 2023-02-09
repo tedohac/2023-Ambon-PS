@@ -175,6 +175,60 @@
   <div class="card-body">
     <div class="row">
 
+      <div class="col-12">
+        <div class="form-group">
+          <label for="kip_eval_uraian" class="mb-1">Uraian Data</label>
+          <textarea class="form-control jodit" name="kip_eval_uraian" id="kip_eval_uraian"></textarea>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-group">
+          <label for="kip_eval_biaya" class="mb-1">Biaya Perbaikan</label>
+          <textarea class="form-control jodit" name="kip_eval_biaya" id="kip_eval_biaya"></textarea>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-group">
+          <label for="kip_eval_benefit_kuantitatif" class="mb-1">Benefit Kuantitatif</label>
+          <textarea class="form-control jodit" name="kip_eval_benefit_kuantitatif" id="kip_eval_benefit_kuantitatif"></textarea>
+        </div>
+      </div>
+
+      <div class="col-12">
+        <div class="form-group">
+          <label for="kip_eval_benefit_kualitatif" class="mb-1">Benefit Kualitatif</label>
+          <textarea class="form-control jodit" name="kip_eval_benefit_kualitatif" id="kip_eval_benefit_kualitatif"></textarea>
+        </div>
+      </div>
+
+    </div>
+    <!-- end of row -->
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+
+<div class="card card-warning card-outline">
+  <div class="card-header">
+    <h3 class="card-title">
+      Tindak Lanjut atau Standarisasi
+    </h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+
+      
+      <div class="col-12">
+        <div class="form-group">
+          <label for="kip_pengontrolan" class="mb-1">Pengontrolan Selanjutnya</label>
+          <textarea class="form-control jodit" name="kip_pengontrolan" id="kip_pengontrolan"></textarea>
+        </div>
+      </div>
+
     </div>
     <!-- end of row -->
 
