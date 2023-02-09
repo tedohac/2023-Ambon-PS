@@ -54,6 +54,7 @@
         // on form submit
         $('button[type="submit"]').on('click',function(e)
         {
+            console.log('asd');
             e.preventDefault();
             var submit_value = $(this).val();
             jQuery.post
