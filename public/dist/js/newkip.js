@@ -60,11 +60,9 @@
             (
                 $('#formadd').attr('action'),
                 $('#formadd').serialize()+ "&mode="+ submit_value,
-                function(data) {
+                function(response) {
+                    console.log("Response: "+response);
                 }
             );
-            console.log($('#formadd').attr('action'));
-            console.log($('#formadd').serialize());
-            console.log(submit_value);
         });
     });
