@@ -63,14 +63,14 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_dept" class="mb-1">Dept</label>
-          <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" disabled>
+          <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" value="{{ $user->user_dept }}" disabled>
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_tanggal" class="mb-1">Tanggal</label>
-          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" disabled>
+          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" value="{{ date('Y-m-d') }}" disabled>
         </div>
       </div>
       
@@ -141,7 +141,7 @@
               <label class="custom-file-label" for="kip_foto_sebelum">Pilih file</label>
           </div>
         </div>
-        <img id="previewpict1" src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
+        <img id="previewpict1" src="{{ asset('img/photo.png') }}" style="max-width: 100%" class="bg-white border p-1">
 
       </div>
 
@@ -153,13 +153,30 @@
               <label class="custom-file-label" for="kip_foto_sesudah">Pilih file</label>
           </div>
         </div>
-        <img id="previewpict2" src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
+        <img id="previewpict2" src="{{ asset('img/photo.png') }}" style="max-width: 100%;" class="bg-white border p-1">
        
       </div>
 
     </div>
     <!-- end of row -->
 
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+
+<div class="card card-warning card-outline">
+  <div class="card-header">
+    <h3 class="card-title">
+      Evaluasi Hasil Perbaikan
+    </h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+
+    </div>
+    <!-- end of row -->
 
   </div>
   <!-- end of card body -->
