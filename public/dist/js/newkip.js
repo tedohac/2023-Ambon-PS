@@ -56,6 +56,7 @@
         {
             e.preventDefault();
             var submit_value = $(this).val();
+            console.log($('#formadd').serialize());
             jQuery.post
             (
                 $('#formadd').attr('action'),
