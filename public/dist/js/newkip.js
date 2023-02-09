@@ -28,6 +28,16 @@
         {
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
+                var fileName = this.value,
+                    idxDot = fileName.lastIndexOf(".") + 1,
+                    extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+            
+                if (extFile!="jpg" && extFile!="jpeg" && extFile!="png")
+                {
+                    $("#kip_foto_sebelum").addClass("is-invalid text-danger");
+                    return;
+                }
+                console.log(reader.target.result);
                 
                 $("#profilethumb1").empty();
                 reader.onload = function(e) {
@@ -44,6 +54,15 @@
         {
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
+                var fileName = this.value,
+                    idxDot = fileName.lastIndexOf(".") + 1,
+                    extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+            
+                if (extFile!="jpg" && extFile!="jpeg" && extFile!="png")
+                {
+                    $("#kip_foto_sesudah").addClass("is-invalid text-danger");
+                    return;
+                }
                 
                 $("#profilethumb2").empty();
                 reader.onload = function(e) {
