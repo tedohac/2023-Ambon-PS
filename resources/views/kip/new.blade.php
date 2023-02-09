@@ -135,8 +135,7 @@
 
       <div class="col-lg-4 col-md-6 col-12">
         <label>Ilustrasi Sebelum</label>
-
-        <div class="input-group w-50">
+        <div class="input-group mb-2">
           <div class="custom-file">
               <input type="file" class="custom-file-input" id="kip_foto_sebelum" name="kip_foto_sebelum" accept="image/*">
               <label class="custom-file-label" for="kip_foto_sebelum">Pilih file</label>
@@ -149,9 +148,8 @@
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
-        Ilustrasi Sesudah
-
-        <div class="input-group w-50">
+        <label>Ilustrasi Sesudah</label>
+        <div class="input-group mb-2">
           <div class="custom-file">
               <input type="file" class="custom-file-input" id="kip_foto_sesudah" name="kip_foto_sesudah" accept="image/*">
               <label class="custom-file-label" for="kip_foto_sesudah">Pilih file</label>
@@ -176,5 +174,12 @@
 @endsection
 
 @section('bottom')
-    @include('kip.new_bottom')
+<!-- Select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
+
+<!-- Jodit-->
+<script src="{{ asset('plugins/jodit/jodit.min.js') }}"></script>
+
+<!-- JS -->
+<script src="{{ asset('dist/js/newkip.js') }}"></script>
 @endsection
