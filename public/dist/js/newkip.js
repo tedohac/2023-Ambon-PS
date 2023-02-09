@@ -56,8 +56,6 @@
         {
             e.preventDefault();
             var submit_value = $(this).val();
-            console.log($('#formadd').serialize());
-            console.log(submit_value);
             $.post
             (
                 $('#formadd').attr('action'),
@@ -65,5 +63,8 @@
                 function(data) {
                 }
             );
+            console.log($('#formadd').attr('action'));
+            console.log($('#formadd').serialize());
+            console.log(submit_value);
         });
     });
