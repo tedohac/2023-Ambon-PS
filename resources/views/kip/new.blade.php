@@ -106,7 +106,7 @@
       <div class="col-12">
         <div class="form-group">
           <label for="kip_masalah">Masalah dan Kondisi Saat Ini</label>
-          <textarea class="form-control" name="kip_masalah" id="kip_masalah"></textarea>
+          <textarea class="form-control jodit" name="kip_masalah" id="kip_masalah"></textarea>
         </div>
       </div>
 
@@ -186,12 +186,6 @@
 <script>
   $(function () {
     //Initialize Select2 Elements
-    $('.select2').select2({
-      placeholder: "Select",
-      id: '-1', // the value of the option
-    })
-
-    //Initialize Select2 Elements
     $('.select2bs4').select2({
       placeholder: "Select",
       id: '-1', // the value of the option
@@ -204,10 +198,13 @@
 <script src="{{ asset('plugins/jodit/jodit.min.js') }}"></script>
 <script>
     $(document).ready(function(){
-        var editor = new Jodit("#kip_masalah", {
+        $('.jodit').each(function () {
+            var editor = new Jodit(this, {
             "spellcheck": false,
             "buttons": "undo,redo,|,bold,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,align,fontsize,|,image,link,|",
         });
-    })
+    });
+
+    });
 </script>
 @endsection
