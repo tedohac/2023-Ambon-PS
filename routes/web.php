@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/','MainController@index')->name('main')->middleware('CheckPermission:');
 
-Route::group(['prefix' => 'login', 'middleware' => 'web'], function () {
+Route::group(['middleware' => 'web'], function () {
     
     Route::get('/login', 'AuthController@form')->name('login');
     Route::post('/login', 'AuthController@process');
@@ -24,16 +24,16 @@ Route::group(['prefix' => 'login', 'middleware' => 'web'], function () {
     Route::get('/logout', 'AuthController@logout')->name('logout');
 });
 
-// Route::group(['prefix' => 'kampus', 'middleware' => 'web'], function () {
+Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
 
-//     Route::get('list','ManageKampusController@list')->name('kampus.list');
+    Route::get('list','KipController@listown')->name('kip.listown');
 
-//     Route::get('detail/{id}','ManageKampusController@detail')->name('kampus.detail');
+    // Route::get('detail/{id}','ManageKampusController@detail')->name('kampus.detail');
 
-//     Route::get('edit','ManageKampusController@edit')->name('kampus.edit')->middleware('cekrole:admin kampus');
-//     Route::post('update','ManageKampusController@update')->name('kampus.update')->middleware('cekrole:admin kampus');
+    // Route::get('edit','ManageKampusController@edit')->name('kampus.edit')->middleware('cekrole:admin kampus');
+    // Route::post('update','ManageKampusController@update')->name('kampus.update')->middleware('cekrole:admin kampus');
     
-// });
+});
 
 // Route::get('cityautocom','CityController@autocom')->name('cityautocom');
 // Route::get('prodiautocom','ManageProdiController@autocom')->name('prodiautocom');

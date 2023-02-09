@@ -14,21 +14,26 @@ class CreateKipsTable extends Migration
     public function up()
     {
         Schema::create('kips', function (Blueprint $table) {
-            $table->string('kip_no', 30);
-            $table->date('kip_penemuan_date');
-            $table->mediumText('kip_permasalahan');
-            $table->mediumText('kip_keadaan_seharusnya');
-            $table->mediumText('kip_aktivitas_perbaikan');
-            $table->bigInteger('kip_pemborosan_biaya')->nullable();
-            $table->string('kip_created_by');
+            $table->string('kip_no', 20);
+            $table->string('kip_judul_tema', 300);
+            $table->string('kip_created_by', 10);
             $table->datetime('kip_created_on');
             $table->datetime('kip_submit_date')->nullable();
-            $table->string('foto_before')->nullable();
-            $table->string('foto_after')->nullable();
-            $table->integer('biaya_perbaikan')->nullable();
-            $table->integer('perhitungan_benefit')->nullable();
-            $table->string('lampiran_benefit')->nullable();
-            $table->tinyInteger('status')->default('0');
+            $table->string('kip_kategori', 100)->nullable();
+            $table->string('kip_line', 50)->nullable();
+            $table->string('kip_proses', 50)->nullable();
+            $table->text('kip_masalah')->nullable();
+            $table->text('kip_perbaikan')->nullable();
+            $table->string('kip_foto_sebelum', 50)->nullable();
+            $table->string('kip_foto_sesudah', 50)->nullable();
+            $table->text('kip_eval_uraian')->nullable();
+            $table->text('kip_eval_biaya')->nullable();
+            $table->text('kip_eval_benefit_kuantitatif')->nullable();
+            $table->text('kip_eval_benefit_kualitatif')->nullable();
+            $table->text('kip_pengontrolan')->nullable();
+            $table->text('kip_saran')->nullable();
+            $table->primary('kip_no');
+            $table->foreign('kip_user_npk')->references('user_npk')->on('users');
         });
     }
 

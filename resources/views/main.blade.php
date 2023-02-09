@@ -1,4 +1,4 @@
-@extends('layout.master', ['title' => 'AppCenter2'])
+@extends('layout.master', ['title' => 'Personal Site'])
 
 @section('head')
 
