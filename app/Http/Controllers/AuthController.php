@@ -16,7 +16,7 @@ class AuthController extends Controller
     {
         if(Auth::check()) return redirect()->route('/');
 
-        echo Hash::make('qwerty');
+        //echo Hash::make('qwerty');
         return view('login');
     }
 
@@ -36,14 +36,14 @@ class AuthController extends Controller
             return redirect()->route('login')->withInput($request->all);
         }
 
-        Session::flash('success', 'Welcome, '.Auth::user()->user_npk.'!');
+        Session::flash('success', 'Welcome, '.Auth::user()->user_name.' !');
         if(Auth::check()) return redirect()->route('main');
     }
     
     public function logout()
     {
         Auth::logout();
-        Session::flash('success', 'Logout berhasil, sampai jumpa!');
+        Session::flash('success', 'Logout success, good bye!');
         return redirect()->route('login');
     }
 }
