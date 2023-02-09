@@ -13,7 +13,7 @@
         $('.jodit').each(function () {
             var editor = new Jodit(this, {
                 "spellcheck": false,
-                "buttons": "undo,redo,|,bold,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,align,fontsize,|,image,link,|",
+                "buttons": "undo,redo,|,bold,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,align,|,link,|",
             });
         });
 

@@ -220,7 +220,6 @@
   </div>
   <div class="card-body">
     <div class="row">
-
       
       <div class="col-12">
         <div class="form-group">
@@ -237,7 +236,15 @@
 </div>
 <!-- end of card -->
 
-<button type="submit" class="btn btn-block btn-primary">Submit</button>
+<div class="row">
+      <div class="col-md-6 col-12">
+        <button type="submit" class="btn btn-block btn-secondary">Draft</button>
+      </div>
+      <div class="col-md-6 col-12">
+        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+      </div>
+</div>
+<!-- end of row -->
 @endsection
 
 @section('bottom')
