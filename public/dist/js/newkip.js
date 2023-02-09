@@ -62,7 +62,9 @@
             (
                 $('#formadd').attr('action'),
                 $('#formadd').serialize()+ "&mode="+ submit_value,
-                function(data) {}
+                function(data) {
+                    $('#result').empty().append(data).slideDown();
+                }
             );
         });
     });
