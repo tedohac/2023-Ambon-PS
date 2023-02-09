@@ -57,13 +57,13 @@
             e.preventDefault();
             var submit_value = $(this).val();
             console.log($('#formadd').serialize());
-            jQuery.post
-            (
-                $('#formadd').attr('action'),
-                $('#formadd').serialize()+ "&mode="+ submit_value,
-                function(data) {
-                    $('#result').empty().append(data).slideDown();
-                }
-            );
+            // jQuery.post
+            // (
+            //     $('#formadd').attr('action'),
+            //     $('#formadd').serialize()+ "&mode="+ submit_value,
+            //     function(data) {
+            //         $('#result').empty().append(data).slideDown();
+            //     }
+            // );
         });
     });
