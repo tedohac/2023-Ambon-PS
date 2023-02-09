@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kip;
+use Artisan;
+use Auth;
+use Storage;
 
 class KipController extends Controller
 {
