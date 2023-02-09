@@ -32,65 +32,65 @@
 
 <div class="card card-warning card-outline">
   <div class="card-header">
-    <label class="card-title">
+    <h3 class="card-title">
       Rencana Perbaikan
-    </label>
+    </h3>
   </div>
   <div class="card-body">
     <div class="row">
 
       <div class="col-12">
         <div class="form-group">
-          <label for="kip_judul_tema">Judul Tema</label>
+          <label for="kip_judul_tema" class="mb-1">Judul Tema</label>
           <input type="text" class="form-control" name="kip_judul_tema" id="kip_judul_tema">
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="disabled_nama">Nama</label>
+          <label for="disabled_nama" class="mb-1">Nama</label>
           <input type="text" class="form-control" name="disabled_nama" id="disabled_nama" value="{{ $user->user_name }}" disabled>
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="disabled_npk">NPK</label>
+          <label for="disabled_npk" class="mb-1">NPK</label>
           <input type="text" class="form-control" name="disabled_npk" id="disabled_npk" value="{{ $user->user_npk }}" disabled>
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="disabled_dept">Dept</label>
+          <label for="disabled_dept" class="mb-1">Dept</label>
           <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" disabled>
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="disabled_tanggal">Tanggal</label>
+          <label for="disabled_tanggal" class="mb-1">Tanggal</label>
           <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" disabled>
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="kip_line">Line</label>
+          <label for="kip_line" class="mb-1">Line</label>
           <input type="text" class="form-control" name="kip_line" id="kip_line">
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="kip_proses">Proses</label>
+          <label for="kip_proses" class="mb-1">Proses</label>
           <input type="text" class="form-control" name="kip_proses" id="kip_proses">
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="kip_kategori">Kategori</label>
+          <label for="kip_kategori" class="mb-1">Kategori</label>
           <select class="form-control select2bs4" name="kip_kategori" id="kip_kategori">
             <option value="Cost">Cost</option>
             <option value="Safety">Safety</option>
@@ -112,49 +112,66 @@
 
 <div class="card card-warning card-outline">
   <div class="card-header">
-    <label class="card-title">
+    <h3 class="card-title">
       Laporan Perbaikan
-    </label>
+    </h3>
   </div>
   <div class="card-body">
     <div class="row">
 
       <div class="col-12">
         <div class="form-group">
-          <label for="kip_masalah">Masalah dan Kondisi Saat Ini</label>
+          <label for="kip_masalah" class="mb-1">Masalah dan Kondisi Saat Ini</label>
           <textarea class="form-control jodit" name="kip_masalah" id="kip_masalah"></textarea>
         </div>
       </div>
 
       <div class="col-12">
         <div class="form-group">
-          <label for="kip_perbaikan">Aktifitas Perbaikan</label>
+          <label for="kip_perbaikan" class="mb-1">Aktifitas Perbaikan</label>
           <textarea class="form-control jodit" name="kip_perbaikan" id="kip_perbaikan"></textarea>
         </div>
       </div>
 
-      <div class="col-md-6 col-12">
-        <div class="card card-warning card-outline">
-          <div class="card-body">
+    </div>
+    <!-- end of row -->
 
-            Ilustrasi Sebelum
-            <div id="profilethumb1">
-              <img src="{{ asset('img/photo.png') }}" class="bg-white border p-2 shadow">
-            </div>
-            <div class="input-group w-50">
-              <div class="custom-file">
-                  <input type="file" class="custom-file-input" id="ilustrasi1" name="kip_foto_sebelum" accept="image/*">
-                  <label class="custom-file-label" for="ilustrasi1">Pilih file</label>
-              </div>
-            </div>
+    <div class="row justify-content-md-center">
 
+      <div class="col-lg-4 col-md-6 col-12">
+        Ilustrasi Sebelum
+
+        <div id="profilethumb1">
+          <img src="{{ asset('img/photo.png') }}" class="bg-white border p-2 shadow">
+        </div>
+        <div class="input-group w-50">
+          <div class="custom-file">
+              <input type="file" class="custom-file-input" id="kip_foto_sebelum" name="kip_foto_sebelum" accept="image/*">
+              <label class="custom-file-label" for="kip_foto_sebelum">Pilih file</label>
           </div>
         </div>
+
       </div>
 
+      <div class="col-lg-4 col-md-6 col-12">
+        Ilustrasi Sesudah
+
+        <div id="profilethumb2">
+          <img src="{{ asset('img/photo.png') }}" style="width: 100px;height: auto;max-height: 100px;">
+        </div>
+        <div class="input-group w-50">
+          <div class="custom-file">
+              <input type="file" class="custom-file-input" id="kip_foto_sesudah" name="kip_foto_sesudah" accept="image/*">
+              <label class="custom-file-label" for="kip_foto_sesudah">Pilih file</label>
+          </div>
+        </div>
+
+      </div>
 
     </div>
     <!-- end of row -->
+
+
   </div>
   <!-- end of card body -->
 </div>
@@ -199,7 +216,7 @@
         var fileName = $(this).val().split("\\").pop();
         $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
     });
-    $("#ilustrasi1").change(function()
+    $("#kip_foto_sebelum").change(function()
     {
         if (this.files && this.files[0]) {
             var reader = new FileReader();
@@ -209,14 +226,37 @@
           
             if (extFile!="jpg" && extFile!="jpeg" && extFile!="png")
             {
-                $("#ilustrasi1").addClass("is-invalid text-danger");
+                $("#kip_foto_sebelum").addClass("is-invalid text-danger");
                 return;
             }
             
             $("#profilethumb1").empty();
             reader.onload = function(e) {
-                $("#profilethumb1").append('<img id="previewpict1" class="bg-light border p-2 shadow-sm">');
+                $("#profilethumb1").append('<img id="previewpict1" style="width: 100px;height: auto;max-height: 100px;");
                 $('#previewpict1').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(this.files[0]); // convert to base64 string
+        }
+    });
+    $("#kip_foto_sesudah").change(function()
+    {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            var fileName = this.value,
+                idxDot = fileName.lastIndexOf(".") + 1,
+                extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+          
+            if (extFile!="jpg" && extFile!="jpeg" && extFile!="png")
+            {
+                $("#kip_foto_sesudah").addClass("is-invalid text-danger");
+                return;
+            }
+            
+            $("#profilethumb2").empty();
+            reader.onload = function(e) {
+                $("#profilethumb2").append('<img id="previewpict2" style="width: 100px;height: auto;max-height: 100px;"');
+                $('#previewpict2').attr('src', e.target.result);
             }
             
             reader.readAsDataURL(this.files[0]); // convert to base64 string
