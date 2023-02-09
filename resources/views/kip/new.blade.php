@@ -1,4 +1,4 @@
-@extends('layout.master', ['title' => 'AppCenter2: FOC - Parts Registration'])
+@extends('layout.master', ['title' => 'Create New KIP - Personal Site'])
 
 @section('head')
   <!-- Select2 -->
@@ -20,7 +20,7 @@
 @endsection
 
 @section('content-title')
-  Create New KIP
+  Form Kreatif Ide Perbaikan
 @endsection
 
 @section('content-breadcumb')
@@ -32,9 +32,9 @@
 
 <div class="card card-warning card-outline">
   <div class="card-header">
-    <h3 class="card-title">
-      Form Kreatif Ide Perbaikan
-    </h3>
+    <label class="card-title">
+      Rencana Perbaikan
+    </label>
   </div>
   <div class="card-body">
     <div class="row">
@@ -103,6 +103,22 @@
         </div>
       </div>
 
+    </div>
+    <!-- end of row -->
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+<div class="card card-warning card-outline">
+  <div class="card-header">
+    <label class="card-title">
+      Laporan Perbaikan
+    </label>
+  </div>
+  <div class="card-body">
+    <div class="row">
+
       <div class="col-12">
         <div class="form-group">
           <label for="kip_masalah">Masalah dan Kondisi Saat Ini</label>
@@ -117,15 +133,34 @@
         </div>
       </div>
 
+      <div class="col-md-6 col-12">
+        <div class="card card-warning card-outline">
+          <div class="card-body">
+
+            Ilustrasi Sebelum
+            <div id="profilethumb1">
+              <img src="{{ asset('img/photo.png') }}" class="bg-white border p-2 shadow">
+            </div>
+            <div class="input-group w-50">
+              <div class="custom-file">
+                  <input type="file" class="custom-file-input" id="ilustrasi1" name="kip_foto_sebelum" accept="image/*">
+                  <label class="custom-file-label" for="ilustrasi1">Pilih file</label>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
     </div>
     <!-- end of row -->
   </div>
   <!-- end of card body -->
-  <div class="card-footer">
-    <button type="submit" class="btn btn-block btn-primary">Submit</button>
-  </div>
 </div>
 <!-- end of card -->
+
+<button type="submit" class="btn btn-block btn-primary">Submit</button>
 @endsection
 
 @section('bottom')
@@ -154,6 +189,38 @@
         });
     });
 
+    });
+</script>
+
+
+<!-- Preview Profile Pict -->
+<script>
+    $(".custom-file-input").on("change", function() {
+        var fileName = $(this).val().split("\\").pop();
+        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+    });
+    $("#ilustrasi1").change(function()
+    {
+        if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            var fileName = this.value,
+                idxDot = fileName.lastIndexOf(".") + 1,
+                extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+          
+            if (extFile!="jpg" && extFile!="jpeg" && extFile!="png")
+            {
+                $("#ilustrasi1").addClass("is-invalid text-danger");
+                return;
+            }
+            
+            $("#profilethumb1").empty();
+            reader.onload = function(e) {
+                $("#profilethumb1").append('<img id="previewpict1" class="bg-light border p-2 shadow-sm">');
+                $('#previewpict1').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(this.files[0]); // convert to base64 string
+        }
     });
 </script>
 @endsection
