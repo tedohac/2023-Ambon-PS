@@ -21,6 +21,7 @@ class KipController extends Controller
     
     public function save(Request $request)
     {    	
+        echo "asdasd";
         $lastKip = Kip::orderBy('kip_no', 'DESC')->first();
 
         if(!empty($lastKip))
