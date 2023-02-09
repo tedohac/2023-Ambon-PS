@@ -15,6 +15,7 @@ class CreateKipsTable extends Migration
     {
         Schema::create('kips', function (Blueprint $table) {
             $table->string('kip_no', 20);
+            $table->string('kip_status', 20);
             $table->string('kip_judul_tema', 300);
             $table->string('kip_created_by', 10);
             $table->datetime('kip_created_on');

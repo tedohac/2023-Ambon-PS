@@ -136,7 +136,7 @@
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
-        <label>Ilustrasi Sebelum</label>
+        <label>Ilustrasi Perbaikan Sebelum</label>
         <div class="input-group mb-2">
           <div class="custom-file">
               <input type="file" class="custom-file-input" id="kip_foto_sebelum" name="kip_foto_sebelum" accept="image/*">
@@ -148,7 +148,7 @@
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
-        <label>Ilustrasi Sesudah</label>
+        <label>Ilustrasi Perbaikan Sesudah</label>
         <div class="input-group mb-2">
           <div class="custom-file">
               <input type="file" class="custom-file-input" id="kip_foto_sesudah" name="kip_foto_sesudah" accept="image/*">
