@@ -133,22 +133,17 @@
         </div>
       </div>
 
-    </div>
-    <!-- end of row -->
-
-    <div class="row justify-content-md-center">
-
       <div class="col-lg-4 col-md-6 col-12">
-        Ilustrasi Sebelum
+        <label>Ilustrasi Sebelum</label>
 
-        <div id="profilethumb1">
-          <img src="{{ asset('img/photo.png') }}" class="bg-white border p-2 shadow">
-        </div>
         <div class="input-group w-50">
           <div class="custom-file">
               <input type="file" class="custom-file-input" id="kip_foto_sebelum" name="kip_foto_sebelum" accept="image/*">
               <label class="custom-file-label" for="kip_foto_sebelum">Pilih file</label>
           </div>
+        </div>
+        <div id="profilethumb1">
+          <img src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
         </div>
 
       </div>
@@ -156,14 +151,14 @@
       <div class="col-lg-4 col-md-6 col-12">
         Ilustrasi Sesudah
 
-        <div id="profilethumb2">
-          <img src="{{ asset('img/photo.png') }}" style="width: 100px;height: auto;max-height: 100px;">
-        </div>
         <div class="input-group w-50">
           <div class="custom-file">
               <input type="file" class="custom-file-input" id="kip_foto_sesudah" name="kip_foto_sesudah" accept="image/*">
               <label class="custom-file-label" for="kip_foto_sesudah">Pilih file</label>
           </div>
+        </div>
+        <div id="profilethumb2">
+          <img src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
         </div>
 
       </div>
@@ -181,86 +176,5 @@
 @endsection
 
 @section('bottom')
-<!-- Select2 -->
-<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-
-<script>
-  $(function () {
-    //Initialize Select2 Elements
-    $('.select2bs4').select2({
-      placeholder: "Select",
-      id: '-1', // the value of the option
-      theme: 'bootstrap4'
-    })
-  });
-</script>
-
-<!-- Jodit-->
-<script src="{{ asset('plugins/jodit/jodit.min.js') }}"></script>
-<script>
-    $(document).ready(function(){
-        $('.jodit').each(function () {
-            var editor = new Jodit(this, {
-            "spellcheck": false,
-            "buttons": "undo,redo,|,bold,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,align,fontsize,|,image,link,|",
-        });
-    });
-
-    });
-</script>
-
-
-<!-- Preview Profile Pict -->
-<script>
-    $(".custom-file-input").on("change", function() {
-        var fileName = $(this).val().split("\\").pop();
-        $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-    });
-    $("#kip_foto_sebelum").change(function()
-    {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            var fileName = this.value,
-                idxDot = fileName.lastIndexOf(".") + 1,
-                extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
-          
-            if (extFile!="jpg" && extFile!="jpeg" && extFile!="png")
-            {
-                $("#kip_foto_sebelum").addClass("is-invalid text-danger");
-                return;
-            }
-            
-            $("#profilethumb1").empty();
-            reader.onload = function(e) {
-                $("#profilethumb1").append('<img id="previewpict1" style="width: 100px;height: auto;max-height: 100px;");
-                $('#previewpict1').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(this.files[0]); // convert to base64 string
-        }
-    });
-    $("#kip_foto_sesudah").change(function()
-    {
-        if (this.files && this.files[0]) {
-            var reader = new FileReader();
-            var fileName = this.value,
-                idxDot = fileName.lastIndexOf(".") + 1,
-                extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
-          
-            if (extFile!="jpg" && extFile!="jpeg" && extFile!="png")
-            {
-                $("#kip_foto_sesudah").addClass("is-invalid text-danger");
-                return;
-            }
-            
-            $("#profilethumb2").empty();
-            reader.onload = function(e) {
-                $("#profilethumb2").append('<img id="previewpict2" style="width: 100px;height: auto;max-height: 100px;"');
-                $('#previewpict2').attr('src', e.target.result);
-            }
-            
-            reader.readAsDataURL(this.files[0]); // convert to base64 string
-        }
-    });
-</script>
+    @include('kip.new_bottom')
 @endsection
