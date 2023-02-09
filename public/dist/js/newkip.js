@@ -30,7 +30,7 @@
                 var reader = new FileReader();
                 console.log("read file");
                 
-                $("#profilethumb1").empty();
+                // $("#profilethumb1").empty();
                 reader.onload = function(e) {
                     $("#profilethumb1").append('<img id="previewpict1" style="max-width: 200px;" class="bg-white border p-1"');
                     $('#previewpict1').attr('src', e.target.result);
