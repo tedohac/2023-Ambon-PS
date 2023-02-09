@@ -104,7 +104,7 @@
       <div class="col-12">
         <div class="form-group">
           <label for="kip_masalah">Masalah dan Kondisi Saat Ini</label>
-          <textarea class="form-control" name="kip_masalah" id="kip_masalah">
+          <textarea class="form-control" name="kip_masalah" id="kip_masalah"></textarea>
         </div>
       </div>
 
