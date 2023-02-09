@@ -10,7 +10,7 @@ class MainController extends Controller
     public function index()
     {
         //$menus = Role::where('role_code', 'LIKE', '%000')->get();
-        $menus = App\Permission::getByUser(auth()->user()->user_npk);
+        $menus = Permission::getByUser(auth()->user()->user_npk);
 
     	return view('main', [
             'menus' => $menus
