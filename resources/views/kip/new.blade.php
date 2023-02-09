@@ -141,9 +141,7 @@
               <label class="custom-file-label" for="kip_foto_sebelum">Pilih file</label>
           </div>
         </div>
-        <div id="profilethumb1">
-          <img src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
-        </div>
+        <img id="previewpict1" src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
 
       </div>
 
@@ -155,10 +153,8 @@
               <label class="custom-file-label" for="kip_foto_sesudah">Pilih file</label>
           </div>
         </div>
-        <div id="profilethumb2">
-          <img src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
-        </div>
-
+        <img id="previewpict2" src="{{ asset('img/photo.png') }}" style="max-width: 200px;" class="bg-white border p-1">
+       
       </div>
 
     </div>
