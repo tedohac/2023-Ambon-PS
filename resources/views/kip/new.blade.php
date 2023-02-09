@@ -88,7 +88,7 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="kip_kategori">Kategori</label>
-          <select class="form-control" name="kip_kategori" id="kip_kategori">
+          <select class="form-control select2" name="kip_kategori" id="kip_kategori">
             <option disabled selected>-- pilih --</option>
             <option value="Cost">Cost</option>
             <option value="Safety">Safety</option>
@@ -102,8 +102,10 @@
       </div>
 
       <div class="col-12">
+        <div class="form-group">
           <label for="kip_masalah">Masalah dan Kondisi Saat Ini</label>
-          <textarea class="summernote" name="kip_masalah" id="kip_masalah"></textarea>
+          <textarea class="form-control" name="kip_masalah" id="kip_masalah">
+        </div>
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
@@ -191,11 +193,14 @@
   });
 </script>
 
-<!-- summernote -->
-<script src="{{ url('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<!-- Jodit-->
+<script src="{{ asset('plugins/jodit/jodit.min.js') }}"></script>
 <script>
-  $(document).ready(function() {
-    $('.summernote').summernote();
-  });
+    $(document).ready(function(){
+        var editor = new Jodit("#kip_masalah", {
+            "spellcheck": false,
+            "buttons": "undo,redo,|,bold,underline,italic,|,superscript,subscript,|,ul,ol,|,outdent,indent,align,fontsize,|,image,link,|",
+        });
+    })
 </script>
 @endsection
