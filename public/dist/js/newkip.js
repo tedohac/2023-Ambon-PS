@@ -17,15 +17,12 @@
             });
         });
 
-        // Class Image Uploader
-        $(".custom-file-input").on("change", function() {
-            var fileName = $(this).val().split("\\").pop();
-            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
-        });
-
         // Image Preview 1
         $("#kip_foto_sebelum").change(function()
         {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+            
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
                 var fileName = this.value,
@@ -38,13 +35,22 @@
                     return;
                 }
                 
-                $('#previewpict1').attr('src', URL.createObjectURL(this.target.files[0]));
+                $("#profilethumb1").empty();
+                reader.onload = function(e) {
+                    $("#profilethumb1").append('<img id="previewpict1" style="max-width: 200px;" class="bg-white border p-1"');
+                    $('#previewpict1').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(this.files[0]); // convert to base64 string
             }
         });
         
         // Image Preview 1
         $("#kip_foto_sesudah").change(function()
         {
+            var fileName = $(this).val().split("\\").pop();
+            $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+
             if (this.files && this.files[0]) {
                 var reader = new FileReader();
                 var fileName = this.value,
@@ -57,7 +63,13 @@
                     return;
                 }
                 
-                $('#previewpict2').attr('src', URL.createObjectURL(this.target.files[0]));
+                $("#profilethumb2").empty();
+                reader.onload = function(e) {
+                    $("#profilethumb2").append('<img id="previewpict2" style="max-width: 200px;" class="bg-white border p-1"');
+                    $('#previewpict2').attr('src', e.target.result);
+                }
+                
+                reader.readAsDataURL(this.files[0]); // convert to base64 string
             }
         });
 
