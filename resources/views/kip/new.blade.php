@@ -89,7 +89,7 @@
         <div class="form-group">
           <label for="kip_kategori">Kategori</label>
           <select class="form-control" name="kip_kategori" id="kip_kategori">
-            <option disabled>-- pilih --</option>
+            <option disabled selected>-- pilih --</option>
             <option value="Cost">Cost</option>
             <option value="Safety">Safety</option>
             <option value="5S">5S</option>
@@ -100,7 +100,14 @@
           </select>
         </div>
       </div>
-      
+
+      <div class="col-12">
+        <div class="form-group">
+          <label for="kip_masalah">Masalah dan Kondisi Saat Ini</label>
+          <textarea class="form-control summernote" name="kip_masalah" id="kip_masalah">
+        </div>
+      </div>
+
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="letter_factory">Factory</label>
@@ -183,6 +190,14 @@
     $('.select2bs4').select2({
       theme: 'bootstrap4'
     })
+  });
+</script>
+
+<!-- summernote -->
+<script src="{{ url('plugins/summernote/summernote-bs4.min.js') }}"></script>
+<script>
+  $(document).ready(function() {
+    $('.summernote').summernote();
   });
 </script>
 @endsection
