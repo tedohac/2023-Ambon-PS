@@ -29,7 +29,7 @@ Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
     Route::get('listown','KipController@listown')->name('kip.listown')->middleware('CheckPermission:Employee');
 
     Route::get('new','KipController@new')->name('kip.new')->middleware('CheckPermission:Employee');
-    Route::post('new','KipController@save')->middleware('CheckPermission:Employee');
+    Route::post('new','KipController@save')->name('kip.new')->middleware('CheckPermission:Employee');
 
     // Route::get('detail/{id}','ManageKampusController@detail')->name('kampus.detail');
 
