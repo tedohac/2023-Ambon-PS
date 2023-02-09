@@ -53,7 +53,7 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_npk">NPK</label>
-          <input type="text" class="form-control" name="disabled_npk" id="disabled_npk" value="{{ $user->user_npk.'' }}" disabled>
+          <input type="text" class="form-control" name="disabled_npk" id="disabled_npk" value="{{ $user->user_npk }}" disabled>
         </div>
       </div>
       
