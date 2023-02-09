@@ -39,15 +39,15 @@
                 }
                 
                 $("#profilethumb1").empty();
-                reader.onload = function(e) {
+                // reader.onload = function(e) {
                     $("#profilethumb1").append('<img id="previewpict1" style="max-width: 200px;" class="bg-white border p-1"');
                     $('#previewpict1').attr('src', e.target.result);
-                }
+                // }
                 
                 reader.readAsDataURL(this.files[0]); // convert to base64 string
             }
         });
-        
+
         // Image Preview 1
         $("#kip_foto_sesudah").change(function()
         {
