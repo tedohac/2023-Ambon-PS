@@ -30,7 +30,7 @@
                 var reader = new FileReader();
                 
                 reader.onload = function() {
-                    $('#previewpict1').attr('src', reader.target.result);
+                    $('#previewpict1').attr('src', reader.result);
                 }
                 
                 reader.readAsDataURL(this.files[0]); // convert to base64 string
@@ -44,7 +44,7 @@
                 var reader = new FileReader();
                 
                 reader.onload = function() {
-                    $('#previewpict2').attr('src', reader.target.result);
+                    $('#previewpict2').attr('src', reader.result);
                 }
                 
                 reader.readAsDataURL(this.files[0]); // convert to base64 string
