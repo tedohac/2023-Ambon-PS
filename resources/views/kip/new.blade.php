@@ -30,6 +30,8 @@
 
 @section('content')
 
+<form method="post" id="formadd" action="{{ route('kip.new') }}" enctype="multipart/form-data">
+@csrf
 <div class="card card-warning card-outline">
   <div class="card-header">
     <h3 class="card-title">
@@ -238,13 +240,20 @@
 
 <div class="row">
       <div class="col-md-6 col-12">
-        <button type="submit" class="btn btn-block btn-secondary">Draft</button>
+        <button type="submit" class="btn btn-block btn-secondary" value="draft">
+          <i class="fa fa-fw fa-pencil-ruler"></i>
+          Draft
+        </button>
       </div>
       <div class="col-md-6 col-12">
-        <button type="submit" class="btn btn-block btn-primary">Submit</button>
+        <button type="submit" class="btn btn-block btn-primary" value="submit">
+          <i class="fa fa-fw fa-paper-plane"></i>
+          Submit
+        </button>
       </div>
 </div>
 <!-- end of row -->
+</form>
 @endsection
 
 @section('bottom')

@@ -51,4 +51,18 @@
             }
         });
 
+        // on form submit
+        $('button[type="submit"]').on('click',function(e)
+        {
+            e.preventDefault();
+            var submit_value = $(this).val();
+            jQuery.post
+            (
+                $('#formadd').attr('action'),
+                $('#formadd').serialize()+ "&mode="+ submit_value,
+                function(data) {
+                    $('#result').empty().append(data).slideDown();
+                }
+            );
+        });
     });
