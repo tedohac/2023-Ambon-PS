@@ -24,7 +24,8 @@ class KipController extends Controller
     
     public function save(Request $request)
     {    	
-        echo $request->mode;
+        echo "kip_line: ".$request->kip_line."<br />";
+        echo "mode: ".$request->mode."<br />";
         // $lastKip = Kip::orderBy('kip_no', 'DESC')->first();
 
         // if(!empty($lastKip))
