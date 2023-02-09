@@ -15,14 +15,14 @@ class Permission extends Model
                                 ->count();
     }
     
-    // public static function getByUser($user_npk, $role_base_code)
-    // {
-    //     return Permission::join('roles', 'roles.role_code', '=', 'permissions.permission_role_code')
-    //                     //->whereNotNull('role_icon')
-    //                     ->where('permission_user_npk', $user_npk)
-    //                     ->where('permissions_role_code', 'like', '%'.$role_base_code.'%')
-    //                             ->get();
-    // }
+    public static function getByUser($user_npk)
+    {
+        return Permission::join('roles', 'roles.role_code', '=', 'permissions.permission_role_code')
+                        ->whereNotNull('role_icon')
+                        ->where('permission_user_npk', $user_npk)
+                        // ->where('permission_role_code', 'like', '%'.$role_base_code.'%')
+                                ->get();
+    }
     
     /**
      * Check the role of authenticated user.
