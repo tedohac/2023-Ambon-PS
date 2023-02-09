@@ -110,61 +110,10 @@
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 col-12">
+      <div class="col-12">
         <div class="form-group">
-          <label for="letter_factory">Factory</label>
-          <select class="form-control" name="letter_factory" id="letter_factory">
-            <option>Koriyama</option>
-          </select>
-        </div>
-      </div>
-      
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="letter_engineer_pic">Engineer PIC</label>
-          <input type="text" class="form-control" name="letter_engineer_pic" id="letter_engineer_pic">
-        </div>
-      </div>
-      
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="letter_model">Model</label>
-          <select class="form-control select2" name="letter_model" id="letter_model" style="width: 100%;">
-            <option>PC200</option>
-            <option>PC210</option>
-            <option>PC300</option>
-            <option>PC400</option>
-          </select>
-        </div>
-      </div>
-    
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="letter_shipment_by">Shipment By</label>
-          <select class="form-control" name="letter_shipment_by" id="letter_shipment_by">
-            <option>Sea</option>
-            <option>Air</option>
-            <option>Land</option>
-          </select>
-        </div>
-      </div>
-      
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="letter_currency">Currency</label>
-          <select class="form-control select2" name="letter_currency" id="letter_currency" style="width: 100%;">
-            <option>PC200</option>
-            <option>PC210</option>
-            <option>PC300</option>
-            <option>PC400</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="letter_reference">Reference</label>
-          <input type="text" class="form-control" name="letter_reference" id="letter_reference">
+          <label for="kip_perbaikan">Aktifitas Perbaikan</label>
+          <textarea class="form-control jodit" name="kip_perbaikan" id="kip_perbaikan"></textarea>
         </div>
       </div>
 
