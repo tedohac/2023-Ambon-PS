@@ -11,7 +11,7 @@
 @endsection
 
 @section('content-title')
-Manage Own KIP
+    Manage Own KIP
 @endsection
 
 @section('content-breadcumb')
@@ -23,7 +23,7 @@ Manage Own KIP
 <div class="card card-warning card-outline">
   <div class="card-header">
     <h3 class="card-title">
-      Request Letter Data
+      KIP Data
     </h3>
     <a href="{{ url('kip/new') }}" class="btn btn-primary btn-sm float-right">
       <i class="fas fa-plus"></i>  

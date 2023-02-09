@@ -12,7 +12,9 @@ class KipController extends Controller
     }
     
     public function new()
-    {
-    	return view('kip.new');
+    {    	
+        return view('kip.new', [
+            'user' => auth()->user()
+        ]);
     }
 }

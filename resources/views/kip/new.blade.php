@@ -30,17 +30,73 @@
 <div class="card card-warning card-outline">
   <div class="card-header">
     <h3 class="card-title">
-      KIP Form
+      Form Kreatif Ide Perbaikan
     </h3>
   </div>
   <div class="card-body">
     <div class="row">
 
+      <div class="col-12">
+        <div class="form-group">
+          <label for="kip_judul_tema">Judul Tema</label>
+          <input type="text" class="form-control" name="kip_judul_tema" id="kip_judul_tema">
+        </div>
+      </div>
+      
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="letter_stockpoint">Stock Point</label>
-          <select class="form-control" name="letter_stockpoint" id="letter_stockpoint">
-            <option>8200-JKT</option>
+          <label for="disabled_nama">Nama</label>
+          <input type="text" class="form-control" name="disabled_nama" id="disabled_nama" value="{{ $user->user_name }}" disabled>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
+          <label for="disabled_npk">NPK</label>
+          <input type="text" class="form-control" name="disabled_npk" id="disabled_npk" value="{{ $user->user_npk }}" disabled>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
+          <label for="disabled_dept">Dept</label>
+          <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" disabled>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
+          <label for="disabled_tanggal">Tanggal</label>
+          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" disabled>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
+          <label for="kip_line">Line</label>
+          <input type="text" class="form-control" name="kip_line" id="kip_line">
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
+          <label for="kip_proses">Proses</label>
+          <input type="text" class="form-control" name="kip_proses" id="kip_proses">
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
+          <label for="kip_kategori">Kategori</label>
+          <select class="form-control" name="kip_kategori" id="kip_kategori">
+            <option disabled>-- pilih --</option>
+            <option value="Cost">Cost</option>
+            <option value="Safety">Safety</option>
+            <option value="5S">5S</option>
+            <option value="Ergonomi">Ergonomi</option>
+            <option value="Lingkungan">Lingkungan</option>
+            <option value="Kualitas">Kualitas</option>
+            <option value="Produktifitas">Produktifitas</option>
           </select>
         </div>
       </div>
