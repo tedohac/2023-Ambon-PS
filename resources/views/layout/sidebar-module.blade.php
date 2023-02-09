@@ -2,7 +2,7 @@
 
 @section('sidebar_menu')
 
-        @php($roles = App\Permission::getByUser(auth()->user()->user_email, $role_code))
+        @php($roles = App\Permission::getByUser(auth()->user()->user_npk, $role_code))
         @foreach($roles as $role)
             <li class="nav-item">
                 <a href="{{ url($role->role_url) }}" class="nav-link">

@@ -11,7 +11,7 @@
 
         {{-- Brand text --}}
         <span class="brand-text font-weight-light">
-            <b>App</b>Center
+            <b>Personal</b>Site
         </span>
 
     </a>
