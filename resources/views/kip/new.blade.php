@@ -4,6 +4,9 @@
   <!-- Select2 -->
   <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
   <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
+  
+  <!-- Jodit -->
+  <link rel="stylesheet" href="{{ asset('plugins/jodit/jodit.min.css') }}">
 
   <style>
     .select2-container--default .select2-selection--single {
