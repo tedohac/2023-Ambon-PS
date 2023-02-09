@@ -91,8 +91,7 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="kip_kategori">Kategori</label>
-          <select class="form-control select2" name="kip_kategori" id="kip_kategori">
-            <option disabled selected>-- pilih --</option>
+          <select class="form-control select2bs4" name="kip_kategori" id="kip_kategori">
             <option value="Cost">Cost</option>
             <option value="Safety">Safety</option>
             <option value="5S">5S</option>
@@ -187,10 +186,15 @@
 <script>
   $(function () {
     //Initialize Select2 Elements
-    $('.select2').select2()
+    $('.select2').select2({
+      placeholder: "Select",
+      id: '-1', // the value of the option
+    })
 
     //Initialize Select2 Elements
     $('.select2bs4').select2({
+      placeholder: "Select",
+      id: '-1', // the value of the option
       theme: 'bootstrap4'
     })
   });
