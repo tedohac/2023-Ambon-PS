@@ -26,6 +26,6 @@ class AddForeignToKipStatus extends Migration
      */
     public function down()
     {
-        $table->dropForeign('kip_status');
+        $table->dropIndex('kips_kip_status_index');
     }
 }
