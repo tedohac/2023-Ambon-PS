@@ -32,6 +32,6 @@ Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
     Route::post('new','KipController@save')->middleware('CheckPermission:Employee');
     
     Route::get('edit/{id}','KipController@edit')->name('kip.edit')->middleware('CheckPermission:Employee');
-    Route::post('update','KipController@update')->middleware('CheckPermission:Employee');
+    Route::post('update','KipController@update')->name('kip.update')->middleware('CheckPermission:Employee');
     
 });
