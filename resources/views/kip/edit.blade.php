@@ -30,7 +30,7 @@
 
 @section('content')
 
-<form method="post" id="formadd" action="{{ route('kip.new') }}" enctype="multipart/form-data">
+<form method="post" id="formadd" action="{{ route('kip.edit') }}" enctype="multipart/form-data">
 @csrf
 <div class="card card-warning card-outline">
   <div class="card-header">
@@ -40,6 +40,7 @@
   </div>
   <div class="card-body">
     <div class="row">
+      <input type="hidden" name="kip_no" value="{{ $kip->kip_no }}">
 
       <div class="col-12">
         <div class="form-group">
@@ -68,11 +69,19 @@
           <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" value="{{ $kip->user_dept }}" disabled>
         </div>
       </div>
-      
+
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="disabled_tanggal" class="mb-1">Tanggal</label>
-          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" value="{{ date('Y-m-d H:i', strtotime($kip->kip_created_on)) }}" disabled>
+          <label for="kip_kategori" class="mb-1">Kategori</label>
+          <select class="form-control select2bs4" name="kip_kategori" id="kip_kategori">
+            <option value="Cost"          {{ ($kip->kip_kategori=='Cost') ? 'selected' : '' }}>Cost</option>
+            <option value="Safety"        {{ ($kip->kip_kategori=='Safety') ? 'selected' : '' }}>Safety</option>
+            <option value="5S"            {{ ($kip->kip_kategori=='5S') ? 'selected' : '' }}>5S</option>
+            <option value="Ergonomi"      {{ ($kip->kip_kategori=='Ergonomi') ? 'selected' : '' }}>Ergonomi</option>
+            <option value="Lingkungan"    {{ ($kip->kip_kategori=='Lingkungan') ? 'selected' : '' }}>Lingkungan</option>
+            <option value="Kualitas"      {{ ($kip->kip_kategori=='Kualitas') ? 'selected' : '' }}>Kualitas</option>
+            <option value="Produktifitas" {{ ($kip->kip_kategori=='Produktifitas') ? 'selected' : '' }}>Produktifitas</option>
+          </select>
         </div>
       </div>
       
@@ -90,18 +99,11 @@
         </div>
       </div>
 
+      
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="kip_kategori" class="mb-1">Kategori</label>
-          <select class="form-control select2bs4" name="kip_kategori" id="kip_kategori">
-            <option value="Cost"          {{ ($kip->kip_kategori=='Cost') ? 'selected' : '' }}>Cost</option>
-            <option value="Safety"        {{ ($kip->kip_kategori=='Safety') ? 'selected' : '' }}>Safety</option>
-            <option value="5S"            {{ ($kip->kip_kategori=='5S') ? 'selected' : '' }}>5S</option>
-            <option value="Ergonomi"      {{ ($kip->kip_kategori=='Ergonomi') ? 'selected' : '' }}>Ergonomi</option>
-            <option value="Lingkungan"    {{ ($kip->kip_kategori=='Lingkungan') ? 'selected' : '' }}>Lingkungan</option>
-            <option value="Kualitas"      {{ ($kip->kip_kategori=='Kualitas') ? 'selected' : '' }}>Kualitas</option>
-            <option value="Produktifitas" {{ ($kip->kip_kategori=='Produktifitas') ? 'selected' : '' }}>Produktifitas</option>
-          </select>
+          <label for="disabled_tanggal" class="mb-1">Tanggal</label>
+          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" value="{{ date('Y-m-d H:i', strtotime($kip->kip_created_on)) }}" disabled>
         </div>
       </div>
 
@@ -143,6 +145,7 @@
               <label class="custom-file-label" for="kip_foto_sebelum">Pilih file</label>
           </div>
         </div>
+        <small>kosongkan jika tidak ingin merubah</small>
         <img id="previewpict1" src="{{ ($kip->kip_foto_sebelum!='') ? url('storage/kip/'.$kip->kip_foto_sebelum) : asset('img/photo.png') }}" style="max-width: 100%" class="bg-white border p-1">
 
       </div>
@@ -155,7 +158,8 @@
               <label class="custom-file-label" for="kip_foto_sesudah">Pilih file</label>
           </div>
         </div>
-        <img id="previewpict2" src="{{ ($kip->kip_foto_sesudah!='') ? url('storage/kip/'.$kip->kip_foto_sebelum) : asset('img/photo.png') }}" style="max-width: 100%;" class="bg-white border p-1">
+        <small>kosongkan jika tidak ingin merubah</small>
+        <img id="previewpict2" src="{{ ($kip->kip_foto_sesudah!='') ? url('storage/kip/'.$kip->kip_foto_sesudah) : asset('img/photo.png') }}" style="max-width: 100%;" class="bg-white border p-1">
        
       </div>
 

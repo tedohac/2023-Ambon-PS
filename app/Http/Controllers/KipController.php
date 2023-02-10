@@ -121,4 +121,68 @@ class KipController extends Controller
         
         return redirect()->back();
     }
+    // end of save
+    
+    public function update(Request $request)
+    {    	
+        $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+                    ->where('kip_no', $request->kip_no)->first();
+        if(empty($kip)) abort(404);
+
+        
+        if ($request->hasFile('kip_foto_sebelum')) 
+        {
+            try
+            {
+                $kip_foto_sebelum = $kip->kip_no.'-sebelum.'.$request->file('kip_foto_sebelum')->getClientOriginalExtension();
+                    
+                // delete if exists
+                if (Storage::disk('public')->exists( 'kip/'.$kip->kip_foto_sebelum )) Storage::delete('public/kip/'.$kip->kip_foto_sebelum);
+                $request->file('kip_foto_sebelum')->storeAs('public/kip', $kip_foto_sebelum);
+
+                Artisan::call('cache:clear');
+            } catch (\Illuminate\Database\QueryException $e) {
+                Session::flash('error', 'Upload kip_foto_sebelum failed');
+                return redirect()->back();
+            }
+        }
+        
+        if ($request->hasFile('kip_foto_sesudah')) 
+        {
+            try
+            {
+                $kip_foto_sesudah = $kip->kip_no.'-sesudah.'.$request->file('kip_foto_sesudah')->getClientOriginalExtension();
+                    
+                // delete if exists
+                if (Storage::disk('public')->exists( 'kip/'.$kip->kip_foto_sesudah )) Storage::delete('public/kip/'.$kip->kip_foto_sesudah);
+                $request->file('kip_foto_sesudah')->storeAs('public/kip', $kip_foto_sesudah);
+
+                Artisan::call('cache:clear');
+            } catch (\Illuminate\Database\QueryException $e) {
+                Session::flash('error', 'Upload kip_foto_sesudah failed');
+                return redirect()->back();
+            }
+        }
+        
+        Kip::where('kip_no',$kip->kip_no)
+            ->update([
+                'kip_judul_tema'                => $request->kip_judul_tema,
+                'kip_kategori'                  => $request->kip_kategori,
+                'kip_line'                      => ($request->kip_line!="") ? $request->kip_line : null,
+                'kip_proses'                    => ($request->kip_proses!="") ? $request->kip_proses : null,
+                'kip_masalah'                   => htmlspecialchars($request->kip_masalah),
+                'kip_perbaikan'                 => htmlspecialchars($request->kip_perbaikan),
+                'kip_foto_sebelum'              => ($request->hasFile('kip_foto_sebelum')) ? $kip_foto_sebelum : $kip->kip_foto_sebelum,
+                'kip_foto_sesudah'              => ($request->hasFile('kip_foto_sesudah')) ? $kip_foto_sesudah : $kip->kip_foto_sesudah,
+                'kip_eval_uraian'               => htmlspecialchars($request->kip_eval_uraian),
+                'kip_eval_biaya'                => htmlspecialchars($request->kip_eval_biaya),
+                'kip_eval_benefit_kuantitatif'  => htmlspecialchars($request->kip_eval_benefit_kuantitatif),
+                'kip_eval_benefit_kualitatif'   => htmlspecialchars($request->kip_eval_benefit_kualitatif),
+                'kip_pengontrolan'              => htmlspecialchars($request->kip_pengontrolan)
+            ]);
+
+        Session::flash('success', 'KIP saved as draft');
+        return redirect()->back();
+    }
+    // end of update
 }

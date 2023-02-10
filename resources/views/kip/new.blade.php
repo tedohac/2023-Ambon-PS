@@ -71,8 +71,16 @@
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="disabled_tanggal" class="mb-1">Tanggal</label>
-          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" value="{{ date('Y-m-d') }}" disabled>
+          <label for="kip_kategori" class="mb-1">Kategori</label>
+          <select class="form-control select2bs4" name="kip_kategori" id="kip_kategori">
+            <option value="Cost">Cost</option>
+            <option value="Safety">Safety</option>
+            <option value="5S">5S</option>
+            <option value="Ergonomi">Ergonomi</option>
+            <option value="Lingkungan">Lingkungan</option>
+            <option value="Kualitas">Kualitas</option>
+            <option value="Produktifitas">Produktifitas</option>
+          </select>
         </div>
       </div>
       
@@ -92,16 +100,8 @@
 
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="kip_kategori" class="mb-1">Kategori</label>
-          <select class="form-control select2bs4" name="kip_kategori" id="kip_kategori">
-            <option value="Cost">Cost</option>
-            <option value="Safety">Safety</option>
-            <option value="5S">5S</option>
-            <option value="Ergonomi">Ergonomi</option>
-            <option value="Lingkungan">Lingkungan</option>
-            <option value="Kualitas">Kualitas</option>
-            <option value="Produktifitas">Produktifitas</option>
-          </select>
+          <label for="disabled_tanggal" class="mb-1">Tanggal</label>
+          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" value="{{ date('Y-m-d') }}" disabled>
         </div>
       </div>
 
