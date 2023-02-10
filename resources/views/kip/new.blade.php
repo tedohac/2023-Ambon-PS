@@ -266,5 +266,5 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
-<script src="{{ asset('dist/js/newkip.js') }}"></script>
+<script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
 @endsection
