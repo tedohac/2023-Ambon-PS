@@ -13,7 +13,7 @@ class CreateNilaisTable extends Migration
      */
     public function up()
     {
-        Schema::create('kips', function (Blueprint $table) {
+        Schema::create('nilais', function (Blueprint $table) {
             $table->string('nilai_kip_no', 20);
             $table->string('nilai_created_by', 10);
             $table->integer('nilai_penghematan');
