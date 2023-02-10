@@ -239,13 +239,13 @@
 <!-- end of card -->
 
 <div class="row">
-      <div class="col-md-6 col-12">
+      <div class="col-md-6 col-12 mb-2">
         <button type="submit" class="btn btn-block btn-secondary" value="draft">
           <i class="fa fa-fw fa-pencil-ruler"></i>
           Draft
         </button>
       </div>
-      <div class="col-md-6 col-12">
+      <div class="col-md-6 col-12 mb-2">
         <button type="submit" class="btn btn-block btn-primary" value="submit">
           <i class="fa fa-fw fa-paper-plane"></i>
           Submit
