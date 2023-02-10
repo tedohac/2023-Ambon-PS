@@ -43,43 +43,43 @@
       <input type="hidden" name="kip_no" value="{{ $kip->kip_no }}">
 
       <div class="col-12">
-        <label class="mb-1">Judul Tema</label>
+        <label class="mb-1">Judul Tema</label><br />
         {{ $kip->kip_judul_tema }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
-        <label class="mb-1">Nama</label>
+        <label class="mb-1">Nama</label><br />
         {{ $kip->user_name }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
-        <label for="disabled_npk" class="mb-1">NPK</label>
+        <label class="mb-1">NPK</label><br />
         {{ $kip->user_npk }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
-          <label class="mb-1">Dept</label>
+          <label class="mb-1">Dept</label><br />
           {{ $kip->user_dept }}
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
-        <label class="mb-1">Kategori</label>
+        <label class="mb-1">Kategori</label><br />
         {{ $kip->user_dept }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
-        <label class="mb-1">Line</label>
+        <label class="mb-1">Line</label><br />
         {{ $kip->kip_line }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
-          <label class="mb-1">Proses</label>
+          <label class="mb-1">Proses</label><br />
           {{ $kip->kip_proses }}
       </div>
 
       
       <div class="col-lg-4 col-md-6 col-12">
-        <label for="disabled_tanggal" class="mb-1">Tanggal</label>
+        <label class="mb-1">Tanggal</label><br />
         {{ date('Y-m-d H:i', strtotime($kip->kip_created_on)) }}
       </div>
 
@@ -100,23 +100,23 @@
     <div class="row">
 
       <div class="col-12">
-        <label class="mb-1">Masalah dan Kondisi Saat Ini</label>
+        <label class="mb-1">Masalah dan Kondisi Saat Ini</label><br />
         {{ htmlspecialchars_decode($kip->kip_masalah) }}
       </div>
 
       <div class="col-12">
-        <label class="mb-1">Aktifitas Perbaikan</label>
+        <label class="mb-1">Aktifitas Perbaikan</label><br />
         {{ htmlspecialchars_decode($kip->kip_perbaikan) }}
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
-        <label>Ilustrasi Perbaikan Sebelum</label>
+        <label>Ilustrasi Perbaikan Sebelum</label><br />
         <img id="previewpict1" src="{{ ($kip->kip_foto_sebelum!='') ? url('storage/kip/'.$kip->kip_foto_sebelum) : asset('img/photo.png') }}" style="max-width: 100%" class="bg-white border p-1">
 
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
-        <label>Ilustrasi Perbaikan Sesudah</label>
+        <label>Ilustrasi Perbaikan Sesudah</label><br />
         <img id="previewpict2" src="{{ ($kip->kip_foto_sesudah!='') ? url('storage/kip/'.$kip->kip_foto_sesudah) : asset('img/photo.png') }}" style="max-width: 100%;" class="bg-white border p-1">
        
       </div>
@@ -140,22 +140,22 @@
     <div class="row">
 
       <div class="col-12">
-        <label class="mb-1">Uraian Data</label>
+        <label class="mb-1">Uraian Data</label><br />
         {{ htmlspecialchars_decode($kip->kip_eval_uraian) }}
       </div>
 
       <div class="col-12">
-        <label class="mb-1">Biaya Perbaikan</label>
+        <label class="mb-1">Biaya Perbaikan</label><br />
         {{ htmlspecialchars_decode($kip->kip_eval_biaya) }}
       </div>
 
       <div class="col-12">
-        <label for="kip_eval_benefit_kuantitatif" class="mb-1">Benefit Kuantitatif</label>
+        <label class="mb-1">Benefit Kuantitatif</label><br />
         {{ htmlspecialchars_decode($kip->kip_eval_benefit_kuantitatif) }}
       </div>
 
       <div class="col-12">
-        <label for="kip_eval_benefit_kualitatif" class="mb-1">Benefit Kualitatif</label>
+        <label class="mb-1">Benefit Kualitatif</label><br />
         {{ htmlspecialchars_decode($kip->kip_eval_benefit_kualitatif) }}
       </div>
 
@@ -178,7 +178,7 @@
     <div class="row">
       
       <div class="col-12">
-        <label for="kip_pengontrolan" class="mb-1">Pengontrolan Selanjutnya</label>
+        <label class="mb-1">Pengontrolan Selanjutnya</label><br />
         {{ htmlspecialchars_decode($kip->kip_pengontrolan) }}
       </div>
 
