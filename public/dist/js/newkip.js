@@ -59,10 +59,7 @@
             $.post
             (
                 $('#formadd').attr('action'),
-                $('#formadd').serialize()+ "&mode="+ submit_value,
-                function(response) {
-                    console.log("Response: "+response);
-                }
+                $('#formadd').serialize()+ "&mode="+ submit_value
             );
         });
 
