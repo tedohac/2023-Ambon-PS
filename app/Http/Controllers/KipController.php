@@ -26,7 +26,7 @@ class KipController extends Controller
                     ->where('kip_no', $id)->first();
         if(empty($kip)) abort(404);
 
-        if($kip->kip_status=="draft")
+        if($kip->kip_status!="draft")
             return redirect()->route('kip.view', $kip->kip_no);   
 
     	return view('kip.edit', [
