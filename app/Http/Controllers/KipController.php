@@ -95,9 +95,9 @@ class KipController extends Controller
         if($simpankip)
         {
             if($request->mode == "draft")
-                Session::flash('success', 'KIP saved as draft'));
+                Session::flash('success', 'KIP saved as draft');
             elseif($request->mode == "draft")
-                Session::flash('success', 'KIP submitted succesfuly'));
+                Session::flash('success', 'KIP submitted succesfuly');
 
         } else {
             Session::flash('error', 'Menyimpan kegiatan gagal! Mohon hubungi admin MagangHub');
