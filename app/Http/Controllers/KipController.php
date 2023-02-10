@@ -26,6 +26,9 @@ class KipController extends Controller
                     ->where('kip_no', $id)->first();
         if(empty($kip)) abort(404);
 
+        if($kip->kip_status=="draft")
+            return redirect()->route('kip.view', $kip->kip_no);   
+
     	return view('kip.edit', [
             'kip' => $kip
         ]);
@@ -126,7 +129,7 @@ class KipController extends Controller
                 Session::flash('success', 'KIP saved as draft');
                 return redirect()->back();   
             }
-            elseif($request->mode == "draft")
+            elseif($request->mode == "submit")
             {
                 Session::flash('success', 'KIP submitted succesfuly');
                 return redirect()->route('kip.view', $kip->kip_no);   
@@ -182,6 +185,7 @@ class KipController extends Controller
         Kip::where('kip_no',$kip->kip_no)
             ->update([
                 'kip_judul_tema'                => $request->kip_judul_tema,
+                'kip_status'                    => $request->mode,
                 'kip_kategori'                  => $request->kip_kategori,
                 'kip_line'                      => ($request->kip_line!="") ? $request->kip_line : null,
                 'kip_proses'                    => ($request->kip_proses!="") ? $request->kip_proses : null,
@@ -201,7 +205,7 @@ class KipController extends Controller
             Session::flash('success', 'KIP saved as draft');
             return redirect()->back();   
         }
-        elseif($request->mode == "draft")
+        elseif($request->mode == "submit")
         {
             Session::flash('success', 'KIP submitted succesfuly');
             return redirect()->route('kip.view', $kip->kip_no);   

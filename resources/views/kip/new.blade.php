@@ -246,13 +246,34 @@
         </button>
       </div>
       <div class="col-md-6 col-12 mb-2">
-        <button type="submit" class="btn btn-block btn-primary" value="submit">
+        <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-submit">
           <i class="fa fa-fw fa-paper-plane"></i>
           Save and Submit
         </button>
       </div>
 </div>
 <!-- end of row -->
+
+<div class="modal fade" id="modal-submit">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Konfirmasi</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>KIP akan disubmit untuk penilaian</p>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="close" class="btn btn-primary" value="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </form>
 @endsection
 

@@ -258,7 +258,6 @@
 </div>
 <!-- end of row -->
 
-
 <div class="modal fade" id="modal-submit">
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
