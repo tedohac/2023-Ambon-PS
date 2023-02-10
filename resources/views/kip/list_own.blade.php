@@ -23,7 +23,7 @@
 <div class="card card-warning card-outline">
   <div class="card-header">
     <h3 class="card-title">
-      KIP Data
+      Data Kreatif Ide Perbaikan
     </h3>
     <a href="{{ url('kip/new') }}" class="btn btn-primary btn-sm float-right">
       <i class="fas fa-plus"></i>  
@@ -35,32 +35,31 @@
     <table id="dataTable" class="table table-striped table-hover">
       <thead>
         <tr>
-          <th>Rendering engine</th>
-          <th>Browser</th>
-          <th>Platform(s)</th>
-          <th>Engine version</th>
-          <th>CSS grade</th>
+          <th>Tanggal Buat</th>
+          <th>No KIP</th>
+          <th>Judul KIP</th>
+          <th>Status</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
+      @foreach($kips as $kip)
         <tr>
-          <td>Trident</td>
-          <td>Internet
-            Explorer 4.0
+          <td>{{ $kip->kip_created_on }}</td>
+          <td>{{ $kip->kip_no }}</td>
+          <td>{{ $kip->kip_judul_tema }}</td>
+          <td>
+            <span class="badge bg-{{ ($kip->kip_status=='draft' ? 'secondary' : 'info' }}">{{ $kip->kip_status }}</span>
           </td>
-          <td>Win 95+</td>
-          <td> 4</td>
-          <td>X</td>
-        </tr>
-        <tr>
-          <td>Trident</td>
-          <td>Internet
-            Explorer 5.0
+          <td>
+              @if( $kip->kip_status=='draft' )
+              <a class="btn btn-outline-info p-0 px-1 float-right broadcast-form" href="{{ route('kip.edit').'/'.$kip->kip_no }}">
+                <i class="fa fa-fw fa-edit"></i>
+              </a>
+              @endif
           </td>
-          <td>Win 95+</td>
-          <td>5</td>
-          <td>C</td>
         </tr>
+      @endforeach
       </tbody>
     </table>
 

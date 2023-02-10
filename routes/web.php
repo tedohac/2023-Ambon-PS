@@ -30,6 +30,8 @@ Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
 
     Route::get('new','KipController@new')->name('kip.new')->middleware('CheckPermission:Employee');
     Route::post('new','KipController@save')->middleware('CheckPermission:Employee');
+    
+    Route::get('edit/{id}','KipController@edit')->name('kampus.detail')->middleware('CheckPermission:Employee');
 
     // Route::get('detail/{id}','ManageKampusController@detail')->name('kampus.detail');
 

@@ -20,6 +20,17 @@ class KipController extends Controller
         ]);
     }
     
+    public function edit($id)
+    {
+        $kip = Kip::join('users', 'users.user_npk', '=', 'kip.kip_created_by')
+                    ->where('kip_no', $id)->first();
+        if(empty($kip)) abort(404);
+
+    	return view('kip.edit', [
+            'kip' => $kip
+        ]);
+    }
+    
     public function new()
     {    	
         return view('kip.new', [
