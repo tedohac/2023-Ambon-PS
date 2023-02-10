@@ -101,12 +101,12 @@
 
       <div class="col-12 mb-2">
         <label class="mb-1">Masalah dan Kondisi Saat Ini</label><br />
-        {{ $kip->kip_masalah }}
+        {!! htmlspecialchars_decode($kip->kip_masalah) !!}
       </div>
 
       <div class="col-12 mb-2">
         <label class="mb-1">Aktifitas Perbaikan</label><br />
-        {{ htmlspecialchars($kip->kip_perbaikan) }}
+        {!! htmlspecialchars_decode($kip->kip_perbaikan) !!}
       </div>
 
       <div class="col-lg-4 col-md-6 col-12 mb-2">
@@ -141,22 +141,22 @@
 
       <div class="col-12 mb-2">
         <label class="mb-1">Uraian Data</label><br />
-        {{ htmlspecialchars($kip->kip_eval_uraian) }}
+        {!! htmlspecialchars_decode($kip->kip_eval_uraian) !!}
       </div>
 
       <div class="col-12 mb-2">
         <label class="mb-1">Biaya Perbaikan</label><br />
-        {{ htmlspecialchars($kip->kip_eval_biaya) }}
+        {!! htmlspecialchars_decode($kip->kip_eval_biaya) !!}
       </div>
 
       <div class="col-12 mb-2">
         <label class="mb-1">Benefit Kuantitatif</label><br />
-        {{ htmlspecialchars($kip->kip_eval_benefit_kuantitatif) }}
+        {!! htmlspecialchars_decode($kip->kip_eval_benefit_kuantitatif) !!}
       </div>
 
       <div class="col-12 mb-2">
         <label class="mb-1">Benefit Kualitatif</label><br />
-        {{ htmlspecialchars($kip->kip_eval_benefit_kualitatif) }}
+        {!! htmlspecialchars_decode($kip->kip_eval_benefit_kualitatif) !!}
       </div>
 
     </div>
@@ -179,7 +179,7 @@
       
       <div class="col-12 mb-2">
         <label class="mb-1">Pengontrolan Selanjutnya</label><br />
-        {{ htmlspecialchars($kip->kip_pengontrolan) }}
+        {!! htmlspecialchars_decode($kip->kip_pengontrolan) !!}
       </div>
 
     </div>
