@@ -13,7 +13,11 @@ class KipController extends Controller
 {
     public function listown()
     {
-    	return view('kip.list_own');
+        $kiplist = Kip::where('kip_created_by', Auth::user()->user_npk)->get();
+
+    	return view('kip.list_own', [
+            'kips' => $kiplist
+        ]);
     }
     
     public function new()
@@ -31,7 +35,7 @@ class KipController extends Controller
         {
             $kip_no = substr($lastKip->kip_no, 2);
             $kip_no = $kip_no + 1;
-            $kip_no = "SS".str_pad($value, 5, '0', STR_PAD_LEFT);
+            $kip_no = "SS".str_pad($kip_no, 5, '0', STR_PAD_LEFT);
         }
         else
         {
