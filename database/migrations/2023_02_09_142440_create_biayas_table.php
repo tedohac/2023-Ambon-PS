@@ -17,7 +17,7 @@ class CreateBiayasTable extends Migration
             $table->bigIncrements('biaya_id');
             $table->string('biaya_kip_no', 20);
             $table->string('biaya_desc', 300);
-            $table->int('biaya_harga');
+            $table->bigInteger('biaya_harga');
             $table->foreign('biaya_kip_no')->references('kip_no')->on('kips');
         });
     }
