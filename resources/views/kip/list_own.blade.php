@@ -45,7 +45,7 @@
       <tbody>
       @foreach($kips as $kip)
         <tr>
-          <td>{{ $kip->kip_created_on }}</td>
+          <td>{{ date('Y-m-d H:i', strtotime($kip->kip_created_on)) }}</td>
           <td>{{ $kip->kip_no }}</td>
           <td>{{ $kip->kip_judul_tema }}</td>
           <td>
@@ -53,7 +53,7 @@
           </td>
           <td>
               @if( $kip->kip_status=='draft' )
-              <a class="btn btn-outline-info p-0 px-1 float-right broadcast-form" href="{{ route('kip.edit', $kip->kip_no) }}">
+              <a class="btn btn-outline-info p-1 float-right broadcast-form" href="{{ route('kip.edit', $kip->kip_no) }}">
                 <i class="fa fa-fw fa-edit"></i>
               </a>
               @endif

@@ -72,7 +72,7 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_tanggal" class="mb-1">Tanggal</label>
-          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" value="{{ $kip->kip_created_on }}" disabled>
+          <input type="text" class="form-control" name="disabled_tanggal" id="disabled_tanggal" value="{{ date('Y-m-d H:i', strtotime($kip->kip_created_on)) }}" disabled>
         </div>
       </div>
       
