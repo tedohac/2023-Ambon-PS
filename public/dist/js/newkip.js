@@ -56,11 +56,9 @@
         {
             e.preventDefault();
             var submit_value = $(this).val();
-            $.post
-            (
-                $('#formadd').attr('action'),
-                $('#formadd').serialize()+ "&mode="+ submit_value
-            );
+            var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
+            $('#formadd').append(newInput);
+            $('#formadd').submit();
         });
 
         // form validation
