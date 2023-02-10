@@ -72,14 +72,14 @@
                 </div>
             </section>
             
-            <footer class="main-footer mt-5">
-                <div class="float-right d-none d-sm-block">
-                    <b>Version</b> 1.0.0
-                </div>
-                <strong>Copyright &copy; 2023 All rights reserved.
-            </footer>
         </div>
         
+        <footer class="main-footer mt-5">
+            <div class="float-right d-none d-sm-block">
+                <b>Version</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; 2023 All rights reserved.
+        </footer>
         
         <!-- jQuery -->
         <script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
