@@ -30,7 +30,7 @@
 
 @section('content')
 
-<form method="post" id="formadd" action="{{ route('kip.edit') }}" enctype="multipart/form-data">
+<form method="post" id="formadd" action="{{ route('kip.update') }}" enctype="multipart/form-data">
 @csrf
 <div class="card card-warning card-outline">
   <div class="card-header">
@@ -184,28 +184,28 @@
       <div class="col-12">
         <div class="form-group">
           <label for="kip_eval_uraian" class="mb-1">Uraian Data</label>
-          <textarea class="form-control jodit" name="kip_eval_uraian" id="kip_eval_uraian"></textarea>
+          <textarea class="form-control jodit" name="kip_eval_uraian" id="kip_eval_uraian">{{ htmlspecialchars_decode($kip->kip_eval_uraian) }}</textarea>
         </div>
       </div>
 
       <div class="col-12">
         <div class="form-group">
           <label for="kip_eval_biaya" class="mb-1">Biaya Perbaikan</label>
-          <textarea class="form-control jodit" name="kip_eval_biaya" id="kip_eval_biaya"></textarea>
+          <textarea class="form-control jodit" name="kip_eval_biaya" id="kip_eval_biaya">{{ htmlspecialchars_decode($kip->kip_eval_biaya) }}</textarea>
         </div>
       </div>
 
       <div class="col-12">
         <div class="form-group">
           <label for="kip_eval_benefit_kuantitatif" class="mb-1">Benefit Kuantitatif</label>
-          <textarea class="form-control jodit" name="kip_eval_benefit_kuantitatif" id="kip_eval_benefit_kuantitatif"></textarea>
+          <textarea class="form-control jodit" name="kip_eval_benefit_kuantitatif" id="kip_eval_benefit_kuantitatif">{{ htmlspecialchars_decode($kip->kip_eval_benefit_kuantitatif) }}</textarea>
         </div>
       </div>
 
       <div class="col-12">
         <div class="form-group">
           <label for="kip_eval_benefit_kualitatif" class="mb-1">Benefit Kualitatif</label>
-          <textarea class="form-control jodit" name="kip_eval_benefit_kualitatif" id="kip_eval_benefit_kualitatif"></textarea>
+          <textarea class="form-control jodit" name="kip_eval_benefit_kualitatif" id="kip_eval_benefit_kualitatif">{{ htmlspecialchars_decode($kip->kip_eval_benefit_kualitatif) }}</textarea>
         </div>
       </div>
 
@@ -230,7 +230,7 @@
       <div class="col-12">
         <div class="form-group">
           <label for="kip_pengontrolan" class="mb-1">Pengontrolan Selanjutnya</label>
-          <textarea class="form-control jodit" name="kip_pengontrolan" id="kip_pengontrolan"></textarea>
+          <textarea class="form-control jodit" name="kip_pengontrolan" id="kip_pengontrolan">{{ htmlspecialchars_decode($kip->kip_pengontrolan) }}</textarea>
         </div>
       </div>
 
