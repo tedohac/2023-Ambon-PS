@@ -122,15 +122,19 @@ class KipController extends Controller
         if($simpankip)
         {
             if($request->mode == "draft")
+            {
                 Session::flash('success', 'KIP saved as draft');
+                return redirect()->back();   
+            }
             elseif($request->mode == "draft")
+            {
                 Session::flash('success', 'KIP submitted succesfuly');
-
+                return redirect()->route('kip.view', $kip->kip_no);   
+            }
         } else {
             Session::flash('error', 'Menyimpan kegiatan gagal! Mohon hubungi admin MagangHub');
         }
         
-        return redirect()->back();
     }
     // end of save
     
@@ -192,8 +196,16 @@ class KipController extends Controller
                 'kip_pengontrolan'              => htmlspecialchars($request->kip_pengontrolan)
             ]);
 
-        Session::flash('success', 'KIP saved as draft');
-        return redirect()->back();
+        if($request->mode == "draft")
+        {
+            Session::flash('success', 'KIP saved as draft');
+            return redirect()->back();   
+        }
+        elseif($request->mode == "draft")
+        {
+            Session::flash('success', 'KIP submitted succesfuly');
+            return redirect()->route('kip.view', $kip->kip_no);   
+        }
     }
     // end of update
 }
