@@ -16,6 +16,7 @@ class CreateStatusesTable extends Migration
         Schema::create('statuses', function (Blueprint $table) {
             $table->string('status_code', 20);
             $table->string('status_desc', 300);
+            $table->string('status_color', 10);
             $table->primary('status_code');
         });
     }
