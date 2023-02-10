@@ -65,4 +65,29 @@
                 }
             );
         });
+
+        // form validation
+        $('#formadd').validate({
+            rules: {
+                kip_judul_tema: {
+                    required: true,
+                },
+            },
+            messages: {
+                kip_judul_tema: {
+                    required: "Please enter Judul Tema",
+                },
+            },
+            errorElement: 'span',
+            errorPlacement: function (error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function (element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function (element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
     });

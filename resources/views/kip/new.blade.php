@@ -259,9 +259,11 @@
 @section('bottom')
 <!-- Select2 -->
 <script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
-
 <!-- Jodit-->
 <script src="{{ asset('plugins/jodit/jodit.min.js') }}"></script>
+<!-- jquery-validation -->
+<script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
 <script src="{{ asset('dist/js/newkip.js') }}"></script>
