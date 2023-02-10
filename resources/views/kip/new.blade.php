@@ -238,7 +238,7 @@
 </div>
 <!-- end of card -->
 
-<div class="row">
+<!-- <div class="row">
       <div class="col-md-6 col-12 mb-2">
         <button type="submit" class="btn btn-block btn-secondary" value="draft">
           <i class="fa fa-fw fa-pencil-ruler"></i>
@@ -251,7 +251,7 @@
           Save and Submit
         </button>
       </div>
-</div>
+</div> -->
 <!-- end of row -->
 </form>
 @endsection
