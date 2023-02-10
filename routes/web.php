@@ -36,3 +36,7 @@ Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
     
     Route::get('view/{id}','KipController@view')->name('kip.view')->middleware('CheckPermission:Employee');
 });
+
+Route::group(['prefix' => 'nilai', 'middleware' => 'web'], function () {
+    Route::get('listspv','KipController@listspv')->name('nilai.listspv')->middleware('CheckPermission:SPV');
+});
