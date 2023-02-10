@@ -49,7 +49,7 @@
           <td>{{ $kip->kip_no }}</td>
           <td>{{ $kip->kip_judul_tema }}</td>
           <td>
-            <span class="badge bg-{{ ($kip->kip_status=='draft') ? 'secondary' : 'info' }}">{{ $kip->kip_status }}</span>
+            <span class="badge bg-{{ ($kip->kip_status=='draft') ? 'secondary' : 'info' }}">{{ $kip->status_desc }}</span>
           </td>
           <td>
               @if( $kip->kip_status=='draft' )

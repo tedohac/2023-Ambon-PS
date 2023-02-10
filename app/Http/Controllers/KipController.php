@@ -13,7 +13,8 @@ class KipController extends Controller
 {
     public function listown()
     {
-        $kiplist = Kip::where('kip_created_by', Auth::user()->user_npk)->get();
+        $kiplist = Kip::join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
+                        ->where('kip_created_by', Auth::user()->user_npk)->get();
 
     	return view('kip.list_own', [
             'kips' => $kiplist
