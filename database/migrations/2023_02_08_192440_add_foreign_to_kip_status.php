@@ -26,6 +26,8 @@ class AddForeignToKipStatus extends Migration
      */
     public function down()
     {
-        $table->dropIndex('kips_kip_status_index');
+        Schema::table('kips', function (Blueprint $table) {
+            $table->dropIndex('kips_kip_status_index');
+        });
     }
 }
