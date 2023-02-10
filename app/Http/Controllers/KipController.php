@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Kip;
 use Artisan;
 use Auth;
+use Session;
 use Storage;
 
 class KipController extends Controller
