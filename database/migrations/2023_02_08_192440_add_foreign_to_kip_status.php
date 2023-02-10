@@ -15,7 +15,7 @@ class AddForeignToKipStatus extends Migration
     {
         Schema::table('kips', function (Blueprint $table) {
             $table->index('kip_status');
-            $table->foreign('kip_status_code')->references('status_code')->on('statuses');
+            $table->foreign('kip_status')->references('status_code')->on('statuses');
         });
     }
 
@@ -26,6 +26,6 @@ class AddForeignToKipStatus extends Migration
      */
     public function down()
     {
-        $table->dropForeign('kip_status_code');
+        $table->dropForeign('kip_status');
     }
 }
