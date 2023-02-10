@@ -101,7 +101,7 @@
 
       <div class="col-12 mb-2">
         <label class="mb-1">Masalah dan Kondisi Saat Ini</label><br />
-        {{ htmlspecialchars($kip->kip_masalah) }}
+        {{ $kip->kip_masalah }}
       </div>
 
       <div class="col-12 mb-2">
