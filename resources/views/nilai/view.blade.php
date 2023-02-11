@@ -131,8 +131,8 @@
         </div>
       </div>
 
-      <div class="col-lg-4 col-md-6 col-12 mb-2">
-        <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-submit">
+      <div class="col-lg-3 col-md-6 col-12 mb-2">
+        <button type="button" class="btn btn-block btn-primary mt-4" data-toggle="modal" data-target="#modal-submit">
           <i class="fa fa-fw fa-paper-plane"></i>
           Beri Penilaian
         </button>
