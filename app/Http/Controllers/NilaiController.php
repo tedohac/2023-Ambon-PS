@@ -29,10 +29,10 @@ class NilaiController extends Controller
                 a.kip_no, 
                 a.kip_judul_tema, 
                 a.kip_status, 
-                IFNULL(spv.total, 0) as 'spv', 
-                IFNULL(depthead.total, 0) as 'depthead', 
-                IFNULL(comitee.total, 0) as 'comitee',
-                IFNULL(spv.total, 0)+IFNULL(depthead.total, 0)+IFNULL(comitee.total, 0) as 'final',
+                IFNULL(spv.vw_total, 0) as 'spv', 
+                IFNULL(depthead.vw_total, 0) as 'depthead', 
+                IFNULL(comitee.vw_total, 0) as 'comitee',
+                IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)+IFNULL(comitee.vw_total, 0) as 'final',
                 s.status_desc, 
                 s.status_color
             FROM 

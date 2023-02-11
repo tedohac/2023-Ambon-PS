@@ -25,17 +25,17 @@ class KipController extends Controller
                         a.kip_no, 
                         a.kip_judul_tema, 
                         a.kip_status, 
-                        IFNULL(spv.total, 0) as 'spv', 
-                        IFNULL(depthead.total, 0) as 'depthead', 
-                        IFNULL(comitee.total, 0) as 'comitee',
-                        IFNULL(spv.total, 0)+IFNULL(depthead.total, 0)+IFNULL(comitee.total, 0) as 'final',
+                        IFNULL(spv.vw_total, 0) as 'spv', 
+                        IFNULL(depthead.vw_total, 0) as 'depthead', 
+                        IFNULL(comitee.vw_total, 0) as 'comitee',
+                        IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)+IFNULL(comitee.vw_total, 0) as 'final',
                         s.status_desc, 
                         s.status_color
                     FROM 
                         kips a 
-                        LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.nilai_kip_no AND spv.nilai_level='spv' 
-                        LEFT JOIN vw_sum_nilai depthead ON a.kip_no=spv.nilai_kip_no AND depthead.nilai_level='depthead' 
-                        LEFT JOIN vw_sum_nilai comitee ON a.kip_no=spv.nilai_kip_no AND comitee.nilai_level='comitee'
+                        LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.vw_kip_no AND spv.vw_level='spv' 
+                        LEFT JOIN vw_sum_nilai depthead ON a.kip_no=depthead.vw_kip_no AND depthead.vw_level='depthead' 
+                        LEFT JOIN vw_sum_nilai comitee ON a.kip_no=comitee.vw_kip_no AND comitee.vw_level='comitee'
                         LEFT JOIN statuses s ON a.kip_status=s.status_code
                     WHERE
                         a.kip_created_by='".Auth::user()->user_npk."'
