@@ -21,4 +21,16 @@ class NilaiController extends Controller
             'role' => 'SPV',
         ]);
     }
+    
+    public function view($id)
+    {
+        $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+                    ->where('kip_no', $id)->first();
+        if(empty($kip)) abort(404);
+
+    	return view('nilai.view', [
+            'kip' => $kip,
+            'role' => 'SPV',
+        ]);
+    }
 }

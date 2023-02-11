@@ -20,11 +20,11 @@
 @endsection
 
 @section('content-title')
-  {{ $kip->kip_no }}
+  View Own KIP: {{ $kip->kip_no }}
 @endsection
 
 @section('content-breadcumb')
-  <li class="breadcrumb-item"><a href="{{ url('kip/listown') }}">List</a></li>
+  <li class="breadcrumb-item"><a href="{{ url('kip/list') }}">List</a></li>
   <li class="breadcrumb-item active">View</li>
 @endsection
 
