@@ -53,10 +53,9 @@
         // on form submit
         $('#checkValid').on('click',function()
         {
-            console.log($('#formadd').valid());
-            // if($('#formadd').valid())
-            // {
-            //     $('#modal-submit').modal('show');
-            // }
+            if($('#formnilai').valid())
+            {
+                $('#modal-submit').modal('show');
+            }
         });
     });
