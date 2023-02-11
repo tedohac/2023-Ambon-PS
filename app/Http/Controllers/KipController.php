@@ -21,7 +21,7 @@ class KipController extends Controller
         $kiplist = DB::select(
                     DB::raw("
                     select 
-                        a.kip_created_on, a.kip_no, a.kip_judul_tema, spv.total as 'spv', depthead.total as 'depthead', comitee.total as 'comitee', s.status_desc
+                        a.kip_created_on, a.kip_no, a.kip_judul_tema, spv.total as 'spv', depthead.total as 'depthead', comitee.total as 'comitee', s.status_desc, s.status_color
                     FROM 
                         kips a 
                         LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.nilai_kip_no AND spv.nilai_level='spv' 
