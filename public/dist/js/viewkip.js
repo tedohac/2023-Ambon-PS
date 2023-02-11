@@ -50,7 +50,7 @@
             }
         });
 
-        // on form submit
+        // on button send click
         $('#checkValid').on('click',function()
         {
             if($('#formnilai').valid())

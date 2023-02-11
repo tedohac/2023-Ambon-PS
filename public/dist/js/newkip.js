@@ -51,6 +51,15 @@
             }
         });
 
+        // on button send click
+        $('#checkValid').on('click',function()
+        {
+            if($('#formadd').valid())
+            {
+                $('#modal-submit').modal('show');
+            }
+        });
+        
         // on form submit
         $('button[type="submit"]').on('click',function(e)
         {
