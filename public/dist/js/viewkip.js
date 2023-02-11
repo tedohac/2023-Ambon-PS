@@ -4,14 +4,14 @@
         // form validation
         $('#formnilai').validate({
             rules: {
-                nilai_penghematan: {
-                    required: true,
-                    number: true
-                },
-                nilai_quality: {
-                    required: true,
-                    number: true
-                },
+                // nilai_penghematan: {
+                //     required: true,
+                //     number: true
+                // },
+                // nilai_quality: {
+                //     required: true,
+                //     number: true
+                // },
                 nilai_safety: {
                     required: true,
                     number: true
@@ -49,4 +49,14 @@
                 $(element).removeClass('is-invalid');
             }
         });
+
+        // // on form submit
+        // $('button[type="submit"]').on('click',function(e)
+        // {
+        //     e.preventDefault();
+        //     var submit_value = $(this).val();
+        //     var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
+        //     $('#formadd').append(newInput);
+        //     $('#formadd').submit();
+        // });
     });
