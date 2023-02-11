@@ -41,7 +41,7 @@
 
   @php ($num = 1)
   @foreach($statuses as $status)
-    <div class="step {{ ($status->status_code==$kip->kip_status) 'active' : '' }}" data-target="#logins-part">
+    <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
       <button type="button" class="step-trigger" disabled>
         <span class="bs-stepper-circle">{{ $num }}</span>
         <span class="bs-stepper-label">{{ $status->status_code }}</span>
