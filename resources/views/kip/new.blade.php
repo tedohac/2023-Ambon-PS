@@ -246,7 +246,7 @@
         </button>
       </div>
       <div class="col-md-6 col-12 mb-2">
-        <button type="button" class="btn btn-block btn-primary" data-toggle="modal" data-target="#modal-submit" id="checkValid">
+        <button type="button" class="btn btn-block btn-primary" id="checkValid">
           <i class="fa fa-fw fa-paper-plane"></i>
           Save and Submit
         </button>
