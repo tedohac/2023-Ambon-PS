@@ -127,7 +127,7 @@
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_total" class="mb-1">Total</label>
-          <input type="text" class="form-control" name="disabled_total" id="disabled_total" disabled>
+          <input type="text" class="form-control" name="disabled_total" id="disabled_total" readonly>
         </div>
       </div>
 
