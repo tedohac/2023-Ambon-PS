@@ -1,4 +1,4 @@
-@extends('layout.master', ['title' => 'Manage Own KIP - Personal Site'])
+@extends('layout.master', ['title' => 'Manage KIP as {{ $role }} - Personal Site'])
 
 @section('head')
   <!-- DataTables -->

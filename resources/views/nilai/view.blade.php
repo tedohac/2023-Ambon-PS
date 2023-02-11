@@ -30,8 +30,6 @@
 
 @section('content')
 
-<form method="post" id="formadd" action="{{ route('kip.update') }}" enctype="multipart/form-data">
-@csrf
 <div class="card card-warning card-outline">
   <div class="card-header">
     <h3 class="card-title">
@@ -168,20 +166,20 @@
 <!-- end of card -->
 
 
-<div class="card card-warning card-outline">
+
+<form method="post" id="formadd" action="{{ route('kip.update') }}" enctype="multipart/form-data">
+@csrf
+
+@if(($kip->kip_status=='submit' && $role=='SPV'))
+<div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
-      Tindak Lanjut atau Standarisasi
+      Nilai KIP
     </h3>
   </div>
   <div class="card-body">
     <div class="row">
       
-      <div class="col-12 mb-3">
-        <label class="mb-1">Pengontrolan Selanjutnya</label><br />
-        {!! htmlspecialchars_decode($kip->kip_pengontrolan) !!}
-      </div>
-
     </div>
     <!-- end of row -->
 
@@ -189,6 +187,7 @@
   <!-- end of card body -->
 </div>
 <!-- end of card -->
+@endif
 
 </form>
 @endsection
