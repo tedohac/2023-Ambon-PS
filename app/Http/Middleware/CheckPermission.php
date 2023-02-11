@@ -31,8 +31,9 @@ class CheckPermission
                     $permissions = Permission::where('permission_user_npk', Auth::User()->user_npk)
                                             ->where('permission_role_code', $role)->get();
                     // dd(DB::getQueryLog());
-                    if(!$permissions->count()) return abort(403, 'Unauthorized');
+                    if($permissions->count()) return $next($request);
                 }
+                return abort(403, 'Unauthorized');
             }
             return $next($request);
         }
