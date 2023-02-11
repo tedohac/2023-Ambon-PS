@@ -25,7 +25,7 @@
         <li class="nav-item dropdown user-menu">
             {{-- User menu toggler --}}
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
-                <span class="d-none d-md-inline">
+                <span class="d-inline">
                     <i class="fa fa-fw fa-user"></i>
                 </span>
             </a>
