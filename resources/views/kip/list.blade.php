@@ -64,7 +64,7 @@
               <a class="btn btn-outline-info p-1 float-right broadcast-form" href="{{ route('kip.edit', $kip->kip_no) }}">
                 <i class="fa fa-fw fa-edit"></i>
               </a>
-              @elseif( $kip->kip_status=='submit' )
+              @else
               <a class="btn btn-outline-info p-1 float-right broadcast-form" href="{{ route('kip.view', $kip->kip_no) }}">
                 <i class="fa fa-fw fa-search"></i>
               </a>
