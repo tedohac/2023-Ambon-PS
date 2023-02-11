@@ -9,6 +9,7 @@ use App\Permission;
 use App\Status;
 use Artisan;
 use Auth;
+use DB;
 use Session;
 use Storage;
 
