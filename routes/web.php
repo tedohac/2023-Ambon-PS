@@ -38,5 +38,5 @@ Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
 });
 
 Route::group(['prefix' => 'nilai', 'middleware' => 'web'], function () {
-    Route::get('listspv','KipController@listspv')->name('nilai.listspv')->middleware('CheckPermission:SPV');
+    Route::get('listspv','NilaiController@listspv')->name('nilai.listspv')->middleware('CheckPermission:SPV');
 });
