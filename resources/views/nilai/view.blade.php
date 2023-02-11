@@ -85,42 +85,42 @@
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_safety" class="mb-1">Safety</label>
-          <input type="text" class="form-control" name="nilai_safety " id="nilai_safety ">
+          <input type="text" class="form-control" name="nilai_safety" id="nilai_safety">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_ergonomi" class="mb-1">Ergonomi</label>
-          <input type="text" class="form-control" name="nilai_ergonomi " id="nilai_ergonomi ">
+          <input type="text" class="form-control" name="nilai_ergonomi" id="nilai_ergonomi">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_manfaat" class="mb-1">Manfaat</label>
-          <input type="text" class="form-control" name="nilai_manfaat " id="nilai_manfaat ">
+          <input type="text" class="form-control" name="nilai_manfaat" id="nilai_manfaat">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_kepekaan" class="mb-1">Kepekaan</label>
-          <input type="text" class="form-control" name="nilai_kepekaan " id="nilai_kepekaan ">
+          <input type="text" class="form-control" name="nilai_kepekaan" id="nilai_kepekaan">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_keaslian" class="mb-1">Keaslian</label>
-          <input type="text" class="form-control" name="nilai_keaslian " id="nilai_keaslian ">
+          <input type="text" class="form-control" name="nilai_keaslian" id="nilai_keaslian">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_usaha" class="mb-1">Usaha</label>
-          <input type="text" class="form-control" name="nilai_usaha " id="nilai_usaha ">
+          <input type="text" class="form-control" name="nilai_usaha" id="nilai_usaha">
         </div>
       </div>
 

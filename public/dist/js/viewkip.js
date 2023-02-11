@@ -4,14 +4,14 @@
         // form validation
         $('#formnilai').validate({
             rules: {
-                // nilai_penghematan: {
-                //     required: true,
-                //     number: true
-                // },
-                // nilai_quality: {
-                //     required: true,
-                //     number: true
-                // },
+                nilai_penghematan: {
+                    required: true,
+                    number: true
+                },
+                nilai_quality: {
+                    required: true,
+                    number: true
+                },
                 nilai_safety: {
                     required: true,
                     number: true
