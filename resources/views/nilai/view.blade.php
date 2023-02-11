@@ -30,6 +30,27 @@
 
 @section('content')
 
+<div class="bs-stepper">
+  <div class="bs-stepper-header" role="tablist">
+
+  @php ($num = 1)
+  @foreach($statuses as $status)
+    <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
+      <button type="button" class="step-trigger" disabled>
+        <span class="bs-stepper-circle">{{ $num }}</span>
+        <span class="bs-stepper-label">{{ $status->status_code }}</span>
+      </button>
+    </div>
+    @if ($num < count($statuses))
+    <div class="line"></div>
+    @endif
+    @php ($num++)
+  @endforeach
+  </div>
+  
+</div>
+<!-- Stepper End -->
+
 <div class="card card-warning card-outline">
   <div class="card-header">
     <h3 class="card-title">

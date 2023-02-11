@@ -27,10 +27,13 @@ class NilaiController extends Controller
         $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
                     ->where('kip_no', $id)->first();
         if(empty($kip)) abort(404);
+        
+        $statuses = Status::orderBy('status_order')->get();
 
     	return view('nilai.view', [
-            'kip'   => $kip,
-            'role'  => 'SPV',
+            'kip'       => $kip,
+            'role'      => 'SPV',
+            'statuses'  => $statuses
         ]);
     }
 }
