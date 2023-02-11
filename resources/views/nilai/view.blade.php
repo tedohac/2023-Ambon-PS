@@ -54,6 +54,47 @@
 </div>
 <!-- Stepper End -->
 
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">Penilaian</h3>
+  </div>
+  <div class="card-body table-responsive p-0">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Penghematan</th>
+          <th>Quality</th>
+          <th>Safety</th>
+          <th>Ergonomi</th>
+          <th>Manfaat</th>
+          <th>Kepekaan</th>
+          <th>Keaslian</th>
+          <th>Usaha</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          @foreach($nilais as $nilai)
+          <td>{{ $nilai->nilai_level }}</td>
+          <td>{{ $nilai->nilai_penghematan }}</td>
+          <td>{{ $nilai->nilai_quality }}</td>
+          <td>{{ $nilai->nilai_safety }}</td>
+          <td>{{ $nilai->nilai_ergonomi }}</td>
+          <td>{{ $nilai->nilai_manfaat }}</td>
+          <td>{{ $nilai->nilai_kepekaan }}</td>
+          <td>{{ $nilai->nilai_keaslian }}</td>
+          <td>{{ $nilai->nilai_usaha }}</td>
+          <td>{{ $nilai->total }}</td>
+          @endforeach
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<!-- Penilaian End -->
+
 <form method="post" id="formnilai" action="{{ route('nilai.save') }}" enctype="multipart/form-data">
 @csrf
 

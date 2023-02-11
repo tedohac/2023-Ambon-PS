@@ -61,10 +61,13 @@ class NilaiController extends Controller
                     ->first();
         if(empty($kip)) abort(404);
         
-        $statuses = Status::orderBy('status_order')->get();
+        $statuses   = Status::orderBy('status_order')->get();
+        $nilais     = Nilai::join('vw_sum_nilai', 'vw_sum_nilai.nilai_kip_no', '=', 'nilais.nilai_kip_no')
+                            ->where('nilai_kip_no', $id)->get();
 
     	return view('nilai.view', [
             'kip'       => $kip,
+            'nilais'    => $nilais,
             'role'      => 'spv',
             'statuses'  => $statuses,
             'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoles('SPV'))
@@ -91,7 +94,6 @@ class NilaiController extends Controller
         $nilai->nilai_manfaat       = $request->nilai_manfaat;
         $nilai->nilai_kepekaan      = $request->nilai_kepekaan;
         $nilai->nilai_keaslian      = $request->nilai_keaslian;
-        $nilai->nilai_usaha         = $request->nilai_usaha;
         $nilai->nilai_usaha         = $request->nilai_usaha;
         $simpannilai = $nilai->save();
 
