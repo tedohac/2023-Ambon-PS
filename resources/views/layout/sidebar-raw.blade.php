@@ -28,13 +28,13 @@
                 {{-- Configured sidebar links --}}
                 @yield('sidebar_menu')
 
-                <li class="nav-header">{{ auth()->user()->user_email }}</li>
+                <!-- <li class="nav-header">{{ auth()->user()->user_email }}</li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" class="nav-link">
                         <i class="nav-icon fa fa-fw fa-power-off"></i>
                         <p>Log Out</p>
                     </a>
-                </li>
+                </li> -->
 
             </ul>
         </nav>
