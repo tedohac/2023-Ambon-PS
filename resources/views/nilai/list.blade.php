@@ -53,11 +53,11 @@
           </td>
           <td>
             @if(($kip->kip_status=='submit' && $role=='SPV'))
-            <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('nilai.view', $kip->kip_no) }}">
+            <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('nilai.view'.$role, $kip->kip_no) }}">
                 <i class="fa fa-fw fa-user-check"></i>
             </a>
             @else
-            <a class="btn btn-outline-secondary p-1 float-right broadcast-form" href="{{ route('nilai.view', $kip->kip_no) }}">
+            <a class="btn btn-outline-secondary p-1 float-right broadcast-form" href="{{ route('nilai.view'.$role, $kip->kip_no) }}">
                 <i class="fa fa-fw fa-search"></i>
             </a>
             @endif

@@ -19,11 +19,11 @@ class NilaiController extends Controller
 
     	return view('nilai.list', [
             'kips' => $kips,
-            'role' => 'SPV',
+            'role' => 'spv',
         ]);
     }
     
-    public function view($id)
+    public function viewspv($id)
     {
         $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
                     ->where('kip_no', $id)->first();
@@ -33,7 +33,7 @@ class NilaiController extends Controller
 
     	return view('nilai.view', [
             'kip'       => $kip,
-            'role'      => 'SPV',
+            'role'      => 'spv',
             'statuses'  => $statuses
         ]);
     }
