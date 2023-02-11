@@ -27,7 +27,7 @@
 @endsection
 
 @section('content-breadcumb')
-  <li class="breadcrumb-item"><a href="{{ url('nilai/list') }}">List</a></li>
+  <li class="breadcrumb-item"><a href="{{ url('nilai/list').$role }}">List</a></li>
   <li class="breadcrumb-item active">View</li>
 @endsection
 
@@ -57,7 +57,7 @@
 <form method="post" id="formnilai" action="{{ route('kip.update') }}" enctype="multipart/form-data">
 @csrf
 
-@if(($kip->kip_status=='submit' && $role=='SPV'))
+@if(($kip->kip_status=='submit' && $role=='spv'))
 <div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
