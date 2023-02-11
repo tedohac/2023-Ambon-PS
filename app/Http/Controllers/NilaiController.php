@@ -40,7 +40,10 @@ class NilaiController extends Controller
                 LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.nilai_kip_no AND spv.nilai_level='spv' 
                 LEFT JOIN vw_sum_nilai depthead ON a.kip_no=spv.nilai_kip_no AND depthead.nilai_level='depthead' 
                 LEFT JOIN vw_sum_nilai comitee ON a.kip_no=spv.nilai_kip_no AND comitee.nilai_level='comitee'
-                LEFT JOIN statuses s ON a.kip_status=s.status_code;
+                LEFT JOIN statuses s ON a.kip_status=s.status_code
+                LEFT JOIN users u ON a.kip_created_by=u.user_npk
+            WHERE
+                u.user_dept='".Auth::user()->user_dept."'
             ")
         );
     

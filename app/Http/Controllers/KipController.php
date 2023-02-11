@@ -36,7 +36,9 @@ class KipController extends Controller
                         LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.nilai_kip_no AND spv.nilai_level='spv' 
                         LEFT JOIN vw_sum_nilai depthead ON a.kip_no=spv.nilai_kip_no AND depthead.nilai_level='depthead' 
                         LEFT JOIN vw_sum_nilai comitee ON a.kip_no=spv.nilai_kip_no AND comitee.nilai_level='comitee'
-                        LEFT JOIN statuses s ON a.kip_status=s.status_code;
+                        LEFT JOIN statuses s ON a.kip_status=s.status_code
+                    WHERE
+                        a.kip_created_by='".Auth::user()->user_npk."'
                     ")
                 );
 
