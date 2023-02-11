@@ -51,9 +51,8 @@
         });
 
         // on form submit
-        $('#checkValid').on('click',function(e)
+        $('#checkValid').on('click',function()
         {
-            e.preventDefault();
 
             if($('#formadd').valid())
             {
