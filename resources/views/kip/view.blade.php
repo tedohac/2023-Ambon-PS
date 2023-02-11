@@ -8,6 +8,9 @@
   <!-- Jodit -->
   <link rel="stylesheet" href="{{ asset('plugins/jodit/jodit.min.css') }}">
 
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="{{ asset('plugins/bs-stepper/css/bs-stepper.min.css') }}">
+
   <style>
     .select2-container--default .select2-selection--single {
       height: calc(2.25rem + 2px) !important;
@@ -218,6 +221,8 @@
 <!-- jquery-validation -->
 <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
+<!-- BS Stepper -->
+<script src="{{ asset('plugins/bs-stepper/js/bs-stepper.min.js') }}"></script>
 
 <!-- JS -->
 <script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
