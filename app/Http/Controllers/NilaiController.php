@@ -16,11 +16,33 @@ class NilaiController extends Controller
 {
     public function listspv()
     {
-        $kips = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
-                    ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
-                    ->where('user_dept', Auth::user()->user_dept)
-                    ->get();
+        // $kips = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+        //             ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
+        //             ->where('user_dept', Auth::user()->user_dept)
+        //             ->get();
 
+        $kips = DB::select(
+            DB::raw("
+            select 
+                a.kip_created_on, 
+                a.kip_no, 
+                a.kip_judul_tema, 
+                a.kip_status, 
+                IFNULL(spv.total, 0) as 'spv', 
+                IFNULL(depthead.total, 0) as 'depthead', 
+                IFNULL(comitee.total, 0) as 'comitee',
+                IFNULL(spv.total, 0)+IFNULL(depthead.total, 0)+IFNULL(comitee.total, 0) as 'final',
+                s.status_desc, 
+                s.status_color
+            FROM 
+                kips a 
+                LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.nilai_kip_no AND spv.nilai_level='spv' 
+                LEFT JOIN vw_sum_nilai depthead ON a.kip_no=spv.nilai_kip_no AND depthead.nilai_level='depthead' 
+                LEFT JOIN vw_sum_nilai comitee ON a.kip_no=spv.nilai_kip_no AND comitee.nilai_level='comitee'
+                LEFT JOIN statuses s ON a.kip_status=s.status_code;
+            ")
+        );
+    
     	return view('nilai.list', [
             'kips' => $kips,
             'role' => 'spv',

@@ -41,6 +41,7 @@
           <th>Nilai SPV</th>
           <th>Nilai D. Head</th>
           <th>Nilai Comitee</th>
+          <th>Nilai Final</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
@@ -54,6 +55,7 @@
           <td>{{ $kip->spv }}</td>
           <td>{{ $kip->depthead }}</td>
           <td>{{ $kip->comitee }}</td>
+          <td>{{ $kip->final }}</td>
           <td>
             <span class="badge bg-{{ $kip->status_color }}">{{ $kip->status_desc }}</span>
           </td>
