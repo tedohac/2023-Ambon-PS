@@ -66,6 +66,8 @@
   </div>
   <div class="card-body">
     <div class="row">
+      <input type="hidden" name="nilai_kip_no" value="{{ $kip->kip_no }}">
+      <input type="hidden" name="nilai_level" value="{{ $role }}">
       
 
       <div class="col-lg-3 col-md-6 col-12">
@@ -318,5 +320,5 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
-<script src="{{ asset('dist/js/viewkip.js?v=').time() }}"></script>
+<script src="{{ asset('dist/js/nilaiviewkip.js?v=').time() }}"></script>
 @endsection

@@ -226,6 +226,4 @@
 <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
-<!-- JS -->
-<script src="{{ asset('dist/js/viewkip.js?v=').time() }}"></script>
 @endsection

@@ -140,7 +140,8 @@ class KipController extends Controller
                 return redirect()->route('kip.view', $kip->kip_no);   
             }
         } else {
-            Session::flash('error', 'Menyimpan kegiatan gagal! Mohon hubungi admin MagangHub');
+            Session::flash('error', 'Menyimpan kegiatan gagal! Mohon hubungi admin');
+            return redirect()->back();   
         }
         
     }
