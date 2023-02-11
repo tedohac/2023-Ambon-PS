@@ -35,6 +35,7 @@ class NilaiController extends Controller
 
     	return view('nilai.view', [
             'kip'       => $kip,
+            'role'      => 'spv'
             'statuses'  => $statuses,
             'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoles('SPV'))
         ]);
