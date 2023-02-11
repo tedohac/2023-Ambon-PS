@@ -42,7 +42,7 @@ class KipController extends Controller
                     ->where('kip_no', $id)->first();
         if(empty($kip)) abort(404);
         
-        $statuses = Status::get();
+        $statuses = Status::orderBy('status_order')->get();
 
     	return view('kip.view', [
             'kip'       => $kip,
