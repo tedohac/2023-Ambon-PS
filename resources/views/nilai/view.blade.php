@@ -54,10 +54,10 @@
 </div>
 <!-- Stepper End -->
 
-<form method="post" id="formnilai" action="{{ route('kip.update') }}" enctype="multipart/form-data">
+<form method="post" id="formnilai" action="{{ route('nilai.save') }}" enctype="multipart/form-data">
 @csrf
 
-@if(($kip->kip_status=='submit' && $role=='spv'))
+@if($showForm)
 <div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
@@ -71,56 +71,56 @@
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_penghematan" class="mb-1">Penghematan</label>
-          <input type="text" class="form-control" name="nilai_penghematan" id="nilai_penghematan">
+          <input type="text" class="form-control nilai-input" name="nilai_penghematan" id="nilai_penghematan" value="0">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_quality" class="mb-1">Quality</label>
-          <input type="text" class="form-control" name="nilai_quality" id="nilai_quality">
+          <input type="text" class="form-control nilai-input" name="nilai_quality" id="nilai_quality" value="0">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_safety" class="mb-1">Safety</label>
-          <input type="text" class="form-control" name="nilai_safety" id="nilai_safety">
+          <input type="text" class="form-control nilai-input" name="nilai_safety" id="nilai_safety" value="0">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_ergonomi" class="mb-1">Ergonomi</label>
-          <input type="text" class="form-control" name="nilai_ergonomi" id="nilai_ergonomi">
+          <input type="text" class="form-control nilai-input" name="nilai_ergonomi" id="nilai_ergonomi" value="0">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_manfaat" class="mb-1">Manfaat</label>
-          <input type="text" class="form-control" name="nilai_manfaat" id="nilai_manfaat">
+          <input type="text" class="form-control nilai-input" name="nilai_manfaat" id="nilai_manfaat" value="0">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_kepekaan" class="mb-1">Kepekaan</label>
-          <input type="text" class="form-control" name="nilai_kepekaan" id="nilai_kepekaan">
+          <input type="text" class="form-control nilai-input" name="nilai_kepekaan" id="nilai_kepekaan" value="0">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_keaslian" class="mb-1">Keaslian</label>
-          <input type="text" class="form-control" name="nilai_keaslian" id="nilai_keaslian">
+          <input type="text" class="form-control nilai-input" name="nilai_keaslian" id="nilai_keaslian" value="0">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_usaha" class="mb-1">Usaha</label>
-          <input type="text" class="form-control" name="nilai_usaha" id="nilai_usaha">
+          <input type="text" class="form-control nilai-input" name="nilai_usaha" id="nilai_usaha" value="0">
         </div>
       </div>
 
