@@ -34,9 +34,9 @@ Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
     Route::get('edit/{id}','KipController@edit')->name('kip.edit')->middleware('CheckPermission:Employee');
     Route::post('update','KipController@update')->name('kip.update')->middleware('CheckPermission:Employee');
     
-    Route::get('view/{id}','KipController@view')->name('kip.view')->middleware('CheckPermission:Employee');
+    Route::get('view/{id}','KipController@view')->name('kip.view')->middleware('CheckPermission:');
 });
 
 Route::group(['prefix' => 'nilai', 'middleware' => 'web'], function () {
-    Route::get('listspv','NilaiController@listspv')->name('nilai.listspv')->middleware('CheckPermission:SPV');
+    Route::get('listspv','NilaiController@listspv')->name('nilai.listspv')->middleware('CheckPermission:SPV|Dept Head|Comitee');
 });

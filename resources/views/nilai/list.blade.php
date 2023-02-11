@@ -11,7 +11,7 @@
 @endsection
 
 @section('content-title')
-    Manage KIP as SPV
+    Manage KIP as {{ $role }}
 @endsection
 
 @section('content-breadcumb')
@@ -52,11 +52,9 @@
             <span class="badge bg-{{ $kip->status_color }}">{{ $kip->status_desc }}</span>
           </td>
           <td>
-              @elseif( $kip->kip_status=='submit' )
-              <a class="btn btn-outline-info p-1 float-right broadcast-form" href="{{ route('kip.view', $kip->kip_no) }}">
-                <i class="fa fa-fw fa-search"></i>
-              </a>
-              @endif
+            <a class="btn btn-outline-info p-1 float-right broadcast-form" href="{{ route('nilai.view', $kip->kip_no) }}">
+              <i class="fa fa-fw fa-user-check"></i>
+            </a>
           </td>
         </tr>
       @endforeach

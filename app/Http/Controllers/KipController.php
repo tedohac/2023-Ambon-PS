@@ -16,7 +16,7 @@ class KipController extends Controller
         $kiplist = Kip::join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
                         ->where('kip_created_by', Auth::user()->user_npk)->get();
 
-    	return view('kip.list_own', [
+    	return view('kip.list', [
             'kips' => $kiplist
         ]);
     }

@@ -17,17 +17,22 @@ class CheckPermission
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next, $role_code)
+    public function handle($request, Closure $next, $roles)
     {
         if (Auth::check())
         {
-            if($role_code!="")
+            if($roles!="")
             {
-                DB::enableQueryLog();
-                $roles = Permission::where('permission_user_npk', Auth::User()->user_npk)
-                                    ->where('permission_role_code', $role_code)->get();
-                // dd(DB::getQueryLog());
-                if(!$roles->count()) return abort(403, 'Unauthorized');
+                $roles = explode("|",$roles);
+                
+                foreach($roles as $role)
+                {
+                    DB::enableQueryLog();
+                    $permissions = Permission::where('permission_user_npk', Auth::User()->user_npk)
+                                        ->where('permission_role_code', $role)->get();
+                    // dd(DB::getQueryLog());
+                    if(!$permissions->count()) return abort(403, 'Unauthorized');
+                }
             }
             return $next($request);
         }
