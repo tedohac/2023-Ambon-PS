@@ -64,7 +64,7 @@
             {
                 var sum = 0;
                 $('.nilai-input').each(function(){
-                    sum += parseFloat($(this).text());
+                    sum += parseFloat(this.value);
                 });
                 $('#disabled_total').val(sum);
             }
