@@ -34,22 +34,35 @@
 @section('content')
 
 <!-- Stepper Begin -->
-<div class="bs-stepper-header" role="tablist">
 
-  <div class="step active" data-target="#logins-part">
-  <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" aria-selected="true">
-  <span class="bs-stepper-circle">1</span>
-  <span class="bs-stepper-label">Logins</span>
-  </button>
-  </div>
-  <div class="line"></div>
-  <div class="step" data-target="#information-part">
-  <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" aria-selected="false" disabled="disabled">
-  <span class="bs-stepper-circle">2</span>
-  <span class="bs-stepper-label">Various information</span>
-  </button>
-  </div>
 
+<div class="card card-default">
+  <div class="card-header">
+    <h3 class="card-title">bs-stepper</h3>
+  </div>
+  <div class="card-body p-0">
+
+    <div class="bs-stepper">
+      <div class="bs-stepper-header" role="tablist">
+
+        <div class="step" data-target="#logins-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
+            <span class="bs-stepper-circle">1</span>
+            <span class="bs-stepper-label">Logins</span>
+          </button>
+        </div>
+        <div class="line"></div>
+        <div class="step" data-target="#information-part">
+          <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
+            <span class="bs-stepper-circle">2</span>
+            <span class="bs-stepper-label">Various information</span>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+    
+  </div>
 </div>
 <!-- Stepper End -->
 
