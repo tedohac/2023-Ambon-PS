@@ -225,8 +225,6 @@
 <!-- jquery-validation -->
 <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
-<!-- BS Stepper -->
-<script src="{{ asset('plugins/bs-stepper/js/bs-stepper.min.js') }}"></script>
 
 <!-- JS -->
 <script src="{{ asset('dist/js/viewkip.js?v=').time() }}"></script>
