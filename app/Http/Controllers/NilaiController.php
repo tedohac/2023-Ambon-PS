@@ -29,8 +29,8 @@ class NilaiController extends Controller
         if(empty($kip)) abort(404);
 
     	return view('nilai.view', [
-            'kip' => $kip,
-            'role' => 'SPV',
+            'kip'   => $kip,
+            'role'  => 'SPV',
         ]);
     }
 }

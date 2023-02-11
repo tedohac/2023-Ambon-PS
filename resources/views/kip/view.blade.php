@@ -45,19 +45,19 @@
     <div class="bs-stepper">
       <div class="bs-stepper-header" role="tablist">
 
-        <div class="step" data-target="#logins-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger" disabled>
-            <span class="bs-stepper-circle">1</span>
-            <span class="bs-stepper-label">Logins</span>
+      @php ($num = 1)
+      @foreach($statuses as $status)
+        <div class="step active" data-target="#logins-part">
+          <button type="button" class="step-trigger" disabled>
+            <span class="bs-stepper-circle">{{ $num }}</span>
+            <span class="bs-stepper-label">{{ $status->status_code }}</span>
           </button>
         </div>
+        @if ($num < count($statuses)-1)
         <div class="line"></div>
-        <div class="step" data-target="#information-part">
-          <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger" disabled>
-            <span class="bs-stepper-circle">2</span>
-            <span class="bs-stepper-label">Various information</span>
-          </button>
-        </div>
+        @endif
+        @php ($num++)
+      @endforeach
       </div>
       
     </div>

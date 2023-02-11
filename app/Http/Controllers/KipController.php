@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kip;
+use App\Status;
 use Artisan;
 use Auth;
 use Session;
@@ -40,9 +41,12 @@ class KipController extends Controller
         $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
                     ->where('kip_no', $id)->first();
         if(empty($kip)) abort(404);
+        
+        $statuses = Status::get();
 
     	return view('kip.view', [
-            'kip' => $kip
+            'kip'       => $kip,
+            'statuses'    => $statuses
         ]);
     }
     
