@@ -15,6 +15,7 @@ class NilaiController extends Controller
     public function listspv()
     {
         $kips = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+                    ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
                         ->where('user_dept', Auth::user()->user_dept)->get();
 
     	return view('nilai.list', [
