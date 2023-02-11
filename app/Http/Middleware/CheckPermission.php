@@ -24,14 +24,9 @@ class CheckPermission
             if($roles!="")
             {
                 $roles = explode("|",$roles);
-                
                 foreach($roles as $role)
                 {
-                    DB::enableQueryLog();
-                    $permissions = Permission::where('permission_user_npk', Auth::User()->user_npk)
-                                            ->where('permission_role_code', $role)->get();
-                    // dd(DB::getQueryLog());
-                    if($permissions->count()) return $next($request);
+                    if(Permission::hasRoles($role)) return $next($request);
                 }
                 return abort(403, 'Unauthorized');
             }

@@ -31,12 +31,8 @@ class Permission extends Model
      */
     public static function hasRoles($role_code)
     {
-        if (Auth::check())
-        {
-            $user = Permission::where('user_npk', Auth::User()->user_npk)->where('role_code', $role_code)->first();
-            if(empty($user)) return false;
-            else return true;
-        }
-        else return false;
+        $user = Permission::where('user_npk', Auth::User()->user_npk)->where('role_code', $role_code)->first();
+        if(empty($user)) return false;
+        else return true;
     }
 }
