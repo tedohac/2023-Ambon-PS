@@ -225,5 +225,5 @@
 <script src="{{ asset('plugins/bs-stepper/js/bs-stepper.min.js') }}"></script>
 
 <!-- JS -->
-<script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
+<script src="{{ asset('dist/js/viewkip.js?v=').time() }}"></script>
 @endsection

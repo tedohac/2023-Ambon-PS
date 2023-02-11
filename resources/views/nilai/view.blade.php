@@ -202,5 +202,5 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
-<script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
+<script src="{{ asset('dist/js/viewkip.js?v=').time() }}"></script>
 @endsection
