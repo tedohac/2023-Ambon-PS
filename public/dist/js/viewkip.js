@@ -50,13 +50,14 @@
             }
         });
 
-        // // on form submit
-        // $('button[type="submit"]').on('click',function(e)
-        // {
-        //     e.preventDefault();
-        //     var submit_value = $(this).val();
-        //     var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
-        //     $('#formadd').append(newInput);
-        //     $('#formadd').submit();
-        // });
+        // on form submit
+        $('#checkValid').on('click',function(e)
+        {
+            e.preventDefault();
+
+            if($('#formadd').valid())
+            {
+                $('#modal-submit').modal('show');
+            }
+        });
     });
