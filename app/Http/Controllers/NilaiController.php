@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kip;
 use App\Status;
+use App\User;
 use Artisan;
 use Auth;
 use Session;
@@ -34,9 +35,8 @@ class NilaiController extends Controller
 
     	return view('nilai.view', [
             'kip'       => $kip,
-            'role'      => 'spv',
             'statuses'  => $statuses,
-            'showForm'  => ($kip->kip_status=='submit' && $role=='spv')
+            'showForm'  => ($kip->kip_status=='submit' && User::hasRoles('SPV'))
         ]);
     }
 }
