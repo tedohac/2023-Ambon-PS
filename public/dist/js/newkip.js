@@ -58,6 +58,7 @@
             {
                 $('#modal-submit').modal('show');
             }
+            else $('#formadd').submit();
         });
         
         // on form submit

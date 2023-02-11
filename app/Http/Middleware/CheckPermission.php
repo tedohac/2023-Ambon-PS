@@ -21,20 +21,20 @@ class CheckPermission
     {
         if (Auth::check())
         {
-            // if($roles!="")
-            // {
-            //     $roles = explode("|",$roles);
+            if($roles!="")
+            {
+                $roles = explode("|",$roles);
                 
-            //     foreach($roles as $role)
-            //     {
-            //         DB::enableQueryLog();
-            //         $permissions = Permission::where('permission_user_npk', Auth::User()->user_npk)
-            //                                 ->where('permission_role_code', $role)->get();
-            //         // dd(DB::getQueryLog());
-            //         if($permissions->count()) return $next($request);
-            //     }
-            //     return abort(403, 'Unauthorized');
-            // }
+                foreach($roles as $role)
+                {
+                    DB::enableQueryLog();
+                    $permissions = Permission::where('permission_user_npk', Auth::User()->user_npk)
+                                            ->where('permission_role_code', $role)->get();
+                    // dd(DB::getQueryLog());
+                    if($permissions->count()) return $next($request);
+                }
+                return abort(403, 'Unauthorized');
+            }
             return $next($request);
         }
         return redirect()->route('login');
