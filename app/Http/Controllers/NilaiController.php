@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Kip;
+use App\Status;
 use Artisan;
 use Auth;
 use Session;
