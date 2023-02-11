@@ -38,6 +38,9 @@
           <th>Tanggal Buat</th>
           <th>No KIP</th>
           <th>Judul KIP</th>
+          <th>Nilai SPV</th>
+          <th>Nilai D. Head</th>
+          <th>Nilai Comitee</th>
           <th>Status</th>
           <th>Action</th>
         </tr>
@@ -48,6 +51,9 @@
           <td>{{ date('Y-m-d H:i', strtotime($kip->kip_created_on)) }}</td>
           <td>{{ $kip->kip_no }}</td>
           <td>{{ $kip->kip_judul_tema }}</td>
+          <td>{{ $kip->spv }}</td>
+          <td>{{ $kip->depthead }}</td>
+          <td>{{ $kip->comitee }}</td>
           <td>
             <span class="badge bg-{{ $kip->status_color }}">{{ $kip->status_desc }}</span>
           </td>

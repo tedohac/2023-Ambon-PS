@@ -80,6 +80,7 @@ class NilaiController extends Controller
                 'kip_status' => $request->nilai_level
             ]);
 
+        Session::flash('success', 'Berhasil memberikan penilaian');
         return redirect()->back();   
     }
 }

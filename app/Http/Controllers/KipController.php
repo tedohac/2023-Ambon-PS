@@ -7,6 +7,7 @@ use App\Kip;
 use App\Status;
 use Artisan;
 use Auth;
+use DB;
 use Session;
 use Storage;
 
@@ -14,8 +15,21 @@ class KipController extends Controller
 {
     public function listown()
     {
-        $kiplist = Kip::join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
-                        ->where('kip_created_by', Auth::user()->user_npk)->get();
+        //$kiplist = Kip::join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
+        //                ->where('kip_created_by', Auth::user()->user_npk)->get();
+
+        $kiplist = DB::select(
+                    DB::raw("
+                    select 
+                        a.kip_created_on, a.kip_no, a.kip_judul_tema, spv.total as 'spv', depthead.total as 'depthead', comitee.total as 'comitee', s.status_desc
+                    FROM 
+                        kips a 
+                        LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.nilai_kip_no AND spv.nilai_level='spv' 
+                        LEFT JOIN vw_sum_nilai depthead ON a.kip_no=spv.nilai_kip_no AND depthead.nilai_level='depthead' 
+                        LEFT JOIN vw_sum_nilai comitee ON a.kip_no=spv.nilai_kip_no AND comitee.nilai_level='comitee'
+                        LEFT JOIN statuses s ON a.kip_status=s.status_code;
+                    ")
+                );
 
     	return view('kip.list', [
             'kips' => $kiplist
@@ -208,12 +222,12 @@ class KipController extends Controller
 
         if($request->mode == "draft")
         {
-            Session::flash('success', 'KIP saved as draft');
+            Session::flash('success', 'Draft KIP tersimpan');
             return redirect()->back();   
         }
         elseif($request->mode == "submit")
         {
-            Session::flash('success', 'KIP submitted succesfuly');
+            Session::flash('success', 'KIP tersubmit, menunggu penilaian');
             return redirect()->route('kip.view', $kip->kip_no);   
         }
     }
