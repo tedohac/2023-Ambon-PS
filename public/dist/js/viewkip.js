@@ -66,10 +66,10 @@
                 $('.nilai-input').each(function(){
                     sum += parseFloat($(this).text());
                 });
-                $('.disabled_total').text() = sum;
+                $('.disabled_total').val(sum);
             }
             else {
-                $('.disabled_total').text() = "0";
+                $('.disabled_total').val('0');
             }
         });
 
