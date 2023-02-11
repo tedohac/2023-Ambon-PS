@@ -86,7 +86,7 @@
           <td>{{ $nilai->nilai_kepekaan }}</td>
           <td>{{ $nilai->nilai_keaslian }}</td>
           <td>{{ $nilai->nilai_usaha }}</td>
-          <td>{{ $nilai->total }}</td>
+          <td>{{ $nilai->vw_total }}</td>
           @endforeach
         </tr>
       </tbody>

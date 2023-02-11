@@ -37,9 +37,9 @@ class NilaiController extends Controller
                 s.status_color
             FROM 
                 kips a 
-                LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.nilai_kip_no AND spv.nilai_level='spv' 
-                LEFT JOIN vw_sum_nilai depthead ON a.kip_no=spv.nilai_kip_no AND depthead.nilai_level='depthead' 
-                LEFT JOIN vw_sum_nilai comitee ON a.kip_no=spv.nilai_kip_no AND comitee.nilai_level='comitee'
+                LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.vw_kip_no AND spv.vw_level='spv' 
+                LEFT JOIN vw_sum_nilai depthead ON a.kip_no=depthead.vw_kip_no AND depthead.vw_level='depthead' 
+                LEFT JOIN vw_sum_nilai comitee ON a.kip_no=comitee.vw_kip_no AND comitee.vw_level='comitee'
                 LEFT JOIN statuses s ON a.kip_status=s.status_code
                 LEFT JOIN users u ON a.kip_created_by=u.user_npk
             WHERE
@@ -62,7 +62,7 @@ class NilaiController extends Controller
         if(empty($kip)) abort(404);
         
         $statuses   = Status::orderBy('status_order')->get();
-        $nilais     = Nilai::join('vw_sum_nilai', 'vw_sum_nilai.nilai_kip_no', '=', 'nilais.nilai_kip_no')
+        $nilais     = Nilai::join('vw_sum_nilai', 'vw_sum_nilai.vw_kip_no', '=', 'nilais.nilai_kip_no')
                             ->where('nilai_kip_no', $id)->get();
 
     	return view('nilai.view', [
