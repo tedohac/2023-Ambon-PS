@@ -23,7 +23,7 @@
 @endsection
 
 @section('content-title')
-  View KIP as {{ $role }}: {{ $kip->kip_no }}
+  View KIP as {{ strtoupper($role) }}: {{ $kip->kip_no }}
 @endsection
 
 @section('content-breadcumb')
@@ -54,7 +54,7 @@
 </div>
 <!-- Stepper End -->
 
-<form method="post" id="formadd" action="{{ route('kip.update') }}" enctype="multipart/form-data">
+<form method="post" id="formnilai" action="{{ route('kip.update') }}" enctype="multipart/form-data">
 @csrf
 
 @if(($kip->kip_status=='submit' && $role=='SPV'))
