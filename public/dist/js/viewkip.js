@@ -53,10 +53,10 @@
         // on form submit
         $('#checkValid').on('click',function()
         {
-
-            if($('#formadd').valid())
-            {
-                $('#modal-submit').modal('show');
-            }
+            console.log($('#formadd').valid());
+            // if($('#formadd').valid())
+            // {
+            //     $('#modal-submit').modal('show');
+            // }
         });
     });
