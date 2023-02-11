@@ -1,7 +1,9 @@
 
     $(document).ready(function(){
         // BS-Stepper Init
-        document.addEventListener('DOMContentLoaded', function () {
-            window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+        $(document).ready(function () {
+            var stepper = new Stepper($('.bs-stepper')[0])
+            
+            stepper.to(2)
         })
     });
