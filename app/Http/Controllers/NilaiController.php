@@ -15,14 +15,9 @@ use Storage;
 
 class NilaiController extends Controller
 {
-    public function listspv()
+    public function getListByDept()
     {
-        // $kips = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
-        //             ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
-        //             ->where('user_dept', Auth::user()->user_dept)
-        //             ->get();
-
-        $kips = DB::select(
+        return DB::select(
             DB::raw("
             select 
                 a.kip_created_on, 
@@ -46,6 +41,36 @@ class NilaiController extends Controller
                 u.user_dept='".Auth::user()->user_dept."'
             ")
         );
+    }
+    
+    public function getViewById($id)
+    {
+        return Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+                    ->where('kip_no', $id)
+                    ->where('user_dept', Auth::user()->user_dept)
+                    ->first();
+    }
+
+    public function getNilaiById($id)
+    {
+        return Nilai::join('vw_sum_nilai', 'vw_sum_nilai.vw_kip_no', '=', 'nilais.nilai_kip_no')
+                    ->join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
+                    ->where('nilai_kip_no', $id)->get();
+    }
+
+    public function listspv()
+    {
+        $kips = getListByDept();
+    
+    	return view('nilai.list', [
+            'kips' => $kips,
+            'role' => 'spv',
+        ]);
+    }
+    
+    public function listdepthead()
+    {
+        $kips = getListByDept();
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -55,16 +80,11 @@ class NilaiController extends Controller
     
     public function viewspv($id)
     {
-        $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
-                    ->where('kip_no', $id)
-                    ->where('user_dept', Auth::user()->user_dept)
-                    ->first();
+        $kip = getViewById($id);
         if(empty($kip)) abort(404);
         
         $statuses   = Status::orderBy('status_order')->get();
-        $nilais     = Nilai::join('vw_sum_nilai', 'vw_sum_nilai.vw_kip_no', '=', 'nilais.nilai_kip_no')
-                            ->join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
-                            ->where('nilai_kip_no', $id)->get();
+        $nilais     = getNilaiById($id);
 
     	return view('nilai.view', [
             'kip'       => $kip,
@@ -72,6 +92,23 @@ class NilaiController extends Controller
             'role'      => 'spv',
             'statuses'  => $statuses,
             'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoles('SPV'))
+        ]);
+    }
+    
+    public function viewdepthead($id)
+    {
+        $kip = getViewById($id);
+        if(empty($kip)) abort(404);
+        
+        $statuses   = Status::orderBy('status_order')->get();
+        $nilais     = getNilaiById($id);
+
+    	return view('nilai.view', [
+            'kip'       => $kip,
+            'nilais'    => $nilais,
+            'role'      => 'depthead',
+            'statuses'  => $statuses,
+            'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoles('Dept Head'))
         ]);
     }
     

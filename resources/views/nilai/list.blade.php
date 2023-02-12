@@ -60,7 +60,7 @@
             <span class="badge bg-{{ $kip->status_color }}">{{ $kip->status_desc }}</span>
           </td>
           <td>
-            @if(($kip->kip_status=='submit' && $role=='spv'))
+            @if(($kip->kip_status=='submit' && $role=='spv') || ($kip->kip_status=='spv' && $role=='depthead'))
             <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('nilai.view'.$role, $kip->kip_no) }}">
                 <i class="fa fa-fw fa-user-check"></i>
             </a>

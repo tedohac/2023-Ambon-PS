@@ -40,8 +40,11 @@ Route::group(['prefix' => 'kip', 'middleware' => 'web'], function () {
 Route::group(['prefix' => 'nilai', 'middleware' => 'web'], function () {
 
     Route::get('listspv','NilaiController@listspv')->name('nilai.listspv')->middleware('CheckPermission:SPV');
-
     Route::get('viewspv/{id}','NilaiController@viewspv')->name('nilai.viewspv')->middleware('CheckPermission:SPV');
+    
+    Route::get('listdepthead','NilaiController@listdepthead')->name('nilai.listdepthead')->middleware('CheckPermission:Dept Head');
+    Route::get('viewdepthead/{id}','NilaiController@viewdepthead')->name('nilai.viewdepthead')->middleware('CheckPermission:Dept Head');
+
     Route::post('save','NilaiController@save')->name('nilai.save')->middleware('CheckPermission:SPV');
 
 });
