@@ -103,13 +103,17 @@
         <table class="table table-bordered">
           <tr>
             <th class="text-center">Total SPV</th>
+            @if($totalNilai->spv >= 35)
             <th class="text-center">Total Dept Head</th>
+            @endif
             <th class="text-center">Total Comitee</th>
             <th class="text-center">Final</th>
           </tr>
           <tr>
             <td class="text-center">{{ $totalNilai->spv }}</td>
+            @if($totalNilai->spv >= 35)
             <td class="text-center">{{ $totalNilai->depthead }}</td>
+            @endif
             <td class="text-center">{{ $totalNilai->comitee }}</td>
             <td class="text-center">{{ $totalNilai->final }}</td>
           </tr>
