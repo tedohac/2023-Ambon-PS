@@ -62,6 +62,7 @@
     <table class="table table-hover text-nowrap">
       <thead>
         <tr>
+          <th>Penilai</th>
           <th>Level</th>
           <th>Penghematan</th>
           <th>Quality</th>
@@ -77,6 +78,7 @@
       <tbody>
         <tr>
           @foreach($nilais as $nilai)
+          <td>{{ $nilai->user_name }}</td>
           <td>{{ $nilai->nilai_level }}</td>
           <td>{{ $nilai->nilai_penghematan }}</td>
           <td>{{ $nilai->nilai_quality }}</td>

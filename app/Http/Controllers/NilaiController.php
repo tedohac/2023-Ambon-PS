@@ -63,6 +63,7 @@ class NilaiController extends Controller
         
         $statuses   = Status::orderBy('status_order')->get();
         $nilais     = Nilai::join('vw_sum_nilai', 'vw_sum_nilai.vw_kip_no', '=', 'nilais.nilai_kip_no')
+                            ->join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
                             ->where('nilai_kip_no', $id)->get();
 
     	return view('nilai.view', [
