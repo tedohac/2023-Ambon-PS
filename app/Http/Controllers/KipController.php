@@ -66,7 +66,7 @@ class KipController extends Controller
     {
         // $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
         //             ->where('kip_no', $id)->first();
-        $kip = app('App\Http\Controllers\NilaiController')->getViewById($id);
+        $kip = app('App\Http\Controllers\NilaiController')->getViewById($id, false);
         if(empty($kip)) abort(404);
         
         $statuses = Status::orderBy('status_order')->get();
