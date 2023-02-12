@@ -32,7 +32,7 @@
 
 <form method="post" id="formadd" action="{{ route('kip.update') }}" enctype="multipart/form-data">
 @csrf
-<div class="card card-info card-outline">
+<div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
       Rencana Perbaikan
@@ -114,7 +114,7 @@
 </div>
 <!-- end of card -->
 
-<div class="card card-info card-outline">
+<div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
       Laporan Perbaikan
@@ -172,7 +172,7 @@
 <!-- end of card -->
 
 
-<div class="card card-info card-outline">
+<div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
       Evaluasi Hasil Perbaikan
@@ -218,7 +218,7 @@
 <!-- end of card -->
 
 
-<div class="card card-info card-outline">
+<div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
       Tindak Lanjut atau Standarisasi
