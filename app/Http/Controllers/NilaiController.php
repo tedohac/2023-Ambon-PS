@@ -52,13 +52,24 @@ class NilaiController extends Controller
         );
     }
     
-    public function getViewById($id)
+    public function getViewById($id, $isComitee)
     {
-        return Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
-                    ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
-                    ->where('kip_no', $id)
-                    ->where('user_dept', Auth::user()->user_dept)
-                    ->first();
+        if(!$isComitee)
+        {
+            return Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+                        ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
+                        ->where('kip_no', $id)
+                        ->where('user_dept', Auth::user()->user_dept)
+                        ->first();
+        }
+        else
+        {
+            return Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+                        ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
+                        ->where('kip_no', $id)
+                        ->first();
+
+        }
     }
     
     public function getTotalNilaiById($id)
@@ -128,7 +139,7 @@ class NilaiController extends Controller
 
     public function viewspv($id)
     {
-        $kip = NilaiController::getViewById($id);
+        $kip = NilaiController::getViewById($id, false);
         if(empty($kip)) abort(404);
         
         $statuses   = Status::orderBy('status_order')->get();
@@ -147,7 +158,7 @@ class NilaiController extends Controller
     
     public function viewdepthead($id)
     {
-        $kip = NilaiController::getViewById($id);
+        $kip = NilaiController::getViewById($id, false);
         if(empty($kip)) abort(404);
         
         $statuses   = Status::orderBy('status_order')->get();
@@ -166,7 +177,7 @@ class NilaiController extends Controller
     
     public function viewcomitee($id)
     {
-        $kip = NilaiController::getViewById($id);
+        $kip = NilaiController::getViewById($id, true);
         if(empty($kip)) abort(404);
         
         $statuses   = Status::orderBy('status_order')->get();
