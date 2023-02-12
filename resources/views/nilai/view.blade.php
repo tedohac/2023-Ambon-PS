@@ -95,20 +95,20 @@
       </tbody>
     </table>
 
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center mt-5">
       <div class="col-lg-4 col-md-6 col-12">
         <table class="table table-bordered">
           <tr>
-            <th>Total SPV</th>
-            <th>Total Dept Head</th>
-            <th>Total Comitee</th>
-            <th>Final</th>
+            <th class="align-middle">Total SPV</th>
+            <th class="align-middle">Total Dept Head</th>
+            <th class="align-middle">Total Comitee</th>
+            <th class="align-middle">Final</th>
           </tr>
           <tr>
-            <td>{{ $totalNilai->spv }}</td>
-            <td>{{ $totalNilai->depthead }}</td>
-            <td>{{ $totalNilai->comitee }}</td>
-            <td>{{ $totalNilai->final }}</td>
+            <td class="align-middle">{{ $totalNilai->spv }}</td>
+            <td class="align-middle">{{ $totalNilai->depthead }}</td>
+            <td class="align-middle">{{ $totalNilai->comitee }}</td>
+            <td class="align-middle">{{ $totalNilai->final }}</td>
           </tr>
         </table>
       </div>
