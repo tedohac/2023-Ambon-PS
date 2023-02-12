@@ -51,6 +51,27 @@ class NilaiController extends Controller
                     ->where('user_dept', Auth::user()->user_dept)
                     ->first();
     }
+    
+    public function getTotalNilaiById($id)
+    {
+        return DB::select(
+            DB::raw("
+            select 
+                a.kip_no, 
+                IFNULL(spv.vw_total, 0) as 'spv', 
+                IFNULL(depthead.vw_total, 0) as 'depthead', 
+                IFNULL(comitee.vw_total, 0) as 'comitee',
+                TRUNCATE(((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2) as 'final',
+            FROM 
+                kips a 
+                LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.vw_kip_no AND spv.vw_level='spv' 
+                LEFT JOIN vw_sum_nilai depthead ON a.kip_no=depthead.vw_kip_no AND depthead.vw_level='depthead' 
+                LEFT JOIN vw_sum_nilai comitee ON a.kip_no=comitee.vw_kip_no AND comitee.vw_level='comitee'
+            WHERE
+                a.kip_no='".$id."'
+            ")
+        );
+    }
 
     public function getNilaiById($id)
     {
@@ -90,12 +111,14 @@ class NilaiController extends Controller
         
         $statuses   = Status::orderBy('status_order')->get();
         $nilais     = NilaiController::getNilaiById($id);
+        $totalNilai = NilaiController::getTotalNilaiById($id);
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
             'role'      => 'spv',
             'statuses'  => $statuses,
+            'totalNilai'=> $totalNilai,
             'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoles('SPV'))
         ]);
     }
@@ -107,12 +130,14 @@ class NilaiController extends Controller
         
         $statuses   = Status::orderBy('status_order')->get();
         $nilais     = NilaiController::getNilaiById($id);
+        $totalNilai = NilaiController::getTotalNilaiById($id);
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
             'role'      => 'depthead',
             'statuses'  => $statuses,
+            'totalNilai'=> $totalNilai,
             'showForm'  => ($kip->kip_status=='spv' && Permission::hasRoles('Dept Head'))
         ]);
     }

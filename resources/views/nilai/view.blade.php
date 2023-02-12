@@ -94,6 +94,27 @@
         @endforeach
       </tbody>
     </table>
+
+    <div class="row justify-content-md-center">
+      <div class="col-lg-4 col-md-6 col-12">
+        <table class="table table-bordered">
+          <tr>
+            <th>Total SPV</th>
+            <th>Total Dept Head</th>
+            <th>Total Comitee</th>
+            <th>Final</th>
+          </tr>
+          <tr>
+            <td>{{ $totalNilai->spv }}</td>
+            <td>{{ $totalNilai->depthead }}</td>
+            <td>{{ $totalNilai->comitee }}</td>
+            <td>{{ $totalNilai->final }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- end row -->
+
   </div>
 </div>
 <!-- Penilaian End -->
