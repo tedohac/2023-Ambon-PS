@@ -54,6 +54,7 @@
 </div>
 <!-- Stepper End -->
 
+@if($kip->kip_status!="draft" && $kip->kip_status!="submit")
 <div class="card">
   <div class="card-header">
     <h3 class="card-title">Penilaian</h3>
@@ -96,6 +97,7 @@
   </div>
 </div>
 <!-- Penilaian End -->
+@endif
 
 <form method="post" id="formnilai" action="{{ route('nilai.save') }}" enctype="multipart/form-data">
 @csrf
