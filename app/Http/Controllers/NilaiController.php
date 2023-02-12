@@ -60,7 +60,7 @@ class NilaiController extends Controller
 
     public function listspv()
     {
-        $kips = getListByDept();
+        $kips = NilaiController::getListByDept();
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -70,7 +70,7 @@ class NilaiController extends Controller
     
     public function listdepthead()
     {
-        $kips = getListByDept();
+        $kips = NilaiController::getListByDept();
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -80,11 +80,11 @@ class NilaiController extends Controller
     
     public function viewspv($id)
     {
-        $kip = getViewById($id);
+        $kip = NilaiController::getViewById($id);
         if(empty($kip)) abort(404);
         
         $statuses   = Status::orderBy('status_order')->get();
-        $nilais     = getNilaiById($id);
+        $nilais     = NilaiController::getNilaiById($id);
 
     	return view('nilai.view', [
             'kip'       => $kip,
@@ -97,11 +97,11 @@ class NilaiController extends Controller
     
     public function viewdepthead($id)
     {
-        $kip = getViewById($id);
+        $kip = NilaiController::getViewById($id);
         if(empty($kip)) abort(404);
         
         $statuses   = Status::orderBy('status_order')->get();
-        $nilais     = getNilaiById($id);
+        $nilais     = NilaiController::getNilaiById($id);
 
     	return view('nilai.view', [
             'kip'       => $kip,
