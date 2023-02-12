@@ -43,7 +43,7 @@
     @endif
     <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
       <button type="button" class="step-trigger" disabled>
-        <span class="bs-stepper-circle">{{ $num }}</span>
+        <span class="bs-stepper-circle">{{ $status->status_order }}</span>
         <span class="bs-stepper-label">{{ $status->status_code }}</span>
       </button>
     </div>
