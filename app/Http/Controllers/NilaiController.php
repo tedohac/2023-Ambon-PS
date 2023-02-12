@@ -38,7 +38,7 @@ class NilaiController extends Controller
             LEFT JOIN users u ON a.kip_created_by=u.user_npk
         ";
 
-        if($isComitee)
+        if(!$isComitee)
         {
             $query = $query."
             WHERE
@@ -92,7 +92,6 @@ class NilaiController extends Controller
         //             ->join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
         //             ->where('nilai_kip_no', $id)->get();
 
-        
         return Nilai::join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
                     ->where('nilai_kip_no', $id)->get();
     }
