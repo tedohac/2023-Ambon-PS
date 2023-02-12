@@ -7,49 +7,49 @@
                 nilai_penghematan: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
                 nilai_quality: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
                 nilai_safety: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
                 nilai_ergonomi: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
                 nilai_manfaat: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
                 nilai_kepekaan: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
                 nilai_keaslian: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
                 nilai_usaha: {
                     required: true,
                     number: true,
-                    max: 100,
+                    max: 10,
                     min: 0
                 },
             },
