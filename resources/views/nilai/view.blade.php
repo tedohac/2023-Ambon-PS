@@ -33,6 +33,7 @@
 
 @section('content')
 
+<!-- Stepper Begin -->
 <div class="bs-stepper">
   <div class="bs-stepper-header" role="tablist">
 

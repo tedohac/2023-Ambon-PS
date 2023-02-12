@@ -34,13 +34,14 @@
 @section('content')
 
 <!-- Stepper Begin -->
-
-
 <div class="bs-stepper">
   <div class="bs-stepper-header" role="tablist">
 
   @php ($num = 1)
   @foreach($statuses as $status)
+    @if($status->status_code=='depthead' && $totalNilai->spv < 35)
+      @continue
+    @endif
     <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
       <button type="button" class="step-trigger" disabled>
         <span class="bs-stepper-circle">{{ $num }}</span>
@@ -56,6 +57,73 @@
   
 </div>
 <!-- Stepper End -->
+
+@if($kip->kip_status!="draft" && $kip->kip_status!="submit")
+<div class="card">
+  <div class="card-body table-responsive p-0">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>Penilai</th>
+          <th>Level</th>
+          <th>Penghematan</th>
+          <th>Quality</th>
+          <th>Safety</th>
+          <th>Ergonomi</th>
+          <th>Manfaat</th>
+          <th>Kepekaan</th>
+          <th>Keaslian</th>
+          <th>Usaha</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($nilais as $nilai)
+        <tr>
+          <td>{{ $nilai->user_name }}</td>
+          <td>{{ $nilai->nilai_level }}</td>
+          <td>{{ $nilai->nilai_penghematan }}</td>
+          <td>{{ $nilai->nilai_quality }}</td>
+          <td>{{ $nilai->nilai_safety }}</td>
+          <td>{{ $nilai->nilai_ergonomi }}</td>
+          <td>{{ $nilai->nilai_manfaat }}</td>
+          <td>{{ $nilai->nilai_kepekaan }}</td>
+          <td>{{ $nilai->nilai_keaslian }}</td>
+          <td>{{ $nilai->nilai_usaha }}</td>
+          <td>{{ $nilai->vw_total }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+
+    <div class="row justify-content-md-center mt-4">
+      <div class="col-lg-4 col-md-6 col-12">
+        <table class="table table-bordered">
+          <tr>
+            <th class="text-center">Total SPV</th>
+            @if($totalNilai->spv >= 35)
+            <th class="text-center">Total Dept Head</th>
+            @endif
+            <th class="text-center">Total Comitee</th>
+            <th class="text-center">Final</th>
+          </tr>
+          <tr>
+            <td class="text-center">{{ $totalNilai->spv }}</td>
+            @if($totalNilai->spv >= 35)
+            <td class="text-center">{{ $totalNilai->depthead }}</td>
+            @endif
+            <td class="text-center">{{ $totalNilai->comitee }}</td>
+            <td class="text-center">{{ $totalNilai->final }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- end row -->
+
+  </div>
+</div>
+<!-- Penilaian End -->
+@endif
 
 <div class="card card-warning card-outline">
   <div class="card-header">

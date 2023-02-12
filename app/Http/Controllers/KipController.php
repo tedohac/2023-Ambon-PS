@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Kip;
 use App\Status;
+use NilaiController;
 use Artisan;
 use Auth;
 use DB;
@@ -63,15 +64,20 @@ class KipController extends Controller
     
     public function view($id)
     {
-        $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
-                    ->where('kip_no', $id)->first();
+        // $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+        //             ->where('kip_no', $id)->first();
+        $kip = NilaiController::getViewById($id);
         if(empty($kip)) abort(404);
         
         $statuses = Status::orderBy('status_order')->get();
+        $nilais     = NilaiController::getNilaiById($id);
+        $totalNilai = NilaiController::getTotalNilaiById($id);
 
     	return view('kip.view', [
             'kip'       => $kip,
-            'statuses'    => $statuses
+            'nilais'    => $nilais,
+            'statuses'    => $statuses,
+            'totalNilai'=> $totalNilai[0]
         ]);
     }
     

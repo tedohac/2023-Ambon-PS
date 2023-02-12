@@ -15,31 +15,40 @@ use Storage;
 
 class NilaiController extends Controller
 {
-    public function getListByDept()
+    public function getListByDept($isComitee)
     {
-        return DB::select(
-            DB::raw("
-            select 
-                a.kip_created_on, 
-                a.kip_no, 
-                a.kip_judul_tema, 
-                a.kip_status, 
-                IFNULL(spv.vw_total, 0) as 'spv', 
-                IFNULL(depthead.vw_total, 0) as 'depthead', 
-                IFNULL(comitee.vw_total, 0) as 'comitee',
-                TRUNCATE(((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2) as 'final',
-                s.status_desc, 
-                s.status_color
-            FROM 
-                kips a 
-                LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.vw_kip_no AND spv.vw_level='spv' 
-                LEFT JOIN vw_sum_nilai depthead ON a.kip_no=depthead.vw_kip_no AND depthead.vw_level='depthead' 
-                LEFT JOIN vw_sum_nilai comitee ON a.kip_no=comitee.vw_kip_no AND comitee.vw_level='comitee'
-                LEFT JOIN statuses s ON a.kip_status=s.status_code
-                LEFT JOIN users u ON a.kip_created_by=u.user_npk
+        $query = "
+        select 
+            a.kip_created_on, 
+            a.kip_no, 
+            a.kip_judul_tema, 
+            a.kip_status, 
+            IFNULL(spv.vw_total, 0) as 'spv', 
+            IFNULL(depthead.vw_total, 0) as 'depthead', 
+            IFNULL(comitee.vw_total, 0) as 'comitee',
+            TRUNCATE(((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2) as 'final',
+            s.status_desc, 
+            s.status_color
+        FROM 
+            kips a 
+            LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.vw_kip_no AND spv.vw_level='spv' 
+            LEFT JOIN vw_sum_nilai depthead ON a.kip_no=depthead.vw_kip_no AND depthead.vw_level='depthead' 
+            LEFT JOIN vw_sum_nilai comitee ON a.kip_no=comitee.vw_kip_no AND comitee.vw_level='comitee'
+            LEFT JOIN statuses s ON a.kip_status=s.status_code
+            LEFT JOIN users u ON a.kip_created_by=u.user_npk
+        ";
+
+        if($isComitee)
+        {
+            $query = $query."
             WHERE
                 u.user_dept='".Auth::user()->user_dept."'
-            ")
+            ";
+        }
+        
+
+        return DB::select(
+            DB::raw($query)
         );
     }
     
@@ -86,7 +95,7 @@ class NilaiController extends Controller
 
     public function listspv()
     {
-        $kips = NilaiController::getListByDept();
+        $kips = NilaiController::getListByDept(false);
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -96,7 +105,7 @@ class NilaiController extends Controller
     
     public function listdepthead()
     {
-        $kips = NilaiController::getListByDept();
+        $kips = NilaiController::getListByDept(false);
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -104,6 +113,16 @@ class NilaiController extends Controller
         ]);
     }
     
+    public function listcomitee()
+    {
+        $kips = NilaiController::getListByDept(true);
+    
+    	return view('nilai.list', [
+            'kips' => $kips,
+            'role' => 'comitee',
+        ]);
+    }
+
     public function viewspv($id)
     {
         $kip = NilaiController::getViewById($id);
@@ -139,6 +158,25 @@ class NilaiController extends Controller
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
             'showForm'  => ($kip->kip_status=='spv' && $totalNilai[0]->spv >= 35 && Permission::hasRoles('Dept Head'))
+        ]);
+    }
+    
+    public function viewcomitee($id)
+    {
+        $kip = NilaiController::getViewById($id);
+        if(empty($kip)) abort(404);
+        
+        $statuses   = Status::orderBy('status_order')->get();
+        $nilais     = NilaiController::getNilaiById($id);
+        $totalNilai = NilaiController::getTotalNilaiById($id);
+
+    	return view('nilai.view', [
+            'kip'       => $kip,
+            'nilais'    => $nilais,
+            'role'      => 'comitee',
+            'statuses'  => $statuses,
+            'totalNilai'=> $totalNilai[0],
+            'showForm'  => ((($kip->kip_status=='spv' && $totalNilai[0]->spv < 35) || ($kip->kip_status=='depthead' && $totalNilai[0]->spv >= 35)) && Permission::hasRoles('Comitee'))
         ]);
     }
     
