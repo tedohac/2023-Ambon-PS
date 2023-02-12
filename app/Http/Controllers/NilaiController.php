@@ -74,7 +74,7 @@ class NilaiController extends Controller
     
     	return view('nilai.list', [
             'kips' => $kips,
-            'role' => 'spv',
+            'role' => 'depthead',
         ]);
     }
     
