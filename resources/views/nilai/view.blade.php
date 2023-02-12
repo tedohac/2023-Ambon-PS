@@ -37,8 +37,9 @@
 <div class="bs-stepper">
   <div class="bs-stepper-header" role="tablist">
 
-  @php ($num = 1)
+  @php ($num = 0)
   @foreach($statuses as $status)
+    @php ($num++)
     @if($status->status_code=='depthead' && $totalNilai->spv < 35)
       @continue
     @endif
