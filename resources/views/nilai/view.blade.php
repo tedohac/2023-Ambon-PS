@@ -77,8 +77,8 @@
         </tr>
       </thead>
       <tbody>
+        @foreach($nilais as $nilai)
         <tr>
-          @foreach($nilais as $nilai)
           <td>{{ $nilai->user_name }}</td>
           <td>{{ $nilai->nilai_level }}</td>
           <td>{{ $nilai->nilai_penghematan }}</td>
@@ -90,8 +90,8 @@
           <td>{{ $nilai->nilai_keaslian }}</td>
           <td>{{ $nilai->nilai_usaha }}</td>
           <td>{{ $nilai->vw_total }}</td>
-          @endforeach
         </tr>
+        @endforeach
       </tbody>
     </table>
   </div>
