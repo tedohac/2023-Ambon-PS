@@ -28,7 +28,7 @@ class NilaiController extends Controller
             IFNULL(comitee.vw_total, 0) as 'comitee',
             CASE
                 WHEN IFNULL(spv.vw_total, 0) >= 35 THEN
-                    TRUNCATE(((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
+                    TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
                 ELSE
                     TRUNCATE((IFNULL(spv.vw_total, 0)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
             END as 'final'
@@ -88,7 +88,7 @@ class NilaiController extends Controller
                 IFNULL(comitee.vw_total, 0) as 'comitee',
                 CASE
                     WHEN IFNULL(spv.vw_total, 0) >= 35 THEN
-                        TRUNCATE(((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
+                        TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
                     ELSE
                         TRUNCATE((IFNULL(spv.vw_total, 0)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
                 END as 'final'
