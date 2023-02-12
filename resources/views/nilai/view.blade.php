@@ -118,63 +118,63 @@
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_penghematan" class="mb-1">Penghematan</label>
-          <input type="text" class="form-control nilai-input" name="nilai_penghematan" id="nilai_penghematan" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_penghematan" id="nilai_penghematan">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_quality" class="mb-1">Quality</label>
-          <input type="text" class="form-control nilai-input" name="nilai_quality" id="nilai_quality" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_quality" id="nilai_quality">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_safety" class="mb-1">Safety</label>
-          <input type="text" class="form-control nilai-input" name="nilai_safety" id="nilai_safety" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_safety" id="nilai_safety">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_ergonomi" class="mb-1">Ergonomi</label>
-          <input type="text" class="form-control nilai-input" name="nilai_ergonomi" id="nilai_ergonomi" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_ergonomi" id="nilai_ergonomi">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_manfaat" class="mb-1">Manfaat</label>
-          <input type="text" class="form-control nilai-input" name="nilai_manfaat" id="nilai_manfaat" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_manfaat" id="nilai_manfaat">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_kepekaan" class="mb-1">Kepekaan</label>
-          <input type="text" class="form-control nilai-input" name="nilai_kepekaan" id="nilai_kepekaan" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_kepekaan" id="nilai_kepekaan">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_keaslian" class="mb-1">Keaslian</label>
-          <input type="text" class="form-control nilai-input" name="nilai_keaslian" id="nilai_keaslian" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_keaslian" id="nilai_keaslian">
         </div>
       </div>
       
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="nilai_usaha" class="mb-1">Usaha</label>
-          <input type="text" class="form-control nilai-input" name="nilai_usaha" id="nilai_usaha" value="0">
+          <input type="text" class="form-control nilai-input" name="nilai_usaha" id="nilai_usaha">
         </div>
       </div>
 
       <div class="col-lg-3 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_total" class="mb-1">Total</label>
-          <input type="text" class="form-control" name="disabled_total" id="disabled_total" readonly>
+          <input type="text" class="form-control" name="disabled_total" id="disabled_total" value="0" readonly>
         </div>
       </div>
 

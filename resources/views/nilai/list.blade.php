@@ -25,10 +25,6 @@
     <h3 class="card-title">
       Data Kreatif Ide Perbaikan
     </h3>
-    <a href="{{ url('kip/new') }}" class="btn btn-primary btn-sm float-right">
-      <i class="fas fa-plus"></i>  
-      Create New
-    </a>
   </div>
   <div class="card-body">
 
