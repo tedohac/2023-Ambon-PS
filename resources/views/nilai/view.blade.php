@@ -38,6 +38,9 @@
 
   @php ($num = 1)
   @foreach($statuses as $status)
+    @if($status->status_code=='depthead' && $totalNilai->spv < 35)
+      @continue
+    @endif
     <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
       <button type="button" class="step-trigger" disabled>
         <span class="bs-stepper-circle">{{ $num }}</span>
@@ -95,20 +98,20 @@
       </tbody>
     </table>
 
-    <div class="row justify-content-md-center mt-5">
+    <div class="row justify-content-md-center mt-4">
       <div class="col-lg-4 col-md-6 col-12">
         <table class="table table-bordered">
           <tr>
-            <th class="align-middle">Total SPV</th>
-            <th class="align-middle">Total Dept Head</th>
-            <th class="align-middle">Total Comitee</th>
-            <th class="align-middle">Final</th>
+            <th class="text-center">Total SPV</th>
+            <th class="text-center">Total Dept Head</th>
+            <th class="text-center">Total Comitee</th>
+            <th class="text-center">Final</th>
           </tr>
           <tr>
-            <td class="align-middle">{{ $totalNilai->spv }}</td>
-            <td class="align-middle">{{ $totalNilai->depthead }}</td>
-            <td class="align-middle">{{ $totalNilai->comitee }}</td>
-            <td class="align-middle">{{ $totalNilai->final }}</td>
+            <td class="text-center">{{ $totalNilai->spv }}</td>
+            <td class="text-center">{{ $totalNilai->depthead }}</td>
+            <td class="text-center">{{ $totalNilai->comitee }}</td>
+            <td class="text-center">{{ $totalNilai->final }}</td>
           </tr>
         </table>
       </div>
