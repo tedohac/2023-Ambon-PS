@@ -197,9 +197,7 @@ class NilaiController extends Controller
     public function save(Request $request)
     {
         // validation with kip_no & user_dept
-        $kip = Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
-                    ->where('kip_no', $request->nilai_kip_no)
-                    ->where('user_dept', Auth::user()->user_dept)
+        $kip = Kip::where('kip_no', $request->nilai_kip_no)
                     ->first();
         if(empty($kip)) abort(404);
         
