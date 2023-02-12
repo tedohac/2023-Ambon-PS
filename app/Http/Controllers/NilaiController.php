@@ -137,7 +137,7 @@ class NilaiController extends Controller
             'nilais'    => $nilais,
             'role'      => 'depthead',
             'statuses'  => $statuses,
-            'totalNilai'=> $totalNilai,
+            'totalNilai'=> $totalNilai[0],
             'showForm'  => ($kip->kip_status=='spv' && Permission::hasRoles('Dept Head'))
         ]);
     }
