@@ -53,7 +53,7 @@
 </div>
 <!-- Stepper End -->
 
-<div class="alert alert-danger">
+<div class="alert alert-secondary">
     {{ $kip->status_desc }}
 </div>
 
