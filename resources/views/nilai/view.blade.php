@@ -50,9 +50,12 @@
     @php ($num++)
   @endforeach
   </div>
-  
 </div>
 <!-- Stepper End -->
+
+<div class="alert alert-danger">
+    {{ $kip->status_desc }}
+</div>
 
 @if($kip->kip_status!="draft" && $kip->kip_status!="submit")
 <div class="card">
