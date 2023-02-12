@@ -27,7 +27,7 @@ class NilaiController extends Controller
                 IFNULL(spv.vw_total, 0) as 'spv', 
                 IFNULL(depthead.vw_total, 0) as 'depthead', 
                 IFNULL(comitee.vw_total, 0) as 'comitee',
-                IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)+IFNULL(comitee.vw_total, 0) as 'final',
+                (AVG(IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))*40/100)+(IFNULL(comitee.vw_total, 0)*60/100) as 'final',
                 s.status_desc, 
                 s.status_color
             FROM 
