@@ -98,7 +98,7 @@
       </tbody>
     </table>
 
-    <div class="row justify-content-md-center mt-4">
+    <div class="row justify-content-md-center mt-4 mx-0">
       <div class="col-lg-4 col-md-6 col-12">
         <table class="table table-bordered">
           <tr>
