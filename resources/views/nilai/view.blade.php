@@ -59,9 +59,6 @@
 
 @if($kip->kip_status!="draft" && $kip->kip_status!="submit")
 <div class="card">
-  <div class="card-header">
-    <h3 class="card-title">Penilaian</h3>
-  </div>
   <div class="card-body table-responsive p-0">
     <table class="table table-hover text-nowrap">
       <thead>
