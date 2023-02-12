@@ -45,6 +45,6 @@ Route::group(['prefix' => 'nilai', 'middleware' => 'web'], function () {
     Route::get('listdepthead','NilaiController@listdepthead')->name('nilai.listdepthead')->middleware('CheckPermission:Dept Head');
     Route::get('viewdepthead/{id}','NilaiController@viewdepthead')->name('nilai.viewdepthead')->middleware('CheckPermission:Dept Head');
 
-    Route::post('save','NilaiController@save')->name('nilai.save')->middleware('CheckPermission:SPV');
+    Route::post('save','NilaiController@save')->name('nilai.save')->middleware('CheckPermission:SPV|Dept Head');
 
 });
