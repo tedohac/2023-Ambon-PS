@@ -37,9 +37,7 @@
 <div class="bs-stepper">
   <div class="bs-stepper-header" role="tablist">
 
-  @php ($num = 0)
   @foreach($statuses as $status)
-    @php ($num++)
     @if($status->status_code=='depthead' && $totalNilai->spv < 35)
       @continue
     @endif
@@ -49,10 +47,9 @@
         <span class="bs-stepper-label">{{ $status->status_code }}</span>
       </button>
     </div>
-    @if ($num < count($statuses))
+    @if ($status->status_order < count($statuses))
     <div class="line"></div>
     @endif
-    @php ($num++)
   @endforeach
   </div>
 </div>
