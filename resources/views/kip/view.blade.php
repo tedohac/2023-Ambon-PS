@@ -58,6 +58,10 @@
 </div>
 <!-- Stepper End -->
 
+<div class="alert alert-secondary">
+    {{ $kip->status_desc }}
+</div>
+
 @if($kip->kip_status!="draft" && $kip->kip_status!="submit")
 <div class="card">
   <div class="card-body table-responsive p-0">
@@ -74,7 +78,6 @@
           <th>Kepekaan</th>
           <th>Keaslian</th>
           <th>Usaha</th>
-          <th>Total</th>
         </tr>
       </thead>
       <tbody>
@@ -90,7 +93,6 @@
           <td>{{ $nilai->nilai_kepekaan }}</td>
           <td>{{ $nilai->nilai_keaslian }}</td>
           <td>{{ $nilai->nilai_usaha }}</td>
-          <td>{{ $nilai->vw_total }}</td>
         </tr>
         @endforeach
       </tbody>

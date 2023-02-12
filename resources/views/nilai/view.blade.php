@@ -77,7 +77,6 @@
           <th>Kepekaan</th>
           <th>Keaslian</th>
           <th>Usaha</th>
-          <th>Total</th>
         </tr>
       </thead>
       <tbody>
@@ -93,7 +92,6 @@
           <td>{{ $nilai->nilai_kepekaan }}</td>
           <td>{{ $nilai->nilai_keaslian }}</td>
           <td>{{ $nilai->nilai_usaha }}</td>
-          <td>{{ $nilai->vw_total }}</td>
         </tr>
         @endforeach
       </tbody>

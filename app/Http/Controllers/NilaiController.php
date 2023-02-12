@@ -84,12 +84,16 @@ class NilaiController extends Controller
 
     public function getNilaiById($id)
     {
-        return Nilai::join('vw_sum_nilai', function($join)
-                    {
-                        $join->on('vw_sum_nilai.vw_kip_no', '=', 'nilais.nilai_kip_no');
-                        $join->on('vw_sum_nilai.vw_level', '=', 'nilais.nilai_level');
-                    })
-                    ->join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
+        // return Nilai::join('vw_sum_nilai', function($join)
+        //             {
+        //                 $join->on('vw_sum_nilai.vw_kip_no', '=', 'nilais.nilai_kip_no');
+        //                 $join->on('vw_sum_nilai.vw_level', '=', 'nilais.nilai_level');
+        //             })
+        //             ->join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
+        //             ->where('nilai_kip_no', $id)->get();
+
+        
+        return Nilai::join('users', 'users.user_npk', '=', 'nilais.nilai_created_by')
                     ->where('nilai_kip_no', $id)->get();
     }
 
