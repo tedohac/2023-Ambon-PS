@@ -61,7 +61,7 @@ class NilaiController extends Controller
                 IFNULL(spv.vw_total, 0) as 'spv', 
                 IFNULL(depthead.vw_total, 0) as 'depthead', 
                 IFNULL(comitee.vw_total, 0) as 'comitee',
-                TRUNCATE(((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2) as 'final',
+                TRUNCATE(((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0)/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2) as 'final'
             FROM 
                 kips a 
                 LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.vw_kip_no AND spv.vw_level='spv' 
