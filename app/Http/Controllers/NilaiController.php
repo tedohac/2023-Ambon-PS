@@ -108,7 +108,7 @@ class NilaiController extends Controller
             'nilais'    => $nilais,
             'role'      => 'depthead',
             'statuses'  => $statuses,
-            'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoles('Dept Head'))
+            'showForm'  => ($kip->kip_status=='spv' && Permission::hasRoles('Dept Head'))
         ]);
     }
     
