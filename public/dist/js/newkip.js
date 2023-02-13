@@ -112,10 +112,10 @@
             var newRow = $("<tr>");
             var cols = "";
     
-            cols += '<td><input type="text" class="form-control" name="biaya_desc' + counter + '"/></td>';
-            cols += '<td><input type="text" class="form-control" name="biaya_harga' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control val-biaya-desc" name="biaya_desc' + counter + '"/></td>';
+            cols += '<td><input type="text" class="form-control val-biaya-harga" name="biaya_harga' + counter + '"/></td>';
     
-            cols += '<td><input type="button" class="ibtnDel btn btn-md btn-danger "  value="Delete"></td>';
+            cols += '<td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>';
             newRow.append(cols);
             $("table.order-list").append(newRow);
             counter++;
