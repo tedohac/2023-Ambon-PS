@@ -96,6 +96,16 @@
             }
         });
 
+        // table biaya validation
+        $(".val-biaya-desc").rules("add", { 
+            required:true
+        });
+        $(".val-biaya-harga").rules("add", { 
+            required:true,
+            number: true,
+            min: 0
+        });
+
         // add row biaya
         var counter = 1;
         $("#biayaAddrow").on("click", function () {
