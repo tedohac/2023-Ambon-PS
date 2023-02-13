@@ -228,6 +228,11 @@
           <td><input type="text" name="biaya_harga0" class="form-control val-biaya-harga"/></td>
           <td><a class="deleteRow"></a></td>
         </tr>
+        <tr>
+          <td><input type="text" name="biaya_desc1" class="form-control val-biaya-desc"/></td>
+          <td><input type="text" name="biaya_harga1" class="form-control val-biaya-harga"/></td>
+          <td><a class="deleteRow"></a></td>
+        </tr>
       </tbody>
       <tfoot>
           <tr>
