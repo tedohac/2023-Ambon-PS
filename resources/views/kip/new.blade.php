@@ -186,13 +186,6 @@
 
       <div class="col-12">
         <div class="form-group">
-          <label for="kip_eval_biaya" class="mb-1">Biaya Perbaikan</label>
-          <textarea class="form-control jodit" name="kip_eval_biaya" id="kip_eval_biaya"></textarea>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <div class="form-group">
           <label for="kip_eval_benefit_kuantitatif" class="mb-1">Benefit Kuantitatif</label>
           <textarea class="form-control jodit" name="kip_eval_benefit_kuantitatif" id="kip_eval_benefit_kuantitatif"></textarea>
         </div>
@@ -213,6 +206,40 @@
 </div>
 <!-- end of card -->
 
+<div class="card card-info">
+  <div class="card-body table-responsive p-0">
+    <label>Biaya Perbaikan</label>
+
+    <table class="table order-list table-hover text-nowrap" id="tableBiaya">
+      <thead>
+        <tr>
+          <th>Desc</th>
+          <th>Harga</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><input type="text" name="biaya_desc1" class="form-control" /></td>
+          <td><input type="text" name="biaya_harga1" class="form-control"/></td>
+          <td><a class="deleteRow"></a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="2">
+                  <input type="button" class="btn btn-lg btn-block" id="biayaAddrow" value="Add Row" />
+              </td>
+          </tr>
+          <tr>
+          </tr>
+      </tfoot>
+    </table>
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
 
 <div class="card card-info">
   <div class="card-header">
