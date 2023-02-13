@@ -207,8 +207,12 @@
 <!-- end of card -->
 
 <div class="card card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Biaya Perbaikan
+    </h3>
+  </div>
   <div class="card-body table-responsive p-0">
-    <label class="ml-3 mt-3">Biaya Perbaikan</label>
 
     <table class="table order-list table-hover text-nowrap" id="tableBiaya">
       <thead>
@@ -228,7 +232,7 @@
       <tfoot>
           <tr>
               <td colspan="2">
-                  <input type="button" class="btn btn-lg btn-block" id="biayaAddrow" value="Add Row" />
+                  <input type="button" class="btn btn-block" id="biayaAddrow" value="Add Row" />
               </td>
               <td></td>
           </tr>
