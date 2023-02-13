@@ -208,7 +208,7 @@
 
 <div class="card card-info">
   <div class="card-body table-responsive p-0">
-    <label>Biaya Perbaikan</label>
+    <label class="ml-3 mt-3">Biaya Perbaikan</label>
 
     <table class="table order-list table-hover text-nowrap" id="tableBiaya">
       <thead>
@@ -220,8 +220,8 @@
       </thead>
       <tbody>
         <tr>
-          <td><input type="text" name="biaya_desc1" class="form-control" /></td>
-          <td><input type="text" name="biaya_harga1" class="form-control"/></td>
+          <td><input type="text" name="biaya_desc0" class="form-control" /></td>
+          <td><input type="text" name="biaya_harga0" class="form-control"/></td>
           <td><a class="deleteRow"></a></td>
         </tr>
       </tbody>
@@ -230,8 +230,7 @@
               <td colspan="2">
                   <input type="button" class="btn btn-lg btn-block" id="biayaAddrow" value="Add Row" />
               </td>
-          </tr>
-          <tr>
+              <td></td>
           </tr>
       </tfoot>
     </table>
