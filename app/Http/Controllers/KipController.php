@@ -85,7 +85,8 @@ class KipController extends Controller
     public function new()
     {    	
         return view('kip.new', [
-            'user' => auth()->user()
+            'user' => auth()->user(),
+            'biayacounter' => '0'
         ]);
     }
     
@@ -257,6 +258,29 @@ class KipController extends Controller
                 'kip_eval_benefit_kualitatif'   => htmlspecialchars($request->kip_eval_benefit_kualitatif),
                 'kip_pengontrolan'              => htmlspecialchars($request->kip_pengontrolan)
             ]);
+
+        // delete Biaya before insert
+        Biaya::where('biaya_kip_no', $request->kip_no)->delete();
+
+        // save biaya
+        $counter = 0;
+        while($counter <= $request->biayacount)
+        {
+            $biaya = new Biaya;
+            $biaya->biaya_id    = $counter + 1;
+            $biaya->biaya_kip_no= $request->kip_no;
+            $biaya->biaya_desc  = request('biaya_desc'.$counter);
+            $biaya->biaya_harga = request('biaya_harga'.$counter);
+            $simpanbiaya = $biaya->save();   
+
+            if(!$simpanbiaya)
+            {
+                Session::flash('error', 'Menyimpan biaya gagal! Mohon hubungi admin');
+                return redirect()->back();   
+            }       
+
+            $counter++;
+        }
 
         if($request->mode == "draft")
         {

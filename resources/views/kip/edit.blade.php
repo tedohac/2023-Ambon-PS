@@ -69,6 +69,13 @@
           <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" value="{{ $kip->user_dept }}" disabled>
         </div>
       </div>
+      
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
+          <label for="disabled_line" class="mb-1">Line</label>
+          <input type="text" class="form-control" name="disabled_line" id="disabled_line" value="{{ $kip->user_line }}" disabled>
+        </div>
+      </div>
 
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
@@ -82,13 +89,6 @@
             <option value="Kualitas"      {{ ($kip->kip_kategori=='Kualitas') ? 'selected' : '' }}>Kualitas</option>
             <option value="Produktifitas" {{ ($kip->kip_kategori=='Produktifitas') ? 'selected' : '' }}>Produktifitas</option>
           </select>
-        </div>
-      </div>
-      
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="kip_line" class="mb-1">Line</label>
-          <input type="text" class="form-control" name="kip_line" id="kip_line" value="{{ $kip->kip_line }}">
         </div>
       </div>
       

@@ -274,12 +274,12 @@
 
       <div class="col-lg-4 col-md-6 col-12 mb-3">
         <label class="mb-1">Kategori</label><br />
-        {{ $kip->user_dept }}
+        {{ $kip->kip_kategori }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12 mb-3">
         <label class="mb-1">Line</label><br />
-        {{ $kip->kip_line }}
+        {{ $kip->user_line }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12 mb-3">

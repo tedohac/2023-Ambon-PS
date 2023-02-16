@@ -109,7 +109,6 @@
         });
 
         // add row biaya
-        var counter = 0;
         $("#biayaAddrow").on("click", function () {
             counter++;
             var newRow = $("<tr>");

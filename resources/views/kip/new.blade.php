@@ -71,6 +71,13 @@
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
+          <label for="disabled_line" class="mb-1">Line</label>
+          <input type="text" class="form-control" name="disabled_line" id="disabled_line" value="{{ $user->user_line }}" disabled>
+        </div>
+      </div>
+      
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
           <label for="kip_kategori" class="mb-1">Kategori</label>
           <select class="form-control select2bs4" name="kip_kategori" id="kip_kategori">
             <option value="Cost">Cost</option>
@@ -81,13 +88,6 @@
             <option value="Kualitas">Kualitas</option>
             <option value="Produktifitas">Produktifitas</option>
           </select>
-        </div>
-      </div>
-      
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="kip_line" class="mb-1">Line</label>
-          <input type="text" class="form-control" name="kip_line" id="kip_line">
         </div>
       </div>
       
@@ -317,5 +317,8 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
+<script>
+  var counter = {{ $biayacounter }};
+</script>
 <script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
 @endsection
