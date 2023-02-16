@@ -146,7 +146,6 @@ class KipController extends Controller
         $kip->kip_created_by        = Auth::user()->user_npk;
         $kip->kip_created_on        = date("Y-m-d H:i:s");
         $kip->kip_kategori          = $request->kip_kategori;
-        $kip->kip_line              = ($request->kip_line!="") ? $request->kip_line : null;
         $kip->kip_proses            = ($request->kip_proses!="") ? $request->kip_proses : null;
         $kip->kip_masalah           = htmlspecialchars($request->kip_masalah);
         $kip->kip_perbaikan         = htmlspecialchars($request->kip_perbaikan);
@@ -246,7 +245,6 @@ class KipController extends Controller
                 'kip_judul_tema'                => $request->kip_judul_tema,
                 'kip_status'                    => $request->mode,
                 'kip_kategori'                  => $request->kip_kategori,
-                'kip_line'                      => ($request->kip_line!="") ? $request->kip_line : null,
                 'kip_proses'                    => ($request->kip_proses!="") ? $request->kip_proses : null,
                 'kip_masalah'                   => htmlspecialchars($request->kip_masalah),
                 'kip_perbaikan'                 => htmlspecialchars($request->kip_perbaikan),
