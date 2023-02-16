@@ -227,11 +227,15 @@
         </tr>
       </thead>
       <tbody>
+        @php($counter = 0)
+        @foreach($biayas as $biaya)
         <tr>
-          <td><div class="form-group"><input type="text" name="biaya_desc0" class="form-control"/></div></td>
-          <td><div class="form-group"><input type="text" name="biaya_harga0" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][0]" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][1]" class="form-control"/></div></td>
           <td><a class="deleteRow"></a></td>
         </tr>
+        @php($counter++)
+        @endforeach
       </tbody>
       <tfoot>
           <tr>
@@ -322,8 +326,6 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
-<script>
-  var counter = {{ count($biaya)-1 }};
-</script>
+<script>var counter = {{ count($biayas)-1 }};</script>
 <script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
 @endsection

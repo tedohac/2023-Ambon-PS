@@ -55,14 +55,14 @@ class KipController extends Controller
                     ->where('kip_no', $id)->first();
         if(empty($kip)) abort(404);
 
-        $biaya = Biaya::where('biaya_kip_no', $id)->first();
+        $biayas = Biaya::where('biaya_kip_no', $id)->get();
 
         if($kip->kip_status!="draft")
             return redirect()->route('kip.view', $kip->kip_no);   
 
     	return view('kip.edit', [
             'kip' => $kip,
-            'biaya' => $biaya
+            'biayas' => $biayas
         ]);
     }
     

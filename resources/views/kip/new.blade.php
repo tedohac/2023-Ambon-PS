@@ -317,5 +317,6 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
+<script>var counter = 0;</script>
 <script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
 @endsection
