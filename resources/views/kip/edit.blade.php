@@ -230,8 +230,8 @@
         @php($counter = 0)
         @foreach($biayas as $biaya)
         <tr>
-          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][0]" class="form-control"/></div></td>
-          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][1]" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][0]" class="form-control" value="{{ $biaya->biaya_desc }}"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][1]" class="form-control" value="{{ $biaya->biaya_harga }}"/></div></td>
           <td><a class="deleteRow"></a></td>
         </tr>
         @php($counter++)

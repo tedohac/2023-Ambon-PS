@@ -261,14 +261,13 @@ class KipController extends Controller
         Biaya::where('biaya_kip_no', $request->kip_no)->delete();
 
         // save biaya
-        $counter = 0;
-        while($counter <= $request->biayacount)
-        {
+        $counter = 0;    
+        foreach ($request->biaya as $biayaReq) {
             $biaya = new Biaya;
             $biaya->biaya_id    = $counter + 1;
-            $biaya->biaya_kip_no= $request->kip_no;
-            $biaya->biaya_desc  = request('biaya_desc'.$counter);
-            $biaya->biaya_harga = request('biaya_harga'.$counter);
+            $biaya->biaya_kip_no= $kip_no;
+            $biaya->biaya_desc  = $biayaReq[0];
+            $biaya->biaya_harga = $biayaReq[1];
             $simpanbiaya = $biaya->save();   
 
             if(!$simpanbiaya)
@@ -279,6 +278,7 @@ class KipController extends Controller
 
             $counter++;
         }
+
 
         if($request->mode == "draft")
         {
