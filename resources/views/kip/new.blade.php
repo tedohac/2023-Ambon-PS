@@ -224,8 +224,8 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="form-group"><input type="text" name="biaya_desc0" class="form-control"/></div></td>
-          <td><div class="form-group"><input type="text" name="biaya_harga0" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[0][0]" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[0][1]" class="form-control"/></div></td>
           <td><a class="deleteRow"></a></td>
         </tr>
       </tbody>
@@ -317,8 +317,5 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
-<script>
-  var counter = {{ $biayacounter }};
-</script>
 <script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
 @endsection

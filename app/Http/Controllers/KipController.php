@@ -55,11 +55,14 @@ class KipController extends Controller
                     ->where('kip_no', $id)->first();
         if(empty($kip)) abort(404);
 
+        $biaya = Biaya::where('biaya_kip_no', $id)->first();
+
         if($kip->kip_status!="draft")
             return redirect()->route('kip.view', $kip->kip_no);   
 
     	return view('kip.edit', [
-            'kip' => $kip
+            'kip' => $kip,
+            'biaya' = > $biaya
         ]);
     }
     
@@ -152,7 +155,6 @@ class KipController extends Controller
         $kip->kip_foto_sebelum      = ($request->hasFile('kip_foto_sebelum')) ? $kip_foto_sebelum : null;
         $kip->kip_foto_sesudah      = ($request->hasFile('kip_foto_sesudah')) ? $kip_foto_sesudah : null;
         $kip->kip_eval_uraian       = htmlspecialchars($request->kip_eval_uraian);
-        $kip->kip_eval_biaya        = htmlspecialchars($request->kip_eval_biaya);
         $kip->kip_eval_benefit_kuantitatif  = htmlspecialchars($request->kip_eval_benefit_kuantitatif);
         $kip->kip_eval_benefit_kualitatif   = htmlspecialchars($request->kip_eval_benefit_kualitatif);
         $kip->kip_pengontrolan      = htmlspecialchars($request->kip_pengontrolan);
@@ -162,14 +164,13 @@ class KipController extends Controller
         if($simpankip)
         {
             // save biaya
-            $counter = 0;
-            while($counter <= $request->biayacount)
-            {
+            $counter = 0;    
+            foreach ($request->biaya as $biayaReq) {
                 $biaya = new Biaya;
                 $biaya->biaya_id    = $counter + 1;
                 $biaya->biaya_kip_no= $kip_no;
-                $biaya->biaya_desc  = request('biaya_desc'.$counter);
-                $biaya->biaya_harga = request('biaya_harga'.$counter);
+                $biaya->biaya_desc  = $biayaReq[0];
+                $biaya->biaya_harga = $biayaReq[1];
                 $simpanbiaya = $biaya->save();   
 
                 if(!$simpanbiaya)
@@ -184,12 +185,12 @@ class KipController extends Controller
             if($request->mode == "draft")
             {
                 Session::flash('success', 'KIP saved as draft');
-                return redirect()->back();   
+                return redirect()->route('kip.edit', $kip_no);  
             }
             elseif($request->mode == "submit")
             {
                 Session::flash('success', 'KIP submitted succesfuly');
-                return redirect()->route('kip.view', $kip->kip_no);   
+                return redirect()->route('kip.view', $kip_no);   
             }
         } else {
             Session::flash('error', 'Menyimpan kegiatan gagal! Mohon hubungi admin');
@@ -251,7 +252,6 @@ class KipController extends Controller
                 'kip_foto_sebelum'              => ($request->hasFile('kip_foto_sebelum')) ? $kip_foto_sebelum : $kip->kip_foto_sebelum,
                 'kip_foto_sesudah'              => ($request->hasFile('kip_foto_sesudah')) ? $kip_foto_sesudah : $kip->kip_foto_sesudah,
                 'kip_eval_uraian'               => htmlspecialchars($request->kip_eval_uraian),
-                'kip_eval_biaya'                => htmlspecialchars($request->kip_eval_biaya),
                 'kip_eval_benefit_kuantitatif'  => htmlspecialchars($request->kip_eval_benefit_kuantitatif),
                 'kip_eval_benefit_kualitatif'   => htmlspecialchars($request->kip_eval_benefit_kualitatif),
                 'kip_pengontrolan'              => htmlspecialchars($request->kip_pengontrolan)

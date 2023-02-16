@@ -190,13 +190,6 @@
 
       <div class="col-12">
         <div class="form-group">
-          <label for="kip_eval_biaya" class="mb-1">Biaya Perbaikan</label>
-          <textarea class="form-control jodit" name="kip_eval_biaya" id="kip_eval_biaya">{{ htmlspecialchars_decode($kip->kip_eval_biaya) }}</textarea>
-        </div>
-      </div>
-
-      <div class="col-12">
-        <div class="form-group">
           <label for="kip_eval_benefit_kuantitatif" class="mb-1">Benefit Kuantitatif</label>
           <textarea class="form-control jodit" name="kip_eval_benefit_kuantitatif" id="kip_eval_benefit_kuantitatif">{{ htmlspecialchars_decode($kip->kip_eval_benefit_kuantitatif) }}</textarea>
         </div>
@@ -211,6 +204,44 @@
 
     </div>
     <!-- end of row -->
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+<div class="card card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Biaya Perbaikan
+    </h3>
+  </div>
+  <div class="card-body table-responsive p-0">
+
+    <table class="table order-list table-hover text-nowrap" id="tableBiaya">
+      <thead>
+        <tr>
+          <th>Desc</th>
+          <th>Harga</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="form-group"><input type="text" name="biaya_desc0" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya_harga0" class="form-control"/></div></td>
+          <td><a class="deleteRow"></a></td>
+        </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="2">
+                  <input type="button" class="btn btn-block" id="biayaAddrow" value="Add Row" />
+              </td>
+              <td></td>
+          </tr>
+      </tfoot>
+    </table>
 
   </div>
   <!-- end of card body -->
@@ -291,5 +322,8 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
+<script>
+  var counter = {{ count($biaya)-1 }};
+</script>
 <script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
 @endsection
