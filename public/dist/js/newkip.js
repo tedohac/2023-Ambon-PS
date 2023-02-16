@@ -77,6 +77,14 @@
                 kip_judul_tema: {
                     required: true,
                 },
+                biaya_desc0: {
+                    required: true,
+                },
+                biaya_harga0: {
+                    required:true,
+                    number: true,
+                    min: 0
+                },
             },
             messages: {
                 kip_judul_tema: {
@@ -114,7 +122,7 @@
                 required: true,
             });
             
-            $.validator.addClassRules('val-biaya-desc', {
+            $.validator.addClassRules('val-biaya-harga', {
                 required:true,
                 number: true,
                 min: 0
