@@ -68,6 +68,10 @@
             var submit_value = $(this).val();
             var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
             $('#formadd').append(newInput);
+            
+            newInput = $("<input>").attr("type", "hidden").attr("name", "biayacount").val(counter);
+            $('#formadd').append(newInput);
+
             $('#formadd').submit();
         });
 
@@ -105,18 +109,18 @@
         });
 
         // add row biaya
-        var counter = 1;
+        var counter = 0;
         $("#biayaAddrow").on("click", function () {
+            counter++;
             var newRow = $("<tr>");
             var cols = "";
     
-            cols += '<td><input type="text" class="form-control val-biaya-desc" name="biaya_desc' + counter + '"/></td>';
-            cols += '<td><input type="text" class="form-control val-biaya-harga" name="biaya_harga' + counter + '"/></td>';
+            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-desc" name="biaya_desc' + counter + '"/></div></td>';
+            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-harga" name="biaya_harga' + counter + '"/></div></td>';
     
             cols += '<td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>';
             newRow.append(cols);
             $("table.order-list").append(newRow);
-            counter++;
 
             $.validator.addClassRules('val-biaya-desc', {
                 required: true,

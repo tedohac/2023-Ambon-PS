@@ -224,8 +224,8 @@
       </thead>
       <tbody>
         <tr>
-          <td><input type="text" name="biaya_desc0" class="form-control"/></td>
-          <td><input type="text" name="biaya_harga0" class="form-control"/></td>
+          <td><div class="form-group"><input type="text" name="biaya_desc0" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya_harga0" class="form-control"/></div></td>
           <td><a class="deleteRow"></a></td>
         </tr>
       </tbody>

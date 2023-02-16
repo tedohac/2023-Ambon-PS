@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Biaya;
 use App\Kip;
 use App\Status;
 use NilaiController;
@@ -160,6 +161,26 @@ class KipController extends Controller
         
         if($simpankip)
         {
+            // save biaya
+            $counter = 0;
+            while($counter <= $request->biayacount)
+            {
+                $biaya = new Biaya;
+                $biaya->biaya_id    = $counter + 1;
+                $biaya->biaya_kip_no= $kip_no;
+                $biaya->biaya_desc  = request('biaya_desc'.$counter);
+                $biaya->biaya_harga = request('biaya_harga'.$counter);
+                $simpanbiaya = $biaya->save();   
+
+                if(!$simpanbiaya)
+                {
+                    Session::flash('error', 'Menyimpan biaya gagal! Mohon hubungi admin');
+                    return redirect()->back();   
+                }       
+
+                $counter++;
+            }
+
             if($request->mode == "draft")
             {
                 Session::flash('success', 'KIP saved as draft');
