@@ -96,18 +96,8 @@
             }
         });
 
-        // table biaya validation
-        $(".val-biaya-desc").rules("add", { 
-            required:true
-        });
-        $(".val-biaya-harga").rules("add", { 
-            required:true,
-            number: true,
-            min: 0
-        });
-
         // add row biaya
-        var counter = 2;
+        var counter = 1;
         $("#biayaAddrow").on("click", function () {
             var newRow = $("<tr>");
             var cols = "";
@@ -119,6 +109,16 @@
             newRow.append(cols);
             $("table.order-list").append(newRow);
             counter++;
+
+            $.validator.addClassRules('val-biaya-desc', {
+                required: true,
+            });
+            
+            $.validator.addClassRules('val-biaya-desc', {
+                required:true,
+                number: true,
+                min: 0
+            });
         });
     
     
