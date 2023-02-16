@@ -265,7 +265,7 @@ class KipController extends Controller
         foreach ($request->biaya as $biayaReq) {
             $biaya = new Biaya;
             $biaya->biaya_id    = $counter + 1;
-            $biaya->biaya_kip_no= $kip_no;
+            $biaya->biaya_kip_no= $request->kip_no;
             $biaya->biaya_desc  = $biayaReq[0];
             $biaya->biaya_harga = $biayaReq[1];
             $simpanbiaya = $biaya->save();   
