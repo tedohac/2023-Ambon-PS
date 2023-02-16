@@ -164,22 +164,25 @@ class KipController extends Controller
         if($simpankip)
         {
             // save biaya
-            $counter = 0;    
-            foreach ($request->biaya as $biayaReq) {
-                $biaya = new Biaya;
-                $biaya->biaya_id    = $counter + 1;
-                $biaya->biaya_kip_no= $kip_no;
-                $biaya->biaya_desc  = $biayaReq[0];
-                $biaya->biaya_harga = $biayaReq[1];
-                $simpanbiaya = $biaya->save();   
-
-                if(!$simpanbiaya)
-                {
-                    Session::flash('error', 'Menyimpan biaya gagal! Mohon hubungi admin');
-                    return redirect()->back();   
-                }       
-
-                $counter++;
+            if(isset($request->biaya))
+            {
+                $counter = 0;    
+                foreach ($request->biaya as $biayaReq) {
+                    $biaya = new Biaya;
+                    $biaya->biaya_id    = $counter + 1;
+                    $biaya->biaya_kip_no= $kip_no;
+                    $biaya->biaya_desc  = $biayaReq[0];
+                    $biaya->biaya_harga = $biayaReq[1];
+                    $simpanbiaya = $biaya->save();   
+    
+                    if(!$simpanbiaya)
+                    {
+                        Session::flash('error', 'Menyimpan biaya gagal! Mohon hubungi admin');
+                        return redirect()->back();   
+                    }       
+    
+                    $counter++;
+                }
             }
 
             if($request->mode == "draft")
@@ -261,22 +264,25 @@ class KipController extends Controller
         Biaya::where('biaya_kip_no', $request->kip_no)->delete();
 
         // save biaya
-        $counter = 0;    
-        foreach ($request->biaya as $biayaReq) {
-            $biaya = new Biaya;
-            $biaya->biaya_id    = $counter + 1;
-            $biaya->biaya_kip_no= $request->kip_no;
-            $biaya->biaya_desc  = $biayaReq[0];
-            $biaya->biaya_harga = $biayaReq[1];
-            $simpanbiaya = $biaya->save();   
-
-            if(!$simpanbiaya)
-            {
-                Session::flash('error', 'Menyimpan biaya gagal! Mohon hubungi admin');
-                return redirect()->back();   
-            }       
-
-            $counter++;
+        if(isset($request->biaya))
+        {
+            $counter = 0;
+            foreach ($request->biaya as $biayaReq) {
+                $biaya = new Biaya;
+                $biaya->biaya_id    = $counter + 1;
+                $biaya->biaya_kip_no= $request->kip_no;
+                $biaya->biaya_desc  = $biayaReq[0];
+                $biaya->biaya_harga = $biayaReq[1];
+                $simpanbiaya = $biaya->save();   
+    
+                if(!$simpanbiaya)
+                {
+                    Session::flash('error', 'Menyimpan biaya gagal! Mohon hubungi admin');
+                    return redirect()->back();   
+                }       
+    
+                $counter++;
+            }
         }
 
 
