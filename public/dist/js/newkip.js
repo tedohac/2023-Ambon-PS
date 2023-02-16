@@ -104,6 +104,16 @@
                 $(element).removeClass('is-invalid');
             }
         });
+        
+        $.validator.addClassRules('val-biaya-desc', {
+            required: true,
+        });
+        
+        $.validator.addClassRules('val-biaya-harga', {
+            required:true,
+            number: true,
+            min: 0
+        });
 
         // add row biaya
         $("#biayaAddrow").on("click", function () {

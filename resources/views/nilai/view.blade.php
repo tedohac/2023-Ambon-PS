@@ -356,7 +356,7 @@
 
       <div class="col-12 mb-3">
         <label class="mb-1">Biaya Perbaikan</label><br />
-        {!! htmlspecialchars_decode($kip->kip_eval_biaya) !!}
+        
       </div>
 
       <div class="col-12 mb-3">

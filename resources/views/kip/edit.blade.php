@@ -145,7 +145,7 @@
               <label class="custom-file-label" for="kip_foto_sebelum">Pilih file</label>
           </div>
         </div>
-        <small>kosongkan jika tidak ingin merubah</small>
+        <small>kosongkan jika tidak ingin merubah</small><br />
         <img id="previewpict1" src="{{ ($kip->kip_foto_sebelum!='') ? url('storage/kip/'.$kip->kip_foto_sebelum) : asset('img/photo.png') }}" style="max-width: 100%" class="bg-white border p-1">
 
       </div>
@@ -158,7 +158,7 @@
               <label class="custom-file-label" for="kip_foto_sesudah">Pilih file</label>
           </div>
         </div>
-        <small>kosongkan jika tidak ingin merubah</small>
+        <small>kosongkan jika tidak ingin merubah</small><br />
         <img id="previewpict2" src="{{ ($kip->kip_foto_sesudah!='') ? url('storage/kip/'.$kip->kip_foto_sesudah) : asset('img/photo.png') }}" style="max-width: 100%;" class="bg-white border p-1">
        
       </div>

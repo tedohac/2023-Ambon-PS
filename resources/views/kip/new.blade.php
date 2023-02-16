@@ -224,8 +224,8 @@
       </thead>
       <tbody>
         <tr>
-          <td><div class="form-group"><input type="text" name="biaya[0][0]" class="form-control"/></div></td>
-          <td><div class="form-group"><input type="text" name="biaya[0][1]" class="form-control"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[0][0]" class="form-control val-biaya-desc"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[0][1]" class="form-control val-biaya-harga"/></div></td>
           <td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>
         </tr>
       </tbody>
