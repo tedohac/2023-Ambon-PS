@@ -62,7 +62,7 @@ class KipController extends Controller
 
     	return view('kip.edit', [
             'kip' => $kip,
-            'biaya' = > $biaya
+            'biaya' => $biaya
         ]);
     }
     
