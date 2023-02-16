@@ -217,7 +217,7 @@
     <table class="table order-list table-hover text-nowrap" id="tableBiaya">
       <thead>
         <tr>
-          <th>Desc</th>
+          <th>Keterangan</th>
           <th>Harga</th>
           <th></th>
         </tr>

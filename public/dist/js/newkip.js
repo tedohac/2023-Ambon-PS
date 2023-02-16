@@ -132,7 +132,6 @@
     
     
         $("table.order-list").on("click", ".ibtnDel", function (event) {
-            $(this).closest("tr").remove();       
-            counter -= 1
+            $(this).closest("tr").remove();
         });
     });

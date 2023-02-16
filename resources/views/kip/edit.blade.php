@@ -221,7 +221,7 @@
     <table class="table order-list table-hover text-nowrap" id="tableBiaya">
       <thead>
         <tr>
-          <th>Desc</th>
+          <th>Keterangan</th>
           <th>Harga</th>
           <th></th>
         </tr>
@@ -232,7 +232,7 @@
         <tr>
           <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][0]" class="form-control" value="{{ $biaya->biaya_desc }}"/></div></td>
           <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][1]" class="form-control" value="{{ $biaya->biaya_harga }}"/></div></td>
-          <td><a class="deleteRow"></a></td>
+          <td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>
         </tr>
         @php($counter++)
         @endforeach
