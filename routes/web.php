@@ -56,5 +56,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'web'], function () {
 
     Route::get('list','UserController@list')->name('user.list')->middleware('CheckPermission:User Management');
 
+    Route::get('new','UserController@new')->name('user.new')->middleware('CheckPermission:User Management');
+    Route::post('new','UserController@save')->middleware('CheckPermission:User Management');
+    
+    Route::get('edit/{id}','UserController@edit')->name('user.edit')->middleware('CheckPermission:User Management');
+
 
 });

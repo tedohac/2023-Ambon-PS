@@ -54,8 +54,8 @@
           <td>{{ date('Y-m-d H:i', strtotime($user->created_at)) }}</td>
           <td>{{ date('Y-m-d H:i', strtotime($user->updated_at)) }}</td>
           <td>
-            <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('nilai.view'.$role, $kip->kip_no) }}">
-                <i class="fa fa-fw fa-user-check"></i>
+            <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('user.edit', $user->user_npk) }}">
+                <i class="fa fa-fw fa-pencil"></i>
             </a>
           </td>
         </tr>
