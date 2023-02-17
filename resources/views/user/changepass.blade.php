@@ -17,7 +17,7 @@
 
 @section('content')
 
-<form method="post" id="formadd" action="{{ route('user.new') }}" enctype="multipart/form-data">
+<form method="post" id="formadd" action="{{ route('changepass') }}" enctype="multipart/form-data">
 @csrf
 
 <div class="row">
@@ -70,7 +70,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>User baru akan terbentuk</p>
+        <p>Password akan diubah</p>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
