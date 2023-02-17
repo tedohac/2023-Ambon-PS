@@ -54,20 +54,9 @@
           <td>{{ date('Y-m-d H:i', strtotime($user->created_at)) }}</td>
           <td>{{ date('Y-m-d H:i', strtotime($user->updated_at)) }}</td>
           <td>
-            @if(
-                ($kip->kip_status=='submit' && $role=='spv') || 
-                ($kip->kip_status=='spv' && $kip->spv >= 35 && $role=='depthead') ||
-                ($kip->kip_status=='spv' && $kip->spv < 35 && $role=='comitee') ||
-                ($kip->kip_status=='depthead' && $role=='comitee')
-            )
             <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('nilai.view'.$role, $kip->kip_no) }}">
                 <i class="fa fa-fw fa-user-check"></i>
             </a>
-            @else
-            <a class="btn btn-outline-secondary p-1 float-right broadcast-form" href="{{ route('nilai.view'.$role, $kip->kip_no) }}">
-                <i class="fa fa-fw fa-search"></i>
-            </a>
-            @endif
           </td>
         </tr>
       @endforeach
