@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Biaya;
 use App\Kip;
 use App\Nilai;
 use App\Permission;
