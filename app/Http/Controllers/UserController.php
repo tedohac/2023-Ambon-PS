@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Role;
 use App\User;
 
 class UserController extends Controller
@@ -18,7 +19,11 @@ class UserController extends Controller
 
     public function new()
     {    	
-        return view('user.new');
+        $roles = Role::get();
+
+        return view('user.new', [
+            'roles' => $roles
+        ]);
     }
     
     public function edit($id)

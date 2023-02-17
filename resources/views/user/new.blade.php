@@ -97,15 +97,11 @@
   <div class="card-body">
 
   <div class="form-group">
-    <label>Multiple</label>
+    <label>Assign Role ke User</label>
     <select class="duallistbox" multiple="multiple">
-      <option selected>Alabama</option>
-      <option>Alaska</option>
-      <option>California</option>
-      <option>Delaware</option>
-      <option>Tennessee</option>
-      <option>Texas</option>
-      <option>Washington</option>
+      @foreach($roles as $role)
+      <option value="{{ $role->role_code }}">{{ $role->role_desc }}</option>
+      @endforeach
     </select>
   </div>
 
