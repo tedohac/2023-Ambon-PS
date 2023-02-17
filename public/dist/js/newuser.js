@@ -1,6 +1,10 @@
 
     $(document).ready(function(){
         
+
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox();
+        
         // form validation
         $('#formadd').validate({
             rules: {
@@ -46,8 +50,4 @@
                 $('#modal-submit').modal('show');
             }
         });
-        
-
-        //Bootstrap Duallistbox
-        $('.duallistbox').bootstrapDualListbox();
     });
