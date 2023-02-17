@@ -36,7 +36,7 @@
                 {{-- User menu footer --}}
                 <li class="user-body">
                     {{ auth()->user()->user_npk.' - '.auth()->user()->user_name }}<br />
-                    <small>{{ auth()->user()->user_dept }}</small><br/>
+                    {{ auth()->user()->user_dept }} - {{ auth()->user()->user_line }}<br/><br/>
                     
                     <a class="btn btn-default btn-flat float-right btn-block" href="{{ route('logout') }}" >
                         <i class="fa fa-fw fa-key"></i>
