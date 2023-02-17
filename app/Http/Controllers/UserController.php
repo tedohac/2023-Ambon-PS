@@ -54,7 +54,7 @@ class UserController extends Controller
         $user->user_dept    = $request->user_dept;
         $user->user_line    = $request->user_line;
         $user->user_password= Hash::make($request->user_password);
-        $simpanuser = $kip->save();
+        $simpanuser = $user->save();
         
         if($simpanuser)
         {
