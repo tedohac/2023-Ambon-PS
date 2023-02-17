@@ -25,6 +25,10 @@
     <h3 class="card-title">
       Data User
     </h3>
+    <a href="{{ route('user.new') }}" class="btn btn-primary btn-sm float-right">
+      <i class="fas fa-plus"></i>  
+      Create New
+    </a>
   </div>
   <div class="card-body">
 
@@ -55,7 +59,7 @@
           <td>{{ date('Y-m-d H:i', strtotime($user->updated_at)) }}</td>
           <td>
             <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('user.edit', $user->user_npk) }}">
-                <i class="fa fa-fw fa-pencil"></i>
+                <i class="fa fa-fw fa-edit"></i>
             </a>
           </td>
         </tr>
