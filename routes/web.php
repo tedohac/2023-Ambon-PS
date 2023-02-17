@@ -51,3 +51,10 @@ Route::group(['prefix' => 'nilai', 'middleware' => 'web'], function () {
     Route::post('save','NilaiController@save')->name('nilai.save')->middleware('CheckPermission:SPV|Dept Head|Comitee');
 
 });
+
+Route::group(['prefix' => 'user', 'middleware' => 'web'], function () {
+
+    Route::get('list','UserController@list')->name('user.list')->middleware('CheckPermission:User Management');
+
+
+});
