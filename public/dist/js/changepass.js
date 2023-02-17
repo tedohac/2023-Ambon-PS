@@ -4,17 +4,10 @@
         // form validation
         $('#formadd').validate({
             rules: {
-                user_npk: {
-                    required: true,
-                    number: true,
-                },
-                user_name: {
+                current_password: {
                     required: true,
                 },
-                user_dept: {
-                    required: true,
-                },
-                user_line: {
+                user_password: {
                     required: true,
                 },
                 user_passwordre: {
@@ -32,10 +25,6 @@
             unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
-        });
-
-        $.validator.addClassRules('val-required', {
-            required: true,
         });
 
     });

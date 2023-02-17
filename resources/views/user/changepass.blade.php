@@ -33,17 +33,17 @@
 
         <div class="form-group">
           <label for="current_password" class="mb-1">Current Password</label>
-          <input type="password" class="form-control" name="current_password" id="current_password" class="val-required">
+          <input type="password" class="form-control" name="current_password" id="current_password">
         </div>
 
         <div class="form-group">
           <label for="user_password" class="mb-1">New Password</label>
-          <input type="password" class="form-control" name="user_password" id="user_password" class="val-required">
+          <input type="password" class="form-control" name="user_password" id="user_password">
         </div>
 
         <div class="form-group">
           <label for="user_passwordre" class="mb-1">Re-Enter Password</label>
-          <input type="password" class="form-control" name="user_passwordre" id="user_passwordre" class="val-required">
+          <input type="password" class="form-control" name="user_passwordre" id="user_passwordre">
         </div>
         
         <button type="button" class="btn btn-block btn-primary mt-4" id="checkValid">
