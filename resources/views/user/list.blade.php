@@ -1,4 +1,4 @@
-@extends('layout.master', ['title' => 'Manage KIP - Personal Site'])
+@extends('layout.master', ['title' => 'Manage User - Personal Site'])
 
 @section('head')
   <!-- DataTables -->
@@ -11,7 +11,7 @@
 @endsection
 
 @section('content-title')
-    Manage KIP as {{ strtoupper($role) }}
+    Manage User
 @endsection
 
 @section('content-breadcumb')
@@ -23,7 +23,7 @@
 <div class="card card-warning card-outline">
   <div class="card-header">
     <h3 class="card-title">
-      Data Kreatif Ide Perbaikan
+      Data User
     </h3>
   </div>
   <div class="card-body">
@@ -31,30 +31,28 @@
     <table id="dataTable" class="table table-striped table-hover">
       <thead>
         <tr>
-          <th>Tanggal Buat</th>
-          <th>No KIP</th>
-          <th>Judul KIP</th>
-          <th>Nilai SPV</th>
-          <th>Nilai D. Head</th>
-          <th>Nilai Comitee</th>
-          <th>Nilai Final</th>
+          <th>NPK</th>
+          <th>Nama</th>
+          <th>Dept</th>
+          <th>Line</th>
           <th>Status</th>
+          <th>Created On</th>
+          <th>Updated On</th>
           <th>Action</th>
         </tr>
       </thead>
       <tbody>
-      @foreach($kips as $kip)
+      @foreach($users as $user)
         <tr>
-          <td>{{ date('Y-m-d H:i', strtotime($kip->kip_created_on)) }}</td>
-          <td>{{ $kip->kip_no }}</td>
-          <td>{{ $kip->kip_judul_tema }}</td>
-          <td>{{ $kip->spv }}</td>
-          <td>{{ $kip->depthead }}</td>
-          <td>{{ $kip->comitee }}</td>
-          <td>{{ $kip->final }}</td>
+          <td>{{ $user->user_npk }}</td>
+          <td>{{ $user->user_name }}</td>
+          <td>{{ $user->user_dept }}</td>
+          <td>{{ $user->user_line }}</td>
           <td>
-            <span class="badge bg-{{ $kip->status_color }}">{{ $kip->status_desc }}</span>
+            <span class="badge bg-{{ ($user->user_status==1) ? 'primary' : 'secondary' }}">{{ ($user->user_status==1) ? 'Active' : 'Inactive' }}</span>
           </td>
+          <td>{{ date('Y-m-d H:i', strtotime($user->created_at)) }}</td>
+          <td>{{ date('Y-m-d H:i', strtotime($user->updated_at)) }}</td>
           <td>
             @if(
                 ($kip->kip_status=='submit' && $role=='spv') || 
