@@ -60,6 +60,7 @@ Route::group(['prefix' => 'user', 'middleware' => 'web'], function () {
     Route::post('new','UserController@save')->middleware('CheckPermission:User Management');
     
     Route::get('edit/{id}','UserController@edit')->name('user.edit')->middleware('CheckPermission:User Management');
+    Route::post('update','UserController@update')->name('user.update')->middleware('CheckPermission:User Management');
 
 
 });

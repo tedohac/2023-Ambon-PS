@@ -31,10 +31,14 @@ class UserController extends Controller
     
     public function edit($id)
     {
-        $user = User::where('user_npk', $id)->first();
+        $user       = User::where('user_npk', $id)->first();
+        $roles      = Role::get();
+        $permissions= Permission::where('permission_user_npk', $id)->get();
 
     	return view('user.edit', [
-            'user' => $user
+            'user'          => $user,
+            'roles'         => $roles,
+            'permissions'   => $permissions
         ]);
     }
 
