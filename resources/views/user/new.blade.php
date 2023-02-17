@@ -121,6 +121,8 @@
 @endsection
 
 @section('bottom')
+<!-- jquery-validation -->
+<script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <!-- duallistbox -->
 <script src="{{ asset('plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') }}"></script>
 
