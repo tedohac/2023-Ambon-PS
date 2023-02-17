@@ -133,4 +133,9 @@ class UserController extends Controller
         Session::flash('success', 'Berhasil mengubah user');
         return redirect()->route('user.list');  
     }
+    
+    public function changepass()
+    {    	
+        return view('user.changepass');
+    }
 }

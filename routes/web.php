@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/','MainController@index')->name('main')->middleware('CheckPermission:');
+Route::get('changepass','UserController@changepass')->name('changepass')->middleware('CheckPermission:');
 
 Route::group(['middleware' => 'web'], function () {
     
