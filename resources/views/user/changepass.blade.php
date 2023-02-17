@@ -88,5 +88,5 @@
 <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 
 <!-- JS -->
-<script src="{{ asset('dist/js/newuser.js?v=').time() }}"></script>
+<script src="{{ asset('dist/js/changepass.js?v=').time() }}"></script>
 @endsection

@@ -1,10 +1,6 @@
 
     $(document).ready(function(){
         
-
-        //Bootstrap Duallistbox
-        $('.duallistbox').bootstrapDualListbox();
-        
         // form validation
         $('#formadd').validate({
             rules: {
@@ -42,13 +38,4 @@
             required: true,
         });
 
-        // on button send click
-        $('#checkValid').on('click',function()
-        {
-            if($('#formadd').valid())
-            {
-                $('#modal-submit').modal('show');
-            }
-        });
-        
     });
