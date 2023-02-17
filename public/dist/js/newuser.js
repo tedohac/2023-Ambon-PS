@@ -2,7 +2,7 @@
     $(document).ready(function(){
         
         // form validation
-        $('#formnilai').validate({
+        $('#formadd').validate({
             rules: {
                 user_npk: {
                     required: true,
