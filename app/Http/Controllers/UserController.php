@@ -80,12 +80,57 @@ class UserController extends Controller
                 }
             }
 
-            Session::flash('success', 'User saved succesfuly');
+            Session::flash('success', 'Berhasil menyimpan user');
             return redirect()->route('user.list');   
         
         } else {
             Session::flash('error', 'Menyimpan user gagal! Mohon hubungi admin');
             return redirect()->back();   
         }
+    }
+    
+    public function update(Request $request)
+    {    	
+        $user = User::where('user_npk', $request->user_npk)->first();
+        if(empty($user)) abort(404);
+
+        $datas = [
+            'user_name'     => $request->user_name,
+            'user_dept'     => $request->user_dept,
+            'user_line'     => $request->user_line,
+            'user_status'   => (isset($request->user_status)) ? '1' : '0'
+        ];
+
+        if($request->user_password!="")
+        {
+            $datas['user_password'] = Hash::make($request->user_password);
+        }
+
+        User::where('user_npk',$request->user_npk)
+            ->update($datas);
+
+            
+        // delete Permissions before insert
+        Permission::where('permission_user_npk', $request->user_npk)->delete();
+
+        // save Permissions
+        if(count($request->user_permissions) > 0)
+        {
+            foreach ($request->user_permissions as $permissionReq) {
+                $permission = new Permission;
+                $permission->permission_user_npk    = $request->user_npk;
+                $permission->permission_role_code   = $permissionReq;
+                $simpanpermission = $permission->save();   
+
+                if(!$simpanpermission)
+                {
+                    Session::flash('error', 'Menyimpan permission gagal! Mohon hubungi admin');
+                    return redirect()->back();   
+                }       
+            }
+        }
+
+        Session::flash('success', 'Berhasil mengubah user');
+        return redirect()->route('user.list');  
     }
 }

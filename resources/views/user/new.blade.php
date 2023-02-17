@@ -63,14 +63,14 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="user_password" class="mb-1">Password</label>
-          <input type="password" class="form-control" name="user_password" id="user_password">
+          <input type="password" class="form-control" name="user_password" id="user_password" class="val-required">
         </div>
       </div>
 
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="user_passwordre" class="mb-1">Re-Enter Password</label>
-          <input type="password" class="form-control" name="user_passwordre" id="user_passwordre">
+          <input type="password" class="form-control" name="user_passwordre" id="user_passwordre" class="val-required">
         </div>
       </div>
       

@@ -22,10 +22,8 @@
                     required: true,
                 },
                 user_password: {
-                    required: true,
                 },
                 user_passwordre: {
-                    required: true,
                     equalTo: "#user_password"
                 },
             },
@@ -40,6 +38,10 @@
             unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
+        });
+
+        $.validator.addClassRules('val-required', {
+            required: true,
         });
 
         // on button send click
