@@ -20,6 +20,8 @@
 
 @section('content')
 
+<form method="post" id="formadd" action="{{ route('user.new') }}" enctype="multipart/form-data">
+@csrf
 <div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
@@ -114,6 +116,7 @@
   <i class="fa fa-fw fa-save"></i>
   Save
 </button>
+</form>
 @endsection
 
 @section('bottom')

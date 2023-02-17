@@ -41,7 +41,7 @@
         // on button send click
         $('#checkValid').on('click',function()
         {
-            if($('#formnilai').valid())
+            if($('#formadd').valid())
             {
                 $('#modal-submit').modal('show');
             }
