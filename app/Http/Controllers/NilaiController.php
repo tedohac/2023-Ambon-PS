@@ -42,13 +42,14 @@ class NilaiController extends Controller
             LEFT JOIN vw_sum_nilai comitee ON a.kip_no=comitee.vw_kip_no AND comitee.vw_level='comitee'
             LEFT JOIN statuses s ON a.kip_status=s.status_code
             LEFT JOIN users u ON a.kip_created_by=u.user_npk
+        WHERE
+            a.kip_status != 'draft'
         ";
 
         if(!$isComitee)
         {
             $query = $query."
-            WHERE
-                u.user_dept='".Auth::user()->user_dept."'
+                AND u.user_dept='".Auth::user()->user_dept."'
             ";
         }
         
