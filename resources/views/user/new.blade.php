@@ -1,9 +1,8 @@
 @extends('layout.master', ['title' => 'Create New User - Personal Site'])
 
 @section('head')
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{ asset('plugins/datatables-bs4/css/dataTables.bootstrap4.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('plugins/datatables-responsive/css/responsive.bootstrap4.min.css') }}">
+  <!-- duallistbox -->
+  <link rel="stylesheet" href="{{ asset('plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
 @endsection
 
 @section('sidebar')
@@ -61,15 +60,6 @@
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <div class="custom-control custom-switch">
-            <input type="checkbox" class="custom-control-input" id="user_status" name="user_status">
-            <label class="custom-control-label" for="user_status">Status</label>
-          </div>
-        </div>
-      </div>
-      
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
           <label for="user_password" class="mb-1">Password</label>
           <input type="password" class="form-control" name="user_password" id="user_password">
         </div>
@@ -81,12 +71,14 @@
           <input type="password" class="form-control" name="user_passwordre" id="user_passwordre">
         </div>
       </div>
-
+      
       <div class="col-12">
-        <button type="button" class="btn btn-block btn-primary mt-4" id="checkValid">
-          <i class="fa fa-fw fa-save"></i>
-          Save
-        </button>
+        <div class="form-group">
+          <div class="custom-control custom-switch">
+            <input type="checkbox" class="custom-control-input" id="user_status" name="user_status" checked>
+            <label class="custom-control-label" for="user_status">Status User</label>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -95,9 +87,43 @@
   <!-- end of card body -->
 </div>
 <!-- end of card -->
+
+<div class="card card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      User Permission
+    </h3>
+  </div>
+  <div class="card-body">
+
+  <div class="form-group">
+    <label>Multiple</label>
+    <select class="duallistbox" multiple="multiple">
+      <option selected>Alabama</option>
+      <option>Alaska</option>
+      <option>California</option>
+      <option>Delaware</option>
+      <option>Tennessee</option>
+      <option>Texas</option>
+      <option>Washington</option>
+    </select>
+  </div>
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+<button type="button" class="btn btn-block btn-primary mt-4" id="checkValid">
+  <i class="fa fa-fw fa-save"></i>
+  Save
+</button>
 @endsection
 
 @section('bottom')
+<!-- duallistbox -->
+<script src="{{ asset('plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') }}"></script>
+
 <!-- JS -->
 <script src="{{ asset('dist/js/newuser.js?v=').time() }}"></script>
 @endsection
