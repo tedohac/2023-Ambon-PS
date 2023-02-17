@@ -21,8 +21,6 @@
                 user_line: {
                     required: true,
                 },
-                user_password: {
-                },
                 user_passwordre: {
                     equalTo: "#user_password"
                 },

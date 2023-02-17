@@ -32,7 +32,12 @@
       <div class="card-body">
 
         <div class="form-group">
-          <label for="user_password" class="mb-1">Password</label>
+          <label for="current_password" class="mb-1">Current Password</label>
+          <input type="password" class="form-control" name="current_password" id="current_password" class="val-required">
+        </div>
+
+        <div class="form-group">
+          <label for="user_password" class="mb-1">New Password</label>
           <input type="password" class="form-control" name="user_password" id="user_password" class="val-required">
         </div>
 

@@ -138,4 +138,22 @@ class UserController extends Controller
     {    	
         return view('user.changepass');
     }
+
+    public function changepasssave(Request $request)
+    {
+        if(!Hash::check($request->current_password, auth()->user()->password))
+        {
+            Session::flash('error', 'Current password salah!');
+            return redirect()->back();   
+        }
+
+        User::where('user_npk', auth()->user()->user_npk)
+            ->update([
+                'user_password'     => Hash::make($request->user_password)
+            ]);
+
+            
+        Session::flash('success', 'Berhasil mengubah password');
+        return redirect()->back();   
+    }
 }
