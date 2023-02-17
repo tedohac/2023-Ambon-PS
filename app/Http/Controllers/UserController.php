@@ -53,6 +53,7 @@ class UserController extends Controller
         $user->user_name    = $request->user_name;
         $user->user_dept    = $request->user_dept;
         $user->user_line    = $request->user_line;
+        $user->user_status  = (isset($request->user_status)) ? '1' : '0';
         $user->user_password= Hash::make($request->user_password);
         $simpanuser = $user->save();
         
