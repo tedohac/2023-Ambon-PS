@@ -38,7 +38,7 @@
                     {{ auth()->user()->user_npk.' - '.auth()->user()->user_name }}<br />
                     {{ auth()->user()->user_dept }} - {{ auth()->user()->user_line }}<br/><br/>
                     
-                    <a class="btn btn-default btn-flat float-right btn-block" href="{{ route('logout') }}" >
+                    <a class="btn btn-default btn-flat float-right btn-block" href="{{ route('changepass') }}" >
                         <i class="fa fa-fw fa-key"></i>
                         Change Password
                     </a>
