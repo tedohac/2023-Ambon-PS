@@ -64,7 +64,7 @@ class UserController extends Controller
         if($simpanuser)
         {
             // save biaya
-            if(count($request->user_permissions) > 0)
+            if(isset($request->user_permissions))
             {
                 foreach ($request->user_permissions as $permissionReq) {
                     $permission = new Permission;
@@ -114,7 +114,7 @@ class UserController extends Controller
         Permission::where('permission_user_npk', $request->user_npk)->delete();
 
         // save Permissions
-        if(count($request->user_permissions) > 0)
+        if(isset($request->user_permissions))
         {
             foreach ($request->user_permissions as $permissionReq) {
                 $permission = new Permission;
