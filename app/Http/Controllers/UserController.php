@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         $user       = User::where('user_npk', $id)->first();
         $roles      = Role::get();
-        $permissions= Permission::where('permission_user_npk', $id)->get();
+        $permissions= Permission::where('permission_user_npk', $id)->get()->toArray();
 
     	return view('user.edit', [
             'user'          => $user,
