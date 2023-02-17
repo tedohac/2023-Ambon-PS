@@ -141,7 +141,7 @@ class UserController extends Controller
 
     public function changepasssave(Request $request)
     {
-        if(!Hash::check($request->current_password, auth()->user()->password))
+        if(!Hash::check($request->current_password, auth()->user()->user_password))
         {
             Session::flash('error', 'Current password salah!');
             return redirect()->back();   
