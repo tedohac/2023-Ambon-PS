@@ -46,4 +46,8 @@
                 $('#modal-submit').modal('show');
             }
         });
+        
+
+        //Bootstrap Duallistbox
+        $('.duallistbox').bootstrapDualListbox();
     });
