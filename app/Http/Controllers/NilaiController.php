@@ -155,10 +155,12 @@ class NilaiController extends Controller
         $statuses   = Status::orderBy('status_order')->get();
         $nilais     = NilaiController::getNilaiById($id);
         $totalNilai = NilaiController::getTotalNilaiById($id);
+        $biayas     = Biaya::where('biaya_kip_no', $id)->get();
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
+            'biayas'    => $biayas,
             'role'      => 'spv',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
@@ -174,10 +176,12 @@ class NilaiController extends Controller
         $statuses   = Status::orderBy('status_order')->get();
         $nilais     = NilaiController::getNilaiById($id);
         $totalNilai = NilaiController::getTotalNilaiById($id);
+        $biayas     = Biaya::where('biaya_kip_no', $id)->get();
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
+            'biayas'    => $biayas,
             'role'      => 'depthead',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
@@ -193,10 +197,12 @@ class NilaiController extends Controller
         $statuses   = Status::orderBy('status_order')->get();
         $nilais     = NilaiController::getNilaiById($id);
         $totalNilai = NilaiController::getTotalNilaiById($id);
+        $biayas     = Biaya::where('biaya_kip_no', $id)->get();
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
+            'biayas'    => $biayas,
             'role'      => 'comitee',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],

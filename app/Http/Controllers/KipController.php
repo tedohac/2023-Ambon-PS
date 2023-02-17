@@ -73,14 +73,16 @@ class KipController extends Controller
         $kip = app('App\Http\Controllers\NilaiController')->getViewById($id, false);
         if(empty($kip)) abort(404);
         
-        $statuses = Status::orderBy('status_order')->get();
+        $statuses   = Status::orderBy('status_order')->get();
         $nilais     = app('App\Http\Controllers\NilaiController')->getNilaiById($id);
         $totalNilai = app('App\Http\Controllers\NilaiController')->getTotalNilaiById($id);
+        $biayas     = Biaya::where('biaya_kip_no', $id)->get();
 
     	return view('kip.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
-            'statuses'    => $statuses,
+            'biayas'    => $biayas,
+            'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0]
         ]);
     }

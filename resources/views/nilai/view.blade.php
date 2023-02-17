@@ -355,11 +355,6 @@
       </div>
 
       <div class="col-12 mb-3">
-        <label class="mb-1">Biaya Perbaikan</label><br />
-        
-      </div>
-
-      <div class="col-12 mb-3">
         <label class="mb-1">Benefit Kuantitatif</label><br />
         {!! htmlspecialchars_decode($kip->kip_eval_benefit_kuantitatif) !!}
       </div>
@@ -376,6 +371,58 @@
   <!-- end of card body -->
 </div>
 <!-- end of card -->
+
+<div class="card card-warning card-outline">
+  <div class="card-header">
+    <h3 class="card-title">
+      Biaya Perbaikan
+    </h3>
+  </div>
+  <div class="card-body table-responsive p-0">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>Keterangan</th>
+          <th>Harga</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($biayas as $biaya)
+        <tr>
+          <td>{{ $biaya->biaya_desc }}</td>
+          <td>{{ number_format($biaya->biaya_harga) }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+<div class="card card-warning card-outline">
+  <div class="card-header">
+    <h3 class="card-title">
+      Tindak Lanjut atau Standarisasi
+    </h3>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      
+      <div class="col-12 mb-3">
+        <label class="mb-1">Pengontrolan Selanjutnya</label><br />
+        {!! htmlspecialchars_decode($kip->kip_pengontrolan) !!}
+      </div>
+
+    </div>
+    <!-- end of row -->
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
 @endsection
 
 
