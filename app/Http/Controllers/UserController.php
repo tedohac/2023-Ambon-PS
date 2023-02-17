@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Permission;
 use App\Role;
 use App\User;
+use Hash;
+use Session;
 
 class UserController extends Controller
 {
