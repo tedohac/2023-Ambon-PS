@@ -61,7 +61,6 @@ class NilaiController extends Controller
                 AND u.user_dept='".Auth::user()->user_dept_comitee."'
             ";
         }
-        }
         
 
         return DB::select(
