@@ -57,11 +57,23 @@
 
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
+          <label for="user_dept_comitee" class="mb-1">Dept. Yg Dinilai Saat Jadi Comitee</label>
+          <input type="text" class="form-control" name="user_dept_comitee" id="user_dept_comitee" value="{{ $user->user_dept_comitee }}">
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 col-12">
+        <div class="form-group">
           <label for="user_line" class="mb-1">Line</label>
           <input type="text" class="form-control" name="user_line" id="user_line" value="{{ $user->user_line }}">
         </div>
       </div>
       
+    </div>
+    <!-- end of row -->
+
+    <div class="row">
+
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="user_password" class="mb-1">Password</label>
