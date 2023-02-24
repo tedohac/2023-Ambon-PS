@@ -17,7 +17,7 @@
 
 @section('content')
 
-<form method="post" id="formadd" action="{{ route('manageratio') }}" enctype="multipart/form-data">
+<form method="post" id="formadd" action="{{ route('ratiomgmt') }}" enctype="multipart/form-data">
 @csrf
 
 <div class="row">
@@ -39,11 +39,6 @@
         <div class="form-group">
           <label for="ratio_comitee" class="mb-1">Ratio Comitee</label>
           <input type="text" class="form-control" name="ratio_comitee" id="ratio_comitee">
-        </div>
-
-        <div class="form-group">
-          <label for="user_passwordre" class="mb-1">Re-Enter Password</label>
-          <input type="password" class="form-control" name="user_passwordre" id="user_passwordre">
         </div>
         
         <button type="button" class="btn btn-block btn-primary mt-4" id="checkValid">
@@ -70,7 +65,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Password akan diubah</p>
+        <p>Ratio penilaian akan di ubah</p>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

@@ -18,6 +18,9 @@ Route::get('/','MainController@index')->name('main')->middleware('CheckPermissio
 Route::get('changepass','UserController@changepass')->name('changepass')->middleware('CheckPermission:');
 Route::post('changepass','UserController@changepasssave')->middleware('CheckPermission:');
 
+Route::get('ratiomgmt','NilaiController@ratiomgmt')->name('ratiomgmt')->middleware('CheckPermission:');
+Route::post('ratiomgmt','NilaiController@ratiomgmtsave')->middleware('CheckPermission:');
+
 Route::group(['middleware' => 'web'], function () {
     
     Route::get('/login', 'AuthController@form')->name('login');

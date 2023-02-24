@@ -259,7 +259,7 @@ class NilaiController extends Controller
         return redirect()->back();   
     }
 
-    public function manageratio()
+    public function ratiomgmt()
     {
         $ratio   = Ratio::orderBy('ratio_created_at')->first();
 

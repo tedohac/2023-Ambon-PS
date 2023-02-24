@@ -1,4 +1,4 @@
-@extends('layout.master', ['title' => 'Edit User {{ $user->user_npk }} - Personal Site'])
+@extends('layout.master', ['title' => 'Edit User - Personal Site'])
 
 @section('head')
   <!-- duallistbox -->
@@ -143,7 +143,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>User baru akan terbentuk</p>
+        <p>Informasi user akan diubah</p>
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
