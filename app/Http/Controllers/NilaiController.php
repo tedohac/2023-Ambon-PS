@@ -52,8 +52,15 @@ class NilaiController extends Controller
         if(!$isComitee)
         {
             $query = $query."
+                AND u.user_dept='".Auth::user()->user_dept."'
+            ";
+        }
+        else            
+        {
+            $query = $query."
                 AND u.user_dept='".Auth::user()->user_dept_comitee."'
             ";
+        }
         }
         
 
