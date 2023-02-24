@@ -34,7 +34,7 @@ class NilaiController extends Controller
                 WHEN IFNULL(spv.vw_total, 0) >= 35 THEN
                     TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*".$ratio->ratio_spvdepthead."/100)+(IFNULL(comitee.vw_total, 0)*".$ratio->ratio_comitee."/100), 2)
                 ELSE
-                    TRUNCATE((IFNULL(spv.vw_total, 0)*"".$ratio->ratio_spvdepthead.""/100)+(IFNULL(comitee.vw_total, 0)*".$ratio->ratio_comitee."/100), 2)
+                    TRUNCATE((IFNULL(spv.vw_total, 0)*".$ratio->ratio_spvdepthead."/100)+(IFNULL(comitee.vw_total, 0)*".$ratio->ratio_comitee."/100), 2)
             END as 'final',
             s.status_desc, 
             s.status_color
