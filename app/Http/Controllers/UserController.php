@@ -56,6 +56,7 @@ class UserController extends Controller
         $user->user_npk     = $request->user_npk;
         $user->user_name    = $request->user_name;
         $user->user_dept    = $request->user_dept;
+        $user->user_dept_comitee= $request->user_dept_comitee;
         $user->user_line    = $request->user_line;
         $user->user_status  = (isset($request->user_status)) ? '1' : '0';
         $user->user_password= Hash::make($request->user_password);
@@ -97,6 +98,7 @@ class UserController extends Controller
         $datas = [
             'user_name'     => $request->user_name,
             'user_dept'     => $request->user_dept,
+            'user_dept_comitee'=> $request->user_dept_comitee,
             'user_line'     => $request->user_line,
             'user_status'   => (isset($request->user_status)) ? '1' : '0'
         ];

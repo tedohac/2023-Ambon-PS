@@ -7,6 +7,7 @@ use App\Biaya;
 use App\Kip;
 use App\Nilai;
 use App\Permission;
+use App\Ratio;
 use App\Status;
 use Artisan;
 use Auth;
@@ -18,6 +19,8 @@ class NilaiController extends Controller
 {
     public function getListByDept($isComitee)
     {
+        $ratio   = Ratio::orderBy('ratio_created_at')->first();
+
         $query = "
         select 
             a.kip_created_on, 
@@ -29,9 +32,9 @@ class NilaiController extends Controller
             IFNULL(comitee.vw_total, 0) as 'comitee',
             CASE
                 WHEN IFNULL(spv.vw_total, 0) >= 35 THEN
-                    TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
+                    TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*".$ratio->ratio_spvdepthead."/100)+(IFNULL(comitee.vw_total, 0)*".$ratio->ratio_comitee."/100), 2)
                 ELSE
-                    TRUNCATE((IFNULL(spv.vw_total, 0)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
+                    TRUNCATE((IFNULL(spv.vw_total, 0)*"".$ratio->ratio_spvdepthead.""/100)+(IFNULL(comitee.vw_total, 0)*".$ratio->ratio_comitee."/100), 2)
             END as 'final',
             s.status_desc, 
             s.status_color
@@ -49,7 +52,7 @@ class NilaiController extends Controller
         if(!$isComitee)
         {
             $query = $query."
-                AND u.user_dept='".Auth::user()->user_dept."'
+                AND u.user_dept='".Auth::user()->user_dept_comitee."'
             ";
         }
         
@@ -81,6 +84,8 @@ class NilaiController extends Controller
     
     public function getTotalNilaiById($id)
     {
+        $ratio   = Ratio::orderBy('ratio_created_at')->first();
+
         return DB::select(
             DB::raw("
             select 
@@ -90,9 +95,9 @@ class NilaiController extends Controller
                 IFNULL(comitee.vw_total, 0) as 'comitee',
                 CASE
                     WHEN IFNULL(spv.vw_total, 0) >= 35 THEN
-                        TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
+                        TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*".$ratio->ratio_spvdepthead."/100)+(IFNULL(comitee.vw_total, 0)*".$ratio->ratio_comitee."/100), 2)
                     ELSE
-                        TRUNCATE((IFNULL(spv.vw_total, 0)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
+                        TRUNCATE((IFNULL(spv.vw_total, 0)*".$ratio->ratio_spvdepthead."/100)+(IFNULL(comitee.vw_total, 0)*".$ratio->ratio_comitee."/100), 2)
                 END as 'final'
             FROM 
                 kips a 
@@ -246,5 +251,14 @@ class NilaiController extends Controller
 
         Session::flash('success', 'Berhasil memberikan penilaian');
         return redirect()->back();   
+    }
+
+    public function manageratio()
+    {
+        $ratio   = Ratio::orderBy('ratio_created_at')->first();
+
+    	return view('nilai.ratio', [
+            'ratio' => $ratio
+        ]);
     }
 }
