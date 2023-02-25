@@ -268,7 +268,7 @@ class NilaiController extends Controller
         ]);
     }
     
-    public function ratiomgmtsave()
+    public function ratiomgmtsave(Request $request)
     {
         $ratio = new Ratio;
         $ratio->ratio_spvdepthead= $request->ratio_spvdepthead;
