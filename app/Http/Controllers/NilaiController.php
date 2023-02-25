@@ -19,7 +19,7 @@ class NilaiController extends Controller
 {
     public function getListByDept($isComitee)
     {
-        $ratio   = Ratio::orderBy('ratio_created_at')->first();
+        $ratio   = Ratio::orderBy('ratio_created_at', 'desc')->first();
 
         $query = "
         select 
@@ -90,7 +90,7 @@ class NilaiController extends Controller
     
     public function getTotalNilaiById($id)
     {
-        $ratio   = Ratio::orderBy('ratio_created_at')->first();
+        $ratio   = Ratio::orderBy('ratio_created_at', 'desc')->first();
 
         return DB::select(
             DB::raw("
@@ -261,7 +261,7 @@ class NilaiController extends Controller
 
     public function ratiomgmt()
     {
-        $ratio   = Ratio::orderBy('ratio_created_at')->first();
+        $ratio   = Ratio::orderBy('ratio_created_at', 'desc')->first();
 
     	return view('nilai.ratio', [
             'ratio' => $ratio
