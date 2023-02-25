@@ -267,4 +267,30 @@ class NilaiController extends Controller
             'ratio' => $ratio
         ]);
     }
+    
+    public function ratiomgmtsave()
+    {
+        $ratio = new Ratio;
+        $ratio->ratio_spvdepthead= $request->ratio_spvdepthead;
+        $ratio->ratio_comitee    = $request->ratio_comitee;
+        $ratio->ratio_created_at = date("Y-m-d H:i:s");
+        $ratio->ratio_created_by = Auth::user()->user_npk;
+
+        $rationilai = $ratio->save();
+
+        
+        if(!$rationilai)
+        {
+            Session::flash('error', 'Menyimpan ratio gagal! Mohon hubungi admin');
+        }
+        
+        Kip::where('kip_no', $request->nilai_kip_no)
+            ->update([
+                'kip_status' => $request->nilai_level
+            ]);
+
+        Session::flash('success', 'Berhasil menyimpan ratio');
+        return redirect()->back();   
+
+    }
 }

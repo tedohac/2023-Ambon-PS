@@ -33,14 +33,14 @@
 
         <div class="form-group">
           <label for="ratio_spvdepthead" class="mb-1">Ratio SPV / Dept Head</label>
-          <input type="text" class="form-control" name="ratio_spvdepthead" id="ratio_spvdepthead">
+          <input type="text" class="form-control" name="ratio_spvdepthead" id="ratio_spvdepthead" value="{{ $ratio->ratio_spvdepthead }}">
         </div>
 
         <div class="form-group">
           <label for="ratio_comitee" class="mb-1">Ratio Comitee</label>
-          <input type="text" class="form-control" name="ratio_comitee" id="ratio_comitee">
+          <input type="text" class="form-control" name="ratio_comitee" id="ratio_comitee" value="{{ $ratio->ratio_comitee }}>
         </div>
-        
+
         <button type="button" class="btn btn-block btn-primary mt-4" id="checkValid">
           <i class="fa fa-fw fa-save"></i>
           Save
