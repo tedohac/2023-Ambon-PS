@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Deptline;
 use App\Permission;
 use App\Role;
 use App\User;
@@ -23,9 +24,11 @@ class UserController extends Controller
     public function new()
     {    	
         $roles = Role::get();
+        $deptlines = Deptline::get();
 
         return view('user.new', [
-            'roles' => $roles
+            'roles' => $roles,
+            'deptlines' => $deptlines
         ]);
     }
     
