@@ -269,7 +269,7 @@
       
       <div class="col-lg-4 col-md-6 col-12 mb-3">
           <label class="mb-1">Dept</label><br />
-          {{ $kip->user_dept }}
+          {{ $kip->dept_name }}
       </div>
 
       <div class="col-lg-4 col-md-6 col-12 mb-3">
@@ -279,7 +279,7 @@
       
       <div class="col-lg-4 col-md-6 col-12 mb-3">
         <label class="mb-1">Line</label><br />
-        {{ $kip->user_line }}
+        {{ $kip->line_name }} - {{ $kip->line_detail }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12 mb-3">

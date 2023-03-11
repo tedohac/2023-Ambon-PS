@@ -161,7 +161,7 @@
       
       <div class="col-lg-4 col-md-6 col-12 mb-3">
         <label class="mb-1">Line</label><br />
-        {{ $kip->dept_name }} - {{ $kip->dept_detail }}
+        {{ $kip->line_name }} - {{ $kip->line_detail }}
       </div>
       
       <div class="col-lg-4 col-md-6 col-12 mb-3">
