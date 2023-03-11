@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Status extends Deptline
+class Deptline extends Model
 {
     protected $table = 'deptlines';
 }
