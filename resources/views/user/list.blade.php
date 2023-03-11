@@ -37,7 +37,6 @@
         <tr>
           <th>NPK</th>
           <th>Nama</th>
-          <th>Dept</th>
           <th>Line</th>
           <th>Status</th>
           <th>Created On</th>
@@ -50,8 +49,7 @@
         <tr>
           <td>{{ $user->user_npk }}</td>
           <td>{{ $user->user_name }}</td>
-          <td>{{ $user->user_dept }}</td>
-          <td>{{ $user->user_line }}</td>
+          <td>{{ $user->line_dept }} - {{ $user->line_name }} - {{ $user->line_detail }}</td>
           <td>
             <span class="badge bg-{{ ($user->user_status==1) ? 'primary' : 'secondary' }}">{{ ($user->user_status==1) ? 'Active' : 'Inactive' }}</span>
           </td>

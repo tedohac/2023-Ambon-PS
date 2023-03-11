@@ -14,7 +14,7 @@ class UserController extends Controller
 {
     public function list()
     {
-        $users = User::get();
+        $users = User::join('deptlines', 'deptlines.line_id', '=', 'users.user_deptline')->get();
 
     	return view('user.list', [
             'users' => $users
@@ -35,13 +35,15 @@ class UserController extends Controller
     public function edit($id)
     {
         $user       = User::where('user_npk', $id)->first();
-        $roles      = Role::get();
+        $roles      = Role::get();      
+        $deptlines  = Deptline::get();
         $permissions= Permission::where('permission_user_npk', $id)->pluck('permission_role_code')->toArray();
 
     	return view('user.edit', [
             'user'          => $user,
             'roles'         => $roles,
-            'permissions'   => $permissions
+            'permissions'   => $permissions,
+            'deptlines' => $deptlines
         ]);
     }
 
@@ -58,9 +60,7 @@ class UserController extends Controller
         $user = new User;
         $user->user_npk     = $request->user_npk;
         $user->user_name    = $request->user_name;
-        $user->user_dept    = $request->user_dept;
-        $user->user_dept_comitee= $request->user_dept_comitee;
-        $user->user_line    = $request->user_line;
+        $user->user_deptline= $request->user_deptline;
         $user->user_status  = (isset($request->user_status)) ? '1' : '0';
         $user->user_password= Hash::make($request->user_password);
         $simpanuser = $user->save();
@@ -100,9 +100,7 @@ class UserController extends Controller
 
         $datas = [
             'user_name'     => $request->user_name,
-            'user_dept'     => $request->user_dept,
-            'user_dept_comitee'=> $request->user_dept_comitee,
-            'user_line'     => $request->user_line,
+            'user_deptline' => $request->user_deptline,
             'user_status'   => (isset($request->user_status)) ? '1' : '0'
         ];
 

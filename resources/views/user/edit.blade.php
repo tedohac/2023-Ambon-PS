@@ -50,22 +50,12 @@
 
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
-          <label for="user_dept" class="mb-1">Departemen</label>
-          <input type="text" class="form-control" name="user_dept" id="user_dept" value="{{ $user->user_dept }}">
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="user_dept_comitee" class="mb-1">Dept. Yg Dinilai Saat Jadi Comitee</label>
-          <input type="text" class="form-control" name="user_dept_comitee" id="user_dept_comitee" value="{{ $user->user_dept_comitee }}">
-        </div>
-      </div>
-
-      <div class="col-lg-4 col-md-6 col-12">
-        <div class="form-group">
-          <label for="user_line" class="mb-1">Line</label>
-          <input type="text" class="form-control" name="user_line" id="user_line" value="{{ $user->user_line }}">
+          <label for="user_deptline" class="mb-1">Line</label>          
+          <select class="form-control select2bs4" name="user_deptline" id="user_deptline">>
+            @foreach($deptlines as $deptline)
+            <option value="{{ $deptline->line_id }}" {{ $user->user_deptline==$deptline->line_id ? 'selected' : '' }}>{{ $deptline->line_dept }} - {{ $deptline->line_name }} - {{ $deptline->line_detail }}</option>
+            @endforeach
+          </select>
         </div>
       </div>
       
