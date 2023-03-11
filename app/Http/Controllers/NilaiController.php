@@ -70,22 +70,23 @@ class NilaiController extends Controller
     
     public function getViewById($id, $isComitee)
     {
-        if(!$isComitee)
-        {
+        // if(!$isComitee)
+        // {
+        //     return Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
+        //                 ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
+        //                 ->where('kip_no', $id)
+        //                 ->where('user_dept', Auth::user()->user_dept)
+        //                 ->first();
+        // }
+        // else
+        // {
             return Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
                         ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
-                        ->where('kip_no', $id)
-                        ->where('user_dept', Auth::user()->user_dept)
-                        ->first();
-        }
-        else
-        {
-            return Kip::join('users', 'users.user_npk', '=', 'kips.kip_created_by')
-                        ->join('statuses', 'statuses.status_code', '=', 'kips.kip_status')
+                        ->join('deptlines', 'deptlines.line_id', '=', 'users.user_deptline')
                         ->where('kip_no', $id)
                         ->first();
 
-        }
+        // }
     }
     
     public function getTotalNilaiById($id)
