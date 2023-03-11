@@ -3,6 +3,9 @@
 @section('head')
   <!-- duallistbox -->
   <link rel="stylesheet" href="{{ asset('plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css') }}">
+  <!-- select2 -->
+  <link rel="stylesheet" href="{{ asset('plugins/select2/css/select2.min.css') }}">
+  <link rel="stylesheet" href="{{ asset('plugins/select2-bootstrap4-theme/select2-bootstrap4.min.css') }}">
 @endsection
 
 @section('sidebar')
@@ -49,7 +52,7 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="user_deptline" class="mb-1">Line</label>          
-          <select class="form-control select2" name="user_deptline" id="user_deptline">>
+          <select class="form-control select2bs4" name="user_deptline" id="user_deptline">>
             @foreach($deptlines as $deptline)
             <option value="{{ $deptline->line_id }}">{{ $deptline->line_dept }} - {{ $deptline->line_name }} - {{ $deptline->line_detail }}</option>
             @endforeach
