@@ -150,6 +150,8 @@
 <script src="{{ asset('plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 <!-- duallistbox -->
 <script src="{{ asset('plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js') }}"></script>
+<!-- select2 -->
+<script src="{{ asset('plugins/select2/js/select2.full.min.js') }}"></script>
 
 <!-- JS -->
 <script src="{{ asset('dist/js/newuser.js?v=').time() }}"></script>
