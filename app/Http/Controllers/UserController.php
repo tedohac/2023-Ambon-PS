@@ -125,7 +125,7 @@ class UserController extends Controller
         // delete Permissions before insert
         Permission::where('permission_user_npk', $request->user_npk)->delete();
 
-        print_r($user_permissions);
+        print_r($request->user_permissions);
 
         // // save Permissions
         // if(isset($request->user_permissions))
