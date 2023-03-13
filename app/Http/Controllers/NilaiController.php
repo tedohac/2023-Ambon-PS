@@ -129,7 +129,7 @@ class NilaiController extends Controller
 
     public function listspv()
     {
-        $kips = NilaiController::getList();
+        $kips = NilaiController::getList("SPV");
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -139,7 +139,7 @@ class NilaiController extends Controller
     
     public function listdepthead()
     {
-        $kips = NilaiController::getList();
+        $kips = NilaiController::getList("Dept Head");
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -149,7 +149,7 @@ class NilaiController extends Controller
     
     public function listcomitee()
     {
-        $kips = NilaiController::getList();
+        $kips = NilaiController::getList("Comitee");
     
     	return view('nilai.list', [
             'kips' => $kips,
