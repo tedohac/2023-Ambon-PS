@@ -106,8 +106,8 @@
   <div class="form-group">
     <label>Assign Role ke User</label>
     <select class="duallistbox" multiple="multiple" name="user_permissions[]">
-      @foreach($roles as $role)
-      <option>{{ $role->role_code }}</option>
+      @foreach($rolelines as $roleline)
+      <option>{{ $roleline->roleline_id }}-{{ $roleline->role_code }}-{{ $roleline->line_dept }}-{{ $roleline->line_name }}-{{ $roleline->line_detail }}</option>
       @endforeach
     </select>
   </div>

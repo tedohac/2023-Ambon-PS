@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Deptline;
 use App\Permission;
 use App\Role;
+use App\Roleline;
 use App\User;
 use Hash;
 use Session;
@@ -23,11 +24,13 @@ class UserController extends Controller
 
     public function new()
     {    	
-        $roles = Role::get();
+        $rolelines = Roleline::join('roles', 'roles.role_code', '=', 'rolelines.roleline_role_code')
+                             ->join('deptlines', 'deptlines.line_id', '=', 'rolelines.roleline_deptline_id')
+                             ->get();
         $deptlines = Deptline::get();
 
         return view('user.new', [
-            'roles' => $roles,
+            'rolelines' => $rolelines,
             'deptlines' => $deptlines
         ]);
     }
@@ -35,13 +38,15 @@ class UserController extends Controller
     public function edit($id)
     {
         $user       = User::where('user_npk', $id)->first();
-        $roles      = Role::get();      
+        $rolelines  = Roleline::join('roles', 'roles.role_code', '=', 'rolelines.roleline_role_code')
+                              ->join('deptlines', 'deptlines.line_id', '=', 'rolelines.roleline_deptline_id')
+                              ->get();
         $deptlines  = Deptline::get();
         $permissions= Permission::where('permission_user_npk', $id)->pluck('permission_role_code')->toArray();
 
     	return view('user.edit', [
             'user'          => $user,
-            'roles'         => $roles,
+            'rolelines'     => $rolelines,
             'permissions'   => $permissions,
             'deptlines' => $deptlines
         ]);
