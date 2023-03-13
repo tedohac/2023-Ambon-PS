@@ -125,29 +125,33 @@ class UserController extends Controller
         // delete Permissions before insert
         Permission::where('permission_user_npk', $request->user_npk)->delete();
 
-        print_r($request->user_permissions);
+        // save Permissions
+        if(isset($request->user_permissions))
+        {
+            $permissionArr = array();
+    
+            foreach ($request->user_permissions as $permissionReq) {
+                $rolelineArr = explode ("-", $permissionReq);
 
-        // // save Permissions
-        // if(isset($request->user_permissions))
-        // {
-        //     foreach ($request->user_permissions as $permissionReq) {
-        //         $permissionArr = explode ("-", $permissionReq);
+                if(in_array($rolelineArr, $permissionArr)) continue;
 
-        //         $permission = new Permission;
-        //         $permission->permission_user_npk    = $request->user_npk;
-        //         $permission->permission_roleline_id = $permissionArr[0];
-        //         $simpanpermission = $permission->save();   
+                $permission = new Permission;
+                $permission->permission_user_npk    = $request->user_npk;
+                $permission->permission_roleline_id = $rolelineArr[0];
+                $simpanpermission = $permission->save();   
 
-        //         if(!$simpanpermission)
-        //         {
-        //             Session::flash('error', 'Menyimpan permission gagal! Mohon hubungi admin');
-        //             return redirect()->back();   
-        //         }       
-        //     }
-        // }
+                if(!$simpanpermission)
+                {
+                    Session::flash('error', 'Menyimpan permission gagal! Mohon hubungi admin');
+                    return redirect()->back();   
+                }       
 
-        // Session::flash('success', 'Berhasil mengubah user');
-        // return redirect()->route('user.list');  
+                array_push($permissionArr, $rolelineArr[0]);
+            }
+        }
+
+        Session::flash('success', 'Berhasil mengubah user');
+        return redirect()->route('user.list');  
     }
     
     public function changepass()
