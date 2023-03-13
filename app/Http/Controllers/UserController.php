@@ -125,27 +125,29 @@ class UserController extends Controller
         // delete Permissions before insert
         Permission::where('permission_user_npk', $request->user_npk)->delete();
 
-        // save Permissions
-        if(isset($request->user_permissions))
-        {
-            foreach ($request->user_permissions as $permissionReq) {
-                $permissionArr = explode ("-", $permissionReq);
+        print_r($user_permissions);
 
-                $permission = new Permission;
-                $permission->permission_user_npk    = $request->user_npk;
-                $permission->permission_roleline_id = $permissionArr[0];
-                $simpanpermission = $permission->save();   
+        // // save Permissions
+        // if(isset($request->user_permissions))
+        // {
+        //     foreach ($request->user_permissions as $permissionReq) {
+        //         $permissionArr = explode ("-", $permissionReq);
 
-                if(!$simpanpermission)
-                {
-                    Session::flash('error', 'Menyimpan permission gagal! Mohon hubungi admin');
-                    return redirect()->back();   
-                }       
-            }
-        }
+        //         $permission = new Permission;
+        //         $permission->permission_user_npk    = $request->user_npk;
+        //         $permission->permission_roleline_id = $permissionArr[0];
+        //         $simpanpermission = $permission->save();   
 
-        Session::flash('success', 'Berhasil mengubah user');
-        return redirect()->route('user.list');  
+        //         if(!$simpanpermission)
+        //         {
+        //             Session::flash('error', 'Menyimpan permission gagal! Mohon hubungi admin');
+        //             return redirect()->back();   
+        //         }       
+        //     }
+        // }
+
+        // Session::flash('success', 'Berhasil mengubah user');
+        // return redirect()->route('user.list');  
     }
     
     public function changepass()
