@@ -108,7 +108,6 @@
     <label>Assign Role ke User</label>
     <select class="duallistbox" multiple="multiple" name="user_permissions[]">
       @foreach($rolelines as $roleline)
-      <option {{ in_array($role->role_code, $permissions) ? 'selected' : '' }}>{{ $role->role_code }}</option>
       <option {{ in_array($roleline->roleline_id, $permissions) ? 'selected' : '' }}>{{ $roleline->roleline_id }}-{{ $roleline->role_code }}-{{ $roleline->line_dept }}-{{ $roleline->line_name }}-{{ $roleline->line_detail }}</option>
       @endforeach
     </select>
