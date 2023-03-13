@@ -80,7 +80,7 @@ class UserController extends Controller
                 foreach ($request->user_permissions as $permissionReq) {
                     $permission = new Permission;
                     $permission->permission_user_npk    = $request->user_npk;
-                    $permission->permission_role_code   = $permissionReq;
+                    $permission->permission_roleline_id = $permissionReq;
                     $simpanpermission = $permission->save();   
     
                     if(!$simpanpermission)
@@ -129,7 +129,7 @@ class UserController extends Controller
             foreach ($request->user_permissions as $permissionReq) {
                 $permission = new Permission;
                 $permission->permission_user_npk    = $request->user_npk;
-                $permission->permission_role_code   = $permissionReq;
+                $permission->permission_roleline_id = $permissionReq;
                 $simpanpermission = $permission->save();   
 
                 if(!$simpanpermission)
