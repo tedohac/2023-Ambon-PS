@@ -82,8 +82,7 @@ class UserController extends Controller
                 foreach ($request->user_permissions as $permissionReq) {
                     $rolelineArr = explode ("-", $permissionReq);
     
-                    if(in_array($rolelineArr, $permissionArr)) continue;
-    
+                    if(in_array($permissionArr, $rolelineArr[0])) continue;    
 
                     $permission = new Permission;
                     $permission->permission_user_npk    = $request->user_npk;
@@ -140,7 +139,7 @@ class UserController extends Controller
             foreach ($request->user_permissions as $permissionReq) {
                 $rolelineArr = explode ("-", $permissionReq);
 
-                if(in_array($rolelineArr, $permissionArr)) continue;
+                if(in_array($permissionArr, $rolelineArr[0])) continue;
 
                 $permission = new Permission;
                 $permission->permission_user_npk    = $request->user_npk;
