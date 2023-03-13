@@ -78,9 +78,11 @@ class UserController extends Controller
             if(isset($request->user_permissions))
             {
                 foreach ($request->user_permissions as $permissionReq) {
+                    $permissionArr = explode ("-", $permissionReq);
+
                     $permission = new Permission;
                     $permission->permission_user_npk    = $request->user_npk;
-                    $permission->permission_roleline_id = $permissionReq;
+                    $permission->permission_roleline_id = $permissionArr[0];
                     $simpanpermission = $permission->save();   
     
                     if(!$simpanpermission)
@@ -127,9 +129,11 @@ class UserController extends Controller
         if(isset($request->user_permissions))
         {
             foreach ($request->user_permissions as $permissionReq) {
+                $permissionArr = explode ("-", $permissionReq);
+
                 $permission = new Permission;
                 $permission->permission_user_npk    = $request->user_npk;
-                $permission->permission_roleline_id = $permissionReq;
+                $permission->permission_roleline_id = $permissionArr[0];
                 $simpanpermission = $permission->save();   
 
                 if(!$simpanpermission)
