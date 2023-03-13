@@ -18,12 +18,28 @@ class Permission extends Model
     
     public static function getByUser($user_npk)
     {
-        return Permission::join('rolelines', 'rolelines.roleline_id', '=', 'permissions.permission_roleline_id')
-                        ->join('roles', 'roles.role_code', '=', 'rolelines.roleline_role_code')
-                        ->whereNotNull('role_icon')
-                        ->where('permission_user_npk', $user_npk)
-                        // ->where('permission_role_code', 'like', '%'.$role_base_code.'%')
-                        ->get();
+
+        $query = "
+            select 
+                r.role_code, r.role_desc, r.role_icon, r.role_url
+            from 
+                permissions p
+                join rolelines l on p.permission_roleline_id=l.roleline_id
+                join roles r on l.roleline_role_code=r.role_code
+            where permission_user_npk='".$user_npk."'
+            group by r.role_code
+        ";
+        
+        return DB::select(
+            DB::raw($query)
+        );
+
+        // return Permission::join('rolelines', 'rolelines.roleline_id', '=', 'permissions.permission_roleline_id')
+        //                 ->join('roles', 'roles.role_code', '=', 'rolelines.roleline_role_code')
+        //                 ->whereNotNull('role_icon')
+        //                 ->where('permission_user_npk', $user_npk)
+        //                 // ->where('permission_role_code', 'like', '%'.$role_base_code.'%')
+        //                 ->get();
     }
     
     /**
