@@ -17,7 +17,7 @@ use Storage;
 
 class NilaiController extends Controller
 {
-    public function getListByDept($isComitee)
+    public function getList($role_code)
     {
         $ratio   = Ratio::orderBy('ratio_created_at', 'desc')->first();
 
@@ -47,20 +47,16 @@ class NilaiController extends Controller
             LEFT JOIN users u ON a.kip_created_by=u.user_npk
         WHERE
             a.kip_status != 'draft'
+            AND u.user_deptline in (
+                SELECT l.roleline_deptline_id
+                FROM
+                    permissions p
+                    JOIN rolelines l ON p.permission_roleline_id=l.roleline_id
+                WHERE
+                    p.permission_user_npk='".Auth::user()->user_npk."'
+                    AND l.roleline_role_code='".$role_code."'
+            )
         ";
-
-        if(!$isComitee)
-        {
-            $query = $query."
-                AND u.user_dept='".Auth::user()->user_dept."'
-            ";
-        }
-        else            
-        {
-            $query = $query."
-                AND u.user_dept='".Auth::user()->user_dept_comitee."'
-            ";
-        }
         
 
         return DB::select(
@@ -133,7 +129,7 @@ class NilaiController extends Controller
 
     public function listspv()
     {
-        $kips = NilaiController::getListByDept(false);
+        $kips = NilaiController::getList();
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -143,7 +139,7 @@ class NilaiController extends Controller
     
     public function listdepthead()
     {
-        $kips = NilaiController::getListByDept(false);
+        $kips = NilaiController::getList();
     
     	return view('nilai.list', [
             'kips' => $kips,
@@ -153,7 +149,7 @@ class NilaiController extends Controller
     
     public function listcomitee()
     {
-        $kips = NilaiController::getListByDept(true);
+        $kips = NilaiController::getList();
     
     	return view('nilai.list', [
             'kips' => $kips,
