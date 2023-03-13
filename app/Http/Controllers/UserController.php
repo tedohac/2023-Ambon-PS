@@ -26,6 +26,7 @@ class UserController extends Controller
     {    	
         $rolelines = Roleline::join('roles', 'roles.role_code', '=', 'rolelines.roleline_role_code')
                              ->join('deptlines', 'deptlines.line_id', '=', 'rolelines.roleline_deptline_id')
+                             ->orderBy('roleline_id')
                              ->get();
         $deptlines = Deptline::get();
 
@@ -40,9 +41,10 @@ class UserController extends Controller
         $user       = User::where('user_npk', $id)->first();
         $rolelines  = Roleline::join('roles', 'roles.role_code', '=', 'rolelines.roleline_role_code')
                               ->join('deptlines', 'deptlines.line_id', '=', 'rolelines.roleline_deptline_id')
+                              ->orderBy('roleline_id')
                               ->get();
         $deptlines  = Deptline::get();
-        $permissions= Permission::where('permission_user_npk', $id)->pluck('permission_role_code')->toArray();
+        $permissions= Permission::where('permission_user_npk', $id)->pluck('permission_roleline_id')->toArray();
 
     	return view('user.edit', [
             'user'          => $user,
