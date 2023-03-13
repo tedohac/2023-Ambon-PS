@@ -18,11 +18,12 @@ class Permission extends Model
     
     public static function getByUser($user_npk)
     {
-        return Permission::join('roles', 'roles.role_code', '=', 'permissions.permission_role_code')
+        return Permission::join('rolelines', 'rolelines.roleline_id', '=', 'permissions.permission_roleline_id')
+                        ->join('roles', 'roles.role_code', '=', 'rolelines.roleline_role_code')
                         ->whereNotNull('role_icon')
                         ->where('permission_user_npk', $user_npk)
                         // ->where('permission_role_code', 'like', '%'.$role_base_code.'%')
-                                ->get();
+                        ->get();
     }
     
     /**
@@ -32,7 +33,9 @@ class Permission extends Model
      */
     public static function hasRoles($role_code)
     {
-        $user = Permission::where('permission_user_npk', Auth::User()->user_npk)->where('permission_role_code', $role_code)->first();
+        $user = Permission::join('rolelines', 'rolelines.roleline_id', '=', 'permissions.permission_roleline_id')
+                          ->where('permission_user_npk', Auth::User()->user_npk)
+                          ->where('roleline_role_code', $role_code)->first();
         if(empty($user)) return false;
         else return true;
     }
