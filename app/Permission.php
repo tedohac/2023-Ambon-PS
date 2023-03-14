@@ -22,7 +22,7 @@ class Permission extends Model
 
         $query = "
             select 
-                r.role_code, r.role_desc, r.role_icon, r.role_url
+                r.role_code, max(r.role_desc) role_desc, max(r.role_icon) role_icon, max(r.role_url) role_url
             from 
                 permissions p
                 join rolelines l on p.permission_roleline_id=l.roleline_id
