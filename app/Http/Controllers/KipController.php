@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Biaya;
+use App\Benefit;
 use App\Kip;
 use App\Status;
 use NilaiController;
@@ -61,13 +62,15 @@ class KipController extends Controller
         if(empty($kip)) abort(404);
 
         $biayas = Biaya::where('biaya_kip_no', $id)->get();
+        $benefits = Benefit::where('benefit_kip_no', $id)->get();
 
         if($kip->kip_status!="draft")
             return redirect()->route('kip.view', $kip->kip_no);   
 
     	return view('kip.edit', [
             'kip' => $kip,
-            'biayas' => $biayas
+            'biayas' => $biayas,
+            'benefits' => $benefits
         ]);
     }
     
@@ -82,11 +85,13 @@ class KipController extends Controller
         $nilais     = app('App\Http\Controllers\NilaiController')->getNilaiById($id);
         $totalNilai = app('App\Http\Controllers\NilaiController')->getTotalNilaiById($id);
         $biayas     = Biaya::where('biaya_kip_no', $id)->get();
+        $benefits   = Benefit::where('benefit_kip_no', $id)->get();
 
     	return view('kip.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
             'biayas'    => $biayas,
+            'benefits'  => $benefits,
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0]
         ]);
@@ -191,6 +196,28 @@ class KipController extends Controller
                     $counter++;
                 }
             }
+            
+            // save benefit
+            if(isset($request->benefit))
+            {
+                $counter = 0;    
+                foreach ($request->benefit as $benefitReq) {
+                    $benefit = new Benefit;
+                    $benefit->benefit_id    = $counter + 1;
+                    $benefit->benefit_kip_no= $kip_no;
+                    $benefit->benefit_desc  = $benefitReq[0];
+                    $benefit->benefit_harga = $benefitReq[1];
+                    $simpanbenefit = $benefit->save();   
+    
+                    if(!$simpanbenefit)
+                    {
+                        Session::flash('error', 'Menyimpan benefit gagal! Mohon hubungi admin');
+                        return redirect()->back();   
+                    }       
+    
+                    $counter++;
+                }
+            }
 
             if($request->mode == "draft")
             {
@@ -269,6 +296,9 @@ class KipController extends Controller
 
         // delete Biaya before insert
         Biaya::where('biaya_kip_no', $request->kip_no)->delete();
+        
+        // delete benefit before insert
+        Benefit::where('benefit_kip_no', $request->kip_no)->delete();
 
         // save biaya
         if(isset($request->biaya))
@@ -292,6 +322,27 @@ class KipController extends Controller
             }
         }
 
+        // save benefit
+        if(isset($request->benefit))
+        {
+            $counter = 0;
+            foreach ($request->benefit as $benefitReq) {
+                $benefit = new Benefit;
+                $benefit->benefit_id    = $counter + 1;
+                $benefit->benefit_kip_no= $request->kip_no;
+                $benefit->benefit_desc  = $benefitReq[0];
+                $benefit->benefit_harga = $benefitReq[1];
+                $simpanbenefit = $benefit->save();   
+    
+                if(!$simpanbenefit)
+                {
+                    Session::flash('error', 'Menyimpan benefit gagal! Mohon hubungi admin');
+                    return redirect()->back();   
+                }       
+    
+                $counter++;
+            }
+        }
 
         if($request->mode == "draft")
         {

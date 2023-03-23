@@ -237,17 +237,41 @@
       </div>
 
       <div class="col-12 mb-3">
-        <label class="mb-1">Benefit Kuantitatif</label><br />
-        {!! htmlspecialchars_decode($kip->kip_eval_benefit_kuantitatif) !!}
-      </div>
-
-      <div class="col-12 mb-3">
         <label class="mb-1">Benefit Kualitatif</label><br />
         {!! htmlspecialchars_decode($kip->kip_eval_benefit_kualitatif) !!}
       </div>
 
     </div>
     <!-- end of row -->
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+<div class="card card-warning card-outline">
+  <div class="card-header">
+    <h3 class="card-title">
+      Benefit Kuantitatif
+    </h3>
+  </div>
+  <div class="card-body table-responsive table-bordered p-0">
+    <table class="table table-hover text-nowrap">
+      <thead>
+        <tr>
+          <th>Keterangan</th>
+          <th>Harga</th>
+        </tr>
+      </thead>
+      <tbody>
+        @foreach($benefits as $benefit)
+        <tr>
+          <td>{{ $benefit->benefit_desc }}</td>
+          <td>{{ number_format($benefit->benefit_harga) }}</td>
+        </tr>
+        @endforeach
+      </tbody>
+    </table>
 
   </div>
   <!-- end of card body -->

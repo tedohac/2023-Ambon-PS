@@ -174,7 +174,7 @@ class NilaiController extends Controller
             'role'      => 'spv',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
-            'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoles('SPV'))
+            'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoleLine($kip->user_deptline))
         ]);
     }
     

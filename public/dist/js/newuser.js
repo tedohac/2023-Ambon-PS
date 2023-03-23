@@ -11,6 +11,8 @@
                 user_npk: {
                     required: true,
                     number: true,
+                    maxlength: 4
+
                 },
                 user_name: {
                     required: true,

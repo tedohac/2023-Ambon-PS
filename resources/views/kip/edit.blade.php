@@ -213,6 +213,48 @@
 <div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
+      Benefit Kuantitatif
+    </h3>
+  </div>
+  <div class="card-body table-responsive p-0">
+
+    <table class="table order-list table-hover text-nowrap" id="tableBenefit">
+      <thead>
+        <tr>
+          <th>Keterangan</th>
+          <th>Harga</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        @php($counter = 0)
+        @foreach($benefits as $benefit)
+        <tr>
+          <td><div class="form-group"><input type="text" name="benefit[{{ $counter }}][0]" class="form-control" value="{{ $benefit->benefit_desc }}"/></div></td>
+          <td><div class="form-group"><input type="text" name="benefit[{{ $counter }}][1]" class="form-control" value="{{ $benefit->benefit_harga }}"/></div></td>
+          <td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>
+        </tr>
+        @php($counter++)
+        @endforeach
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="2">
+                  <input type="button" class="btn btn-block" id="benefitAddrow" value="Add Row" />
+              </td>
+              <td></td>
+          </tr>
+      </tfoot>
+    </table>
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+<div class="card card-info">
+  <div class="card-header">
+    <h3 class="card-title">
       Biaya Perbaikan
     </h3>
   </div>
@@ -326,6 +368,9 @@
 <script src="{{ asset('plugins/jquery-validation/additional-methods.min.js') }}"></script>
 
 <!-- JS -->
-<script>var counter = {{ count($biayas)-1 }};</script>
+<script>
+  var counterBiaya = {{ count($biayas)-1 }};
+  var counterBenefit = {{ count($benefits)-1 }};
+</script>
 <script src="{{ asset('dist/js/newkip.js?v=').time() }}"></script>
 @endsection

@@ -86,6 +86,14 @@
                     number: true,
                     min: 0
                 },
+                benefit_desc0: {
+                    required: true,
+                },
+                benefit_harga0: {
+                    required:true,
+                    number: true,
+                    min: 0
+                },
             },
             messages: {
                 kip_judul_tema: {
@@ -117,12 +125,12 @@
 
         // add row biaya
         $("#biayaAddrow").on("click", function () {
-            counter++;
+            counterBiaya++;
             var newRow = $("<tr>");
             var cols = "";
     
-            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-desc" name="biaya[' + counter + '][0]"/></div></td>';
-            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-harga" name="biaya[' + counter + '][1]"/></div></td>';
+            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-desc" name="biaya[' + counterBiaya + '][0]"/></div></td>';
+            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-harga" name="biaya[' + counterBiaya + '][1]"/></div></td>';
     
             cols += '<td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>';
             newRow.append(cols);
@@ -140,6 +148,29 @@
         });
     
     
+        // add row benefit
+        $("#benefitAddrow").on("click", function () {
+            counterBenefit++;
+            var newRow = $("<tr>");
+            var cols = "";
+    
+            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-desc" name="benefit[' + counterBenefit + '][0]"/></div></td>';
+            cols += '<td><div class="form-group"><input type="text" class="form-control val-biaya-harga" name="benefit[' + counterBenefit + '][1]"/></div></td>';
+    
+            cols += '<td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>';
+            newRow.append(cols);
+            $("table.order-list").append(newRow);
+
+            $.validator.addClassRules('val-biaya-desc', {
+                required: true,
+            });
+            
+            $.validator.addClassRules('val-biaya-harga', {
+                required:true,
+                number: true,
+                min: 0
+            });
+        });
     
         $("table.order-list").on("click", ".ibtnDel", function (event) {
             $(this).closest("tr").remove();

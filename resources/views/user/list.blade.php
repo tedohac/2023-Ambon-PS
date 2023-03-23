@@ -53,8 +53,8 @@
           <td>
             <span class="badge bg-{{ ($user->user_status==1) ? 'primary' : 'secondary' }}">{{ ($user->user_status==1) ? 'Active' : 'Inactive' }}</span>
           </td>
-          <td>{{ date('Y-m-d H:i', strtotime($user->created_at)) }}</td>
-          <td>{{ date('Y-m-d H:i', strtotime($user->updated_at)) }}</td>
+          <td>{{ date('Y-m-d', strtotime($user->created_at)) }}</td>
+          <td>{{ date('Y-m-d', strtotime($user->updated_at)) }}</td>
           <td>
             <a class="btn btn-outline-primary p-1 float-right broadcast-form" href="{{ route('user.edit', $user->user_npk) }}">
                 <i class="fa fa-fw fa-edit"></i>

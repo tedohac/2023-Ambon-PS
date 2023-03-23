@@ -56,4 +56,13 @@ class Permission extends Model
         if(empty($user)) return false;
         else return true;
     }
+    
+    public static function hasRoleLine($user_deptline)
+    {
+        $user = Permission::join('rolelines', 'rolelines.roleline_id', '=', 'permissions.permission_roleline_id')
+                          ->where('permission_user_npk', Auth::User()->user_npk)
+                          ->where('roleline_role_code', $role_code)->first();
+        if(empty($user)) return false;
+        else return true;
+    }
 }
