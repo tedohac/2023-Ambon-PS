@@ -65,14 +65,14 @@
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_dept" class="mb-1">Dept</label>
-          <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" value="{{ $user->user_dept }}" disabled>
+          <input type="text" class="form-control" name="disabled_dept" id="disabled_dept" value="{{ $user->line_dept }}" disabled>
         </div>
       </div>
       
       <div class="col-lg-4 col-md-6 col-12">
         <div class="form-group">
           <label for="disabled_line" class="mb-1">Line</label>
-          <input type="text" class="form-control" name="disabled_line" id="disabled_line" value="{{ $user->user_line }}" disabled>
+          <input type="text" class="form-control" name="disabled_line" id="disabled_line" value="{{ $user->line_name }} - {{ $user->line_detail }}" disabled>
         </div>
       </div>
       
