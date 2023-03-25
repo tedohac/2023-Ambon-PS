@@ -104,10 +104,12 @@ class KipController extends Controller
                     ->where('user_npk', auth()->user()->user_npk)
                     ->get();
 
-        return view('kip.new', [
-            'user' => $user,
-            'biayacounter' => '0'
-        ]);
+        print_r($user);
+
+        // return view('kip.new', [
+        //     'user' => $user,
+        //     'biayacounter' => '0'
+        // ]);
     }
     
     public function save(Request $request)
