@@ -101,7 +101,7 @@ class KipController extends Controller
     public function new()
     {    	
         $user = User::join('deptlines', 'deptlines.line_id', '=', 'users.user_deptline')
-                    ->where('user_npk', Auth::user()->user_npk)
+                    ->where('user_npk', auth()->user()->user_npk)
                     ->get();
 
         return view('kip.new', [
