@@ -172,7 +172,6 @@ class KipController extends Controller
         $kip->kip_foto_sebelum      = ($request->hasFile('kip_foto_sebelum')) ? $kip_foto_sebelum : null;
         $kip->kip_foto_sesudah      = ($request->hasFile('kip_foto_sesudah')) ? $kip_foto_sesudah : null;
         $kip->kip_eval_uraian       = htmlspecialchars($request->kip_eval_uraian);
-        $kip->kip_eval_benefit_kuantitatif  = htmlspecialchars($request->kip_eval_benefit_kuantitatif);
         $kip->kip_eval_benefit_kualitatif   = htmlspecialchars($request->kip_eval_benefit_kualitatif);
         $kip->kip_pengontrolan      = htmlspecialchars($request->kip_pengontrolan);
         $simpankip = $kip->save();
@@ -294,7 +293,6 @@ class KipController extends Controller
                 'kip_foto_sebelum'              => ($request->hasFile('kip_foto_sebelum')) ? $kip_foto_sebelum : $kip->kip_foto_sebelum,
                 'kip_foto_sesudah'              => ($request->hasFile('kip_foto_sesudah')) ? $kip_foto_sesudah : $kip->kip_foto_sesudah,
                 'kip_eval_uraian'               => htmlspecialchars($request->kip_eval_uraian),
-                'kip_eval_benefit_kuantitatif'  => htmlspecialchars($request->kip_eval_benefit_kuantitatif),
                 'kip_eval_benefit_kualitatif'   => htmlspecialchars($request->kip_eval_benefit_kualitatif),
                 'kip_pengontrolan'              => htmlspecialchars($request->kip_pengontrolan)
             ]);
