@@ -7,6 +7,7 @@ use App\Biaya;
 use App\Benefit;
 use App\Kip;
 use App\Status;
+use App\User;
 use NilaiController;
 use Artisan;
 use Auth;
