@@ -134,7 +134,7 @@
     
             cols += '<td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>';
             newRow.append(cols);
-            $("table.order-list").append(newRow);
+            $("table.order-list-biaya").append(newRow);
 
             $.validator.addClassRules('val-biaya-desc', {
                 required: true,
@@ -159,7 +159,7 @@
     
             cols += '<td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>';
             newRow.append(cols);
-            $("table.order-list").append(newRow);
+            $("table.order-list-benefit").append(newRow);
 
             $.validator.addClassRules('val-biaya-desc', {
                 required: true,
