@@ -143,6 +143,7 @@
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
                 number: true,
+                patern: "^\d+(,\d+)?$",
                 min: 0
             });
         });
