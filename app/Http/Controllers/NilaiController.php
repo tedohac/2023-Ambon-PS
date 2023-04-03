@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Benefit;
 use App\Biaya;
 use App\Kip;
 use App\Nilai;
@@ -166,11 +167,13 @@ class NilaiController extends Controller
         $nilais     = NilaiController::getNilaiById($id);
         $totalNilai = NilaiController::getTotalNilaiById($id);
         $biayas     = Biaya::where('biaya_kip_no', $id)->get();
+        $benefits   = Benefit::where('benefit_kip_no', $id)->get();
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
             'biayas'    => $biayas,
+            'benefits'  => $benefits,
             'role'      => 'spv',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
@@ -187,11 +190,13 @@ class NilaiController extends Controller
         $nilais     = NilaiController::getNilaiById($id);
         $totalNilai = NilaiController::getTotalNilaiById($id);
         $biayas     = Biaya::where('biaya_kip_no', $id)->get();
+        $benefits   = Benefit::where('benefit_kip_no', $id)->get();
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
             'biayas'    => $biayas,
+            'benefits'  => $benefits,
             'role'      => 'depthead',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
@@ -208,11 +213,13 @@ class NilaiController extends Controller
         $nilais     = NilaiController::getNilaiById($id);
         $totalNilai = NilaiController::getTotalNilaiById($id);
         $biayas     = Biaya::where('biaya_kip_no', $id)->get();
+        $benefits   = Benefit::where('benefit_kip_no', $id)->get();
 
     	return view('nilai.view', [
             'kip'       => $kip,
             'nilais'    => $nilais,
             'biayas'    => $biayas,
+            'benefits'  => $benefits,
             'role'      => 'comitee',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
