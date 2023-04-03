@@ -142,9 +142,7 @@
             
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
-                number: true,
-                patern: "^\d+(,\d+)?$",
-                min: 0
+                patern: "^\d+(,\d+)?$"
             });
         });
     
@@ -168,8 +166,7 @@
             
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
-                number: true,
-                min: 0
+                patern: "^\d+(,\d+)?$"
             });
         });
     
