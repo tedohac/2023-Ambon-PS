@@ -77,23 +77,7 @@
             rules: {
                 kip_judul_tema: {
                     required: true,
-                },
-                biaya_desc0: {
-                    required: true,
-                },
-                biaya_harga0: {
-                    required:true,
-                    number: true,
-                    pattern: "^\d+(,\d+)?$"
-                },
-                benefit_desc0: {
-                    required: true,
-                },
-                benefit_harga0: {
-                    required:true,
-                    number: true,
-                    pattern: "^\d+(,\d+)?$"
-                },
+                }
             },
             messages: {
                 kip_judul_tema: {
@@ -111,6 +95,16 @@
             unhighlight: function (element, errorClass, validClass) {
                 $(element).removeClass('is-invalid');
             }
+        });
+
+        $.validator.addClassRules('val-biaya-desc', {
+            required: true,
+        });
+        
+        $.validator.addClassRules('val-biaya-harga', {
+            required:true,
+            number: true,
+            pattern: "^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$"
         });
 
         // add row biaya
@@ -133,7 +127,7 @@
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
                 number: true,
-                pattern: "^\d+(,\d+)?$"
+                pattern: "^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$"
             });
         });
     
@@ -158,7 +152,7 @@
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
                 number: true,
-                pattern: "^\d+(,\d+)?$"
+                pattern: "^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$"
             });
         });
     
