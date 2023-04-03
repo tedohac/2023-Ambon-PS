@@ -178,7 +178,7 @@
 
         $(".val-biaya-harga").focusout(function() {
             var biaya = $(this).val();
-            $(this).val(addCommas(biaya)) = 
+            $(this).val(addCommas(biaya));
         });
     });
 
