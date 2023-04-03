@@ -110,15 +110,6 @@
                 $(element).removeClass('is-invalid');
             }
         });
-        
-        $.validator.addClassRules('val-biaya-desc', {
-            required: true,
-        });
-        
-        $.validator.addClassRules('val-biaya-harga', {
-            required:true,
-            number: true
-        });
 
         // add row biaya
         $("#biayaAddrow").on("click", function () {
