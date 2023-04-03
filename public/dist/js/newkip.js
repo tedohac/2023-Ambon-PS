@@ -176,49 +176,22 @@
             $(this).closest("tr").remove();
         });
 
-        var text = new NumericInput($(".val-biaya-harga"));
+        $(".val-biaya-harga").focusout(function() {
+            var biaya = $(this).val();
+            $(this).val(addCommas(biaya)) = 
+        });
     });
 
-    function NumericInput(inp, locale) {
-        var numericKeys = '0123456789';
-      
-        // restricts input to numeric keys 0-9
-        inp.addEventListener('keypress', function(e) {
-          var event = e || window.event;
-          var target = event.target;
-      
-          if (event.charCode == 0) {
-            return;
-          }
-      
-          if (-1 == numericKeys.indexOf(event.key)) {
-            // Could notify the user that 0-9 is only acceptable input.
-            event.preventDefault();
-            return;
-          }
-        });
-      
-        // add the thousands separator when the user blurs
-        inp.addEventListener('blur', function(e) {
-          var event = e || window.event;
-          var target = event.target;
-      
-          var tmp = target.value.replace(/,/g, '');
-          var val = Number(tmp).toLocaleString(locale);
-      
-          if (tmp == '') {
-            target.value = '';
-          } else {
-            target.value = val;
-          }
-        });
-      
-        // strip the thousands separator when the user puts the input in focus.
-        inp.addEventListener('focus', function(e) {
-          var event = e || window.event;
-          var target = event.target;
-          var val = target.value.replace(/[,.]/g, '');
-      
-          target.value = val;
-        });
-      }
+    function addCommas(nStr)
+    {
+        nStr += '';
+        x = nStr.split('.');
+        x1 = x[0];
+        x2 = x.length > 1 ? '.' + x[1] : '';
+        var rgx = /(\d+)(\d{3})/;
+        while (rgx.test(x1)) {
+            x1 = x1.replace(rgx, '$1' + ',' + '$2');
+        }
+        return x1 + x2;
+    }
+
