@@ -83,14 +83,16 @@
                 },
                 biaya_harga0: {
                     required:true,
-                    patern: "^\d+(,\d+)?$"
+                    number: true,
+                    pattern: "^\d+(,\d+)?$"
                 },
                 benefit_desc0: {
                     required: true,
                 },
                 benefit_harga0: {
                     required:true,
-                    patern: "^\d+(,\d+)?$"
+                    number: true,
+                    pattern: "^\d+(,\d+)?$"
                 },
             },
             messages: {
@@ -130,7 +132,8 @@
             
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
-                patern: "^\d+(,\d+)?$"
+                number: true,
+                pattern: "^\d+(,\d+)?$"
             });
         });
     
@@ -154,7 +157,8 @@
             
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
-                patern: "^\d+(,\d+)?$"
+                number: true,
+                pattern: "^\d+(,\d+)?$"
             });
         });
     
