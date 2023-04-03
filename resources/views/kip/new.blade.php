@@ -202,44 +202,6 @@
 <div class="card card-info">
   <div class="card-header">
     <h3 class="card-title">
-      Benefit Kuantitatif
-    </h3>
-  </div>
-  <div class="card-body table-responsive p-0">
-
-    <table class="table order-list-benefit table-hover text-nowrap" id="tableBenefit">
-      <thead>
-        <tr>
-          <th>Keterangan</th>
-          <th>Harga</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><div class="form-group"><input type="text" name="benefit[0][0]" class="form-control val-biaya-desc"/></div></td>
-          <td><div class="form-group"><input type="text" name="benefit[0][1]" class="form-control val-biaya-harga"/></div></td>
-          <td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>
-        </tr>
-      </tbody>
-      <tfoot>
-          <tr>
-              <td colspan="2">
-                  <input type="button" class="btn btn-block" id="benefitAddrow" value="Add Row" />
-              </td>
-              <td></td>
-          </tr>
-      </tfoot>
-    </table>
-
-  </div>
-  <!-- end of card body -->
-</div>
-<!-- end of card -->
-
-<div class="card card-info">
-  <div class="card-header">
-    <h3 class="card-title">
       Biaya Perbaikan
     </h3>
   </div>
@@ -264,6 +226,44 @@
           <tr>
               <td colspan="2">
                   <input type="button" class="btn btn-block" id="biayaAddrow" value="Add Row" />
+              </td>
+              <td></td>
+          </tr>
+      </tfoot>
+    </table>
+
+  </div>
+  <!-- end of card body -->
+</div>
+<!-- end of card -->
+
+<div class="card card-info">
+  <div class="card-header">
+    <h3 class="card-title">
+      Benefit Kuantitatif
+    </h3>
+  </div>
+  <div class="card-body table-responsive p-0">
+
+    <table class="table order-list-benefit table-hover text-nowrap" id="tableBenefit">
+      <thead>
+        <tr>
+          <th>Keterangan</th>
+          <th>Harga</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><div class="form-group"><input type="text" name="benefit[0][0]" class="form-control val-biaya-desc"/></div></td>
+          <td><div class="form-group"><input type="text" name="benefit[0][1]" class="form-control val-biaya-harga"/></div></td>
+          <td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>
+        </tr>
+      </tbody>
+      <tfoot>
+          <tr>
+              <td colspan="2">
+                  <input type="button" class="btn btn-block" id="benefitAddrow" value="Add Row" />
               </td>
               <td></td>
           </tr>
