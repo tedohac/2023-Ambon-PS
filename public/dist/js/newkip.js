@@ -103,8 +103,7 @@
         
         $.validator.addClassRules('val-biaya-harga', {
             required:true,
-            number: true,
-            pattern: "^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$"
+            number: true
         });
 
         // add row biaya
@@ -126,8 +125,7 @@
             
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
-                number: true,
-                pattern: "^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$"
+                number: true
             });
         });
     
@@ -151,8 +149,7 @@
             
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
-                number: true,
-                pattern: "^-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$"
+                number: true
             });
         });
     
