@@ -117,8 +117,7 @@
         
         $.validator.addClassRules('val-biaya-harga', {
             required:true,
-            number: true,
-            min: 0
+            number: true
         });
 
         // add row biaya
