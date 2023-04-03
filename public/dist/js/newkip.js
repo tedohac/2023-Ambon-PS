@@ -106,6 +106,11 @@
             number: true
         });
 
+        $(".val-biaya-harga").focusout(function() {
+            var biaya = $(this).val();
+            $(this).val(addCommas(biaya));
+        });
+
         // add row biaya
         $("#biayaAddrow").on("click", function () {
             counterBiaya++;
@@ -126,6 +131,11 @@
             $.validator.addClassRules('val-biaya-harga', {
                 required:true,
                 number: true
+            });
+
+            $(".val-biaya-harga").focusout(function() {
+                var biaya = $(this).val();
+                $(this).val(addCommas(biaya));
             });
         });
     
@@ -151,15 +161,15 @@
                 required:true,
                 number: true
             });
+
+            $(".val-biaya-harga").focusout(function() {
+                var biaya = $(this).val();
+                $(this).val(addCommas(biaya));
+            });
         });
     
         $("table.order-list").on("click", ".ibtnDel", function (event) {
             $(this).closest("tr").remove();
-        });
-
-        $(".val-biaya-harga").focusout(function() {
-            var biaya = $(this).val();
-            $(this).val(addCommas(biaya));
         });
     });
 
