@@ -83,16 +83,14 @@
                 },
                 biaya_harga0: {
                     required:true,
-                    number: true,
-                    min: 0
+                    patern: "^\d+(,\d+)?$"
                 },
                 benefit_desc0: {
                     required: true,
                 },
                 benefit_harga0: {
                     required:true,
-                    number: true,
-                    min: 0
+                    patern: "^\d+(,\d+)?$"
                 },
             },
             messages: {
