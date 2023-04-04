@@ -204,7 +204,12 @@
       </div>
 
       <div class="col-lg-3 col-md-6 col-12 mb-2">
-        <button type="button" class="btn btn-block btn-primary mt-4" id="checkValid">
+        
+          <button type="button" class="btn btn-secondary mt-4" id="showGuide">
+            <i class="fa fa-fw fa-question"></i>
+          </button>
+          
+        <button type="button" class="btn btn-primary mt-4" id="checkValid">
           <i class="fa fa-fw fa-paper-plane"></i>
           Beri Penilaian
         </button>
