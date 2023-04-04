@@ -205,7 +205,7 @@
 
       <div class="col-lg-3 col-md-6 col-12 mb-2">
         
-        <button type="button" class="btn btn-secondary mt-4" id="showGuide">
+        <button type="button" class="btn btn-secondary mt-4" data-toggle="modal" data-target="#modal-panduan">>
           <i class="fa fa-fw fa-question"></i>
           Panduan
         </button>
@@ -229,7 +229,10 @@
   <div class="modal-dialog modal-sm">
     <div class="modal-content">
       <div class="modal-header">
-        <h4 class="modal-title">Konfirmasi</h4>
+        <h4 class="modal-title">
+          <i class="fa fa-fw fa-paper-plane"></i>
+          Konfirmasi
+        </h4>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -240,6 +243,29 @@
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="modal-panduan">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <i class="fa fa-fw fa-question"></i>
+          Panduan
+        </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <img src="{{ asset('img/favicon.ico') }}" width="100%" />
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
