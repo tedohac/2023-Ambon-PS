@@ -205,7 +205,7 @@
 
       <div class="col-lg-3 col-md-6 col-12 mb-2">
         
-        <button type="button" class="btn btn-secondary mt-4" data-toggle="modal" data-target="#modal-panduan">>
+        <button type="button" class="btn btn-secondary mt-4" data-toggle="modal" data-target="#modal-panduan">
           <i class="fa fa-fw fa-question"></i>
           Panduan
         </button>
@@ -262,7 +262,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <img src="{{ asset('img/favicon.ico') }}" width="100%" />
+        <img src="{{ asset('img/panduan.png') }}" width="100%" />
       </div>
       <div class="modal-footer justify-content-between">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
