@@ -61,7 +61,7 @@ class Permission extends Model
     {
         $user = Permission::join('rolelines', 'rolelines.roleline_id', '=', 'permissions.permission_roleline_id')
                           ->where('permission_user_npk', Auth::User()->user_npk)
-                          ->where('roleline_role_code', $role_code)->first();
+                          ->where('roleline_deptline_id', $user_deptline)->first();
         if(empty($user)) return false;
         else return true;
     }
