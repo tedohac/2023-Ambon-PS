@@ -41,6 +41,11 @@
     @if($status->status_code=='depthead' && $totalNilai->spv < 35)
       @continue
     @endif
+
+    @if($status->status_code=='revision' && $kip->kip_status!='revision')
+      @continue
+    @endif
+    
     <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
       <button type="button" class="step-trigger" disabled>
         <span class="bs-stepper-circle">{{ $status->status_order }}</span>
@@ -203,8 +208,15 @@
         </div>
       </div>
 
-      <div class="col-lg-3 col-md-6 col-12 mb-2">
+      <div class="col-12 mb-2">
         
+        @if($showRevisi)
+        <button type="button" class="btn btn-danger mt-4" data-toggle="modal" data-target="#modal-revisi">
+          <i class="fa fa-fw fa-backspace"></i>
+          Revisi
+        </button>
+        @endif
+
         <button type="button" class="btn btn-secondary mt-4" data-toggle="modal" data-target="#modal-panduan">
           <i class="fa fa-fw fa-question"></i>
           Panduan
@@ -250,7 +262,7 @@
 
 
 <div class="modal fade" id="modal-panduan">
-  <div class="modal-dialog modal-sm">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title">
@@ -271,6 +283,34 @@
   </div>
 </div>
 
+@if($showRevisi)
+<div class="modal fade" id="modal-revisi">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">
+          <i class="fa fa-fw fa-backspace"></i>
+          Revisi
+        </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+        <div class="form-group">
+          <label for="kip_revision" class="mb-1">Alasan Revisi</label>
+          <input type="text" class="form-control" name="kip_revision" id="kip_revision">
+        </div>
+      </div>
+      <div class="modal-footer justify-content-between">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" value="revisi">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+@endif
 </form>
 
 <h2>Detail KIP</h2>

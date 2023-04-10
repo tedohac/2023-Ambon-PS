@@ -233,33 +233,47 @@ class NilaiController extends Controller
         $kip = Kip::where('kip_no', $request->nilai_kip_no)
                     ->first();
         if(empty($kip)) abort(404);
-        
-        $nilai = new Nilai;
-        $nilai->nilai_kip_no        = $request->nilai_kip_no;
-        $nilai->nilai_created_by    = Auth::user()->user_npk;
-        $nilai->nilai_level         = $request->nilai_level;
-        $nilai->nilai_penghematan   = $request->nilai_penghematan;
-        $nilai->nilai_quality       = $request->nilai_quality;
-        $nilai->nilai_safety        = $request->nilai_safety;
-        $nilai->nilai_ergonomi      = $request->nilai_ergonomi;
-        $nilai->nilai_manfaat       = $request->nilai_manfaat;
-        $nilai->nilai_kepekaan      = $request->nilai_kepekaan;
-        $nilai->nilai_keaslian      = $request->nilai_keaslian;
-        $nilai->nilai_usaha         = $request->nilai_usaha;
-        $simpannilai = $nilai->save();
 
-        
-        if(!$simpannilai)
+        if($request->mode=='submit')
         {
-            Session::flash('error', 'Menyimpan nilai gagal! Mohon hubungi admin');
+            $nilai = new Nilai;
+            $nilai->nilai_kip_no        = $request->nilai_kip_no;
+            $nilai->nilai_created_by    = Auth::user()->user_npk;
+            $nilai->nilai_level         = $request->nilai_level;
+            $nilai->nilai_penghematan   = $request->nilai_penghematan;
+            $nilai->nilai_quality       = $request->nilai_quality;
+            $nilai->nilai_safety        = $request->nilai_safety;
+            $nilai->nilai_ergonomi      = $request->nilai_ergonomi;
+            $nilai->nilai_manfaat       = $request->nilai_manfaat;
+            $nilai->nilai_kepekaan      = $request->nilai_kepekaan;
+            $nilai->nilai_keaslian      = $request->nilai_keaslian;
+            $nilai->nilai_usaha         = $request->nilai_usaha;
+            $simpannilai = $nilai->save();
+    
+            
+            if(!$simpannilai)
+            {
+                Session::flash('error', 'Menyimpan nilai gagal! Mohon hubungi admin');
+            }
+            
+            Kip::where('kip_no', $request->nilai_kip_no)
+                ->update([
+                    'kip_status' => $request->nilai_level
+                ]);
+    
+            Session::flash('success', 'Berhasil memberikan penilaian');
+        } // if submit
+        else if($request->mode=='revisi')
+        {
+            Kip::where('kip_no', $request->nilai_kip_no)
+                ->update([
+                    'kip_status' => '6',
+                    'kip_revision' => $request->kip_revision
+                ]);
+    
+            Session::flash('success', 'Berhasil mengirim revisi');
         }
         
-        Kip::where('kip_no', $request->nilai_kip_no)
-            ->update([
-                'kip_status' => $request->nilai_level
-            ]);
-
-        Session::flash('success', 'Berhasil memberikan penilaian');
         return redirect()->back();   
     }
 

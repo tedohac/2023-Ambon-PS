@@ -41,6 +41,11 @@
     @if($status->status_code=='depthead' && $totalNilai->spv < 35)
       @continue
     @endif
+
+    @if($status->status_code=='revision' && $kip->kip_status!='revision')
+      @continue
+    @endif
+
     <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
       <button type="button" class="step-trigger" disabled>
         <span class="bs-stepper-circle">{{ $status->status_order }}</span>

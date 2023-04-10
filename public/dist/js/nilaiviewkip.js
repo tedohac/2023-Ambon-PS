@@ -81,12 +81,23 @@
             }
         });
 
-        // on button send click
+        // on button beri penilaian click
         $('#checkValid').on('click',function()
         {
             if($('#formnilai').valid())
             {
                 $('#modal-submit').modal('show');
             }
+        });
+        
+        // on form submit
+        $('button[type="submit"]').on('click',function(e)
+        {
+            e.preventDefault();
+            var submit_value = $(this).val();
+            var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
+            $('#formadd').append(newInput);
+
+            $('#formadd').submit();
         });
     });
