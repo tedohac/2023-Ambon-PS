@@ -45,7 +45,7 @@
     @if($status->status_code=='revision' && $kip->kip_status!='revision')
       @continue
     @endif
-    
+
     <div class="step {{ ($status->status_code==$kip->kip_status) ? 'active' : '' }}" data-target="#logins-part">
       <button type="button" class="step-trigger" disabled>
         <span class="bs-stepper-circle">{{ $status->status_order }}</span>
@@ -300,7 +300,7 @@
         
         <div class="form-group">
           <label for="kip_revision" class="mb-1">Alasan Revisi</label>
-          <input type="text" class="form-control" name="kip_revision" id="kip_revision">
+          <textarea class="form-control jodit" name="kip_revision" id="kip_revision"></textarea>
         </div>
       </div>
       <div class="modal-footer justify-content-between">
