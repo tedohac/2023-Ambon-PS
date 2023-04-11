@@ -97,7 +97,7 @@
             var submit_value = $(this).val();
             var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
             $('#formnilai').append(newInput);
-
+            $('#formnilai').off('form:validate');
             $('#formnilai').submit();
         });
     });
