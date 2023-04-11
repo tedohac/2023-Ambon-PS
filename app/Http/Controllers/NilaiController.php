@@ -177,7 +177,8 @@ class NilaiController extends Controller
             'role'      => 'spv',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
-            'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoleLine($kip->user_deptline))
+            'showForm'  => ($kip->kip_status=='submit' && Permission::hasRoleLine($kip->user_deptline)),
+            'showRevisi'=> $kip->kip_status=='submit'
         ]);
     }
     
@@ -200,7 +201,8 @@ class NilaiController extends Controller
             'role'      => 'depthead',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
-            'showForm'  => ($kip->kip_status=='spv' && $totalNilai[0]->spv >= 35 && Permission::hasRoles('Dept Head'))
+            'showForm'  => ($kip->kip_status=='spv' && $totalNilai[0]->spv >= 35 && Permission::hasRoles('Dept Head')),
+            'showRevisi'=> FALSE
         ]);
     }
     
@@ -223,7 +225,8 @@ class NilaiController extends Controller
             'role'      => 'comitee',
             'statuses'  => $statuses,
             'totalNilai'=> $totalNilai[0],
-            'showForm'  => ((($kip->kip_status=='spv' && $totalNilai[0]->spv < 35) || ($kip->kip_status=='depthead' && $totalNilai[0]->spv >= 35)) && Permission::hasRoles('Comitee'))
+            'showForm'  => ((($kip->kip_status=='spv' && $totalNilai[0]->spv < 35) || ($kip->kip_status=='depthead' && $totalNilai[0]->spv >= 35)) && Permission::hasRoles('Comitee')),
+            'showRevisi'=> FALSE
         ]);
     }
     
