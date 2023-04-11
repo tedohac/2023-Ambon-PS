@@ -96,8 +96,8 @@
             e.preventDefault();
             var submit_value = $(this).val();
             var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
-            $('#formadd').append(newInput);
+            $('#formnilai').append(newInput);
 
-            $('#formadd').submit();
+            $('#formnilai').submit();
         });
     });
