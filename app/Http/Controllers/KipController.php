@@ -188,7 +188,7 @@ class KipController extends Controller
                     $biaya->biaya_id    = $counter + 1;
                     $biaya->biaya_kip_no= $kip_no;
                     $biaya->biaya_desc  = $biayaReq[0];
-                    $biaya->biaya_harga = $biayaReq[1];
+                    $biaya->biaya_harga = str_replace(",", "", $biayaReq[1]);
                     $simpanbiaya = $biaya->save();   
     
                     if(!$simpanbiaya)
@@ -210,7 +210,7 @@ class KipController extends Controller
                     $benefit->benefit_id    = $counter + 1;
                     $benefit->benefit_kip_no= $kip_no;
                     $benefit->benefit_desc  = $benefitReq[0];
-                    $benefit->benefit_harga = $benefitReq[1];
+                    $benefit->benefit_harga = str_replace(",", "", $benefitReq[1]);
                     $simpanbenefit = $benefit->save();   
     
                     if(!$simpanbenefit)
