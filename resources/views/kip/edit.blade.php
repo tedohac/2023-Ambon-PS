@@ -237,8 +237,8 @@
         @php($counter = 0)
         @foreach($biayas as $biaya)
         <tr>
-          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][0]" class="form-control" value="{{ $biaya->biaya_desc }}"/></div></td>
-          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][1]" class="form-control" value="{{ $biaya->biaya_harga }}"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][0]" class="form-control val-biaya-desc" value="{{ $biaya->biaya_desc }}"/></div></td>
+          <td><div class="form-group"><input type="text" name="biaya[{{ $counter }}][1]" class="form-control val-biaya-harga" value="{{ $biaya->biaya_harga }}"/></div></td>
           <td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>
         </tr>
         @php($counter++)
@@ -279,8 +279,8 @@
         @php($counter = 0)
         @foreach($benefits as $benefit)
         <tr>
-          <td><div class="form-group"><input type="text" name="benefit[{{ $counter }}][0]" class="form-control" value="{{ $benefit->benefit_desc }}"/></div></td>
-          <td><div class="form-group"><input type="text" name="benefit[{{ $counter }}][1]" class="form-control" value="{{ $benefit->benefit_harga }}"/></div></td>
+          <td><div class="form-group"><input type="text" name="benefit[{{ $counter }}][0]" class="form-control val-biaya-desc" value="{{ $benefit->benefit_desc }}"/></div></td>
+          <td><div class="form-group"><input type="text" name="benefit[{{ $counter }}][1]" class="form-control val-biaya-harga" value="{{ $benefit->benefit_harga }}"/></div></td>
           <td><button class="ibtnDel btn btn-md btn-danger"><i class="fa fa-fw fa-trash-alt"></i></button></td>
         </tr>
         @php($counter++)
