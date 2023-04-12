@@ -111,6 +111,11 @@
             $(this).val(addCommas(biaya));
         });
 
+        $(".val-biaya-harga").focusin(function() {
+            var biaya = $(this).val();
+            $(this).val(biaya.replace(",", ""));
+        });
+
         // add row biaya
         $("#biayaAddrow").on("click", function () {
             counterBiaya++;
@@ -137,6 +142,11 @@
             $(".val-biaya-harga").focusout(function() {
                 var biaya = $(this).val();
                 $(this).val(addCommas(biaya));
+            });
+            
+            $(".val-biaya-harga").focusin(function() {
+                var biaya = $(this).val();
+                $(this).val(biaya.replace(",", ""));
             });
         });
     
@@ -167,6 +177,11 @@
             $(".val-biaya-harga").focusout(function() {
                 var biaya = $(this).val();
                 $(this).val(addCommas(biaya));
+            });
+            
+            $(".val-biaya-harga").focusin(function() {
+                var biaya = $(this).val();
+                $(this).val(biaya.replace(",", ""));
             });
         });
     
