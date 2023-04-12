@@ -114,6 +114,7 @@
         // add row biaya
         $("#biayaAddrow").on("click", function () {
             counterBiaya++;
+            console.log('biaya row : ' + counterBiaya);
             var newRow = $("<tr>");
             var cols = "";
     
@@ -143,6 +144,7 @@
         // add row benefit
         $("#benefitAddrow").on("click", function () {
             counterBenefit++;
+            console.log('benefit row : ' + counterBenefit);
             var newRow = $("<tr>");
             var cols = "";
     
