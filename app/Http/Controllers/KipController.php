@@ -65,7 +65,7 @@ class KipController extends Controller
         $biayas = Biaya::where('biaya_kip_no', $id)->get();
         $benefits = Benefit::where('benefit_kip_no', $id)->get();
 
-        if($kip->kip_status!="draft" || $kip->kip_status!="revision")
+        if($kip->kip_status!="draft" && $kip->kip_status!="revision")
             return redirect()->route('kip.view', $kip->kip_no);   
 
     	return view('kip.edit', [
