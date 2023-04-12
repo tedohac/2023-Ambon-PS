@@ -60,7 +60,7 @@
             <span class="badge bg-{{ $kip->status_color }}">{{ $kip->status_desc }}</span>
           </td>
           <td>
-              @if( $kip->kip_status=='draft' )
+              @if( $kip->kip_status=='draft' || $kip->kip_status=='revision' )
               <a class="btn btn-outline-info p-1 float-right broadcast-form" href="{{ route('kip.edit', $kip->kip_no) }}">
                 <i class="fa fa-fw fa-edit"></i>
               </a>

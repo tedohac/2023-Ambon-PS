@@ -48,6 +48,7 @@ class NilaiController extends Controller
             LEFT JOIN users u ON a.kip_created_by=u.user_npk
         WHERE
             a.kip_status != 'draft'
+            AND a.kip_status != 'revision'
             AND u.user_deptline in (
                 SELECT l.roleline_deptline_id
                 FROM
