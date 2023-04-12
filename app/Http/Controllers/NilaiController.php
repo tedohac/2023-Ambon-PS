@@ -270,7 +270,7 @@ class NilaiController extends Controller
         {
             Kip::where('kip_no', $request->nilai_kip_no)
                 ->update([
-                    'kip_status' => '6',
+                    'kip_status' => '0',
                     'kip_revision' => $request->kip_revision
                 ]);
     
