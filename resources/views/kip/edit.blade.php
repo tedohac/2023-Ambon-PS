@@ -225,7 +225,7 @@
   </div>
   <div class="card-body table-responsive p-0">
 
-    <table class="table order-list table-hover text-nowrap" id="tableBiaya">
+    <table class="table order-list-biaya table-hover text-nowrap" id="tableBiaya">
       <thead>
         <tr>
           <th>Keterangan</th>
@@ -267,7 +267,7 @@
   </div>
   <div class="card-body table-responsive p-0">
 
-    <table class="table order-list table-hover text-nowrap" id="tableBenefit">
+    <table class="table order-list-benefit table-hover text-nowrap" id="tableBenefit">
       <thead>
         <tr>
           <th>Keterangan</th>
