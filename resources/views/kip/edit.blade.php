@@ -30,6 +30,13 @@
 
 @section('content')
 
+@if ($kip->kip_revision != '')
+    <div class="alert alert-warning">
+        <b>KIP direvisi dengan catatan:</b><br />
+        {{ $kip->kip_revision }}
+    </div>
+@endif
+
 <form method="post" id="formadd" action="{{ route('kip.update') }}" enctype="multipart/form-data">
 @csrf
 <div class="card card-info">
