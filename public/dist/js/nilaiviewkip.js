@@ -97,7 +97,12 @@
             var submit_value = $(this).val();
             var newInput = $("<input>").attr("type", "hidden").attr("name", "mode").val(submit_value);
             $('#formnilai').append(newInput);
-            $('.nilai-input').val("0");
+
+            if(submit_value=='revisi')
+            {
+                $('.nilai-input').val("0");
+            }
+
             $('#formnilai').submit();
         });
     });
