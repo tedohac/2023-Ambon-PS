@@ -31,6 +31,13 @@ class AuthController extends Controller
 
         // check status
         $user = User::where('user_npk', $request->user_npk)->first();
+        if(!isset($user))
+        {
+            //Login Fail
+            Session::flash('error', 'Invalid NPK or password');
+            return redirect()->route('login')->withInput($request->all);
+        }
+
         if($user->user_status != '1')
         {
             Session::flash('error', 'User is inactive');
