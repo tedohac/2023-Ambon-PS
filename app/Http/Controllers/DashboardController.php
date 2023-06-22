@@ -25,10 +25,9 @@ class DashboardController extends Controller
                 ")
                     );
 
-        DB::statement("
-            create TEMPORARY table bulan (bln varchar(2));
-            insert into bulan values ('01'),('02'),('03'),('04'),('05'),('06'),('07'),('08'),('09'),('10'),('11'),('12');
-        ");
+        DB::statement("create TEMPORARY table bulan (bln varchar(2));");
+        DB::statement("insert into bulan values ('01'),('02'),('03'),('04'),('05'),('06'),('07'),('08'),('09'),('10'),('11'),('12');");
+        
         
         $KIPMonth = DB::select(
             DB::raw("
