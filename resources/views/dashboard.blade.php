@@ -266,18 +266,18 @@
               </tr>
               <tr>
                 <td class="text-center"><b>Total</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                <td class="text-center">{{ $KIPRange[0]->to15+$KIPRange[0]->to25+$KIPRange[0]->to35+$KIPRange[0]->to45+$KIPRange[0]->to55+$KIPRange[0]->to60+$KIPRange[0]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[1]->to15+$KIPRange[1]->to25+$KIPRange[1]->to35+$KIPRange[1]->to45+$KIPRange[1]->to55+$KIPRange[1]->to60+$KIPRange[1]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[2]->to15+$KIPRange[2]->to25+$KIPRange[2]->to35+$KIPRange[2]->to45+$KIPRange[2]->to55+$KIPRange[2]->to60+$KIPRange[2]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[3]->to15+$KIPRange[3]->to25+$KIPRange[3]->to35+$KIPRange[3]->to45+$KIPRange[3]->to55+$KIPRange[3]->to60+$KIPRange[3]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[4]->to15+$KIPRange[4]->to25+$KIPRange[4]->to35+$KIPRange[4]->to45+$KIPRange[4]->to55+$KIPRange[4]->to60+$KIPRange[4]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[5]->to15+$KIPRange[5]->to25+$KIPRange[5]->to35+$KIPRange[5]->to45+$KIPRange[5]->to55+$KIPRange[5]->to60+$KIPRange[5]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[6]->to15+$KIPRange[6]->to25+$KIPRange[6]->to35+$KIPRange[6]->to45+$KIPRange[6]->to55+$KIPRange[6]->to60+$KIPRange[6]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[7]->to15+$KIPRange[7]->to25+$KIPRange[7]->to35+$KIPRange[7]->to45+$KIPRange[7]->to55+$KIPRange[7]->to60+$KIPRange[7]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[8]->to15+$KIPRange[8]->to25+$KIPRange[8]->to35+$KIPRange[8]->to45+$KIPRange[8]->to55+$KIPRange[8]->to60+$KIPRange[8]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[9]->to15+$KIPRange[9]->to25+$KIPRange[9]->to35+$KIPRange[9]->to45+$KIPRange[9]->to55+$KIPRange[9]->to60+$KIPRange[9]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[10]->to15+$KIPRange[10]->to25+$KIPRange[10]->to35+$KIPRange[10]->to45+$KIPRange[10]->to55+$KIPRange[10]->to60+$KIPRange[10]->to70 }}</td>
+                <td class="text-center">{{ $KIP11ange[0]->to15+$KIPR11nge[0]->to25+$KIPRa11ge[0]->to35+$KIPRan11e[0]->to45+$KIPRang11[0]->to55+$KIPRange110]->to60+$KIPRange[11]->to70 }}</td>
               </tr>
             </tbody>
           </table>
