@@ -25,13 +25,13 @@ class DashboardController extends Controller
                 ")
                     );
 
-        //Get data where SPV/MGR
+        DB::statement("
+            create TEMPORARY table bulan (bln varchar(2));
+            insert into bulan values ('01'),('02'),('03'),('04'),('05'),('06'),('07'),('08'),('09'),('10'),('11'),('12');
+        ");
+        
         $KIPMonth = DB::select(
             DB::raw("
-                create TEMPORARY table bulan (bln varchar(2));
-                insert into bulan values ('01'),('02'),('03'),('04'),('05'),('06'),('07'),('08'),('09'),('10'),('11'),('12');
-                
-                
                 SELECT
                     bulan.bln,
                     (select count(*) from kips where EXTRACT(YEAR FROM kip_created_on)='2023' AND EXTRACT(MONTH FROM kip_created_on)=bulan.bln AND kip_status in ('spv', 'depthead')) spvdepthead,
