@@ -40,20 +40,6 @@ class DashboardController extends Controller
             ")
        );
 
-        $sumSpvMgr = $getJan+$getFeb+$getMar+$getApr+$getMei+$getJun+$getJul+$getAgu+$getSep+$getOkt+$getNov+$getDes;
-        $sumComitee = $getComiteeJan+$getComiteeFeb+$getComiteeMar+$getComiteeApr+$getComiteeMei+$getComiteeJun+$getComiteeJul+$getComiteeAgu+$getComiteeSep+$getComiteeOkt+$getComiteeNov+$getComiteeDes;
-        $totalJan = $getJan+$getComiteeJan;
-        $totalFeb = $getFeb+$getComiteeFeb;
-        $totalMar = $getMar+$getComiteeMar;
-        $totalApr = $getApr+$getComiteeApr;
-        $totalMei = $getMei+$getComiteeMei;
-        $totalJun = $getJun+$getComiteeJun;
-        $totalJul = $getJul+$getComiteeJul;
-        $totalAgu = $getAgu+$getComiteeAgu;
-        $totalSep = $getSep+$getComiteeSep;
-        $totalOkt = $getOkt+$getComiteeOkt;
-        $totalNov = $getNov+$getComiteeNov;
-        $totalDes = $getDes+$getComiteeDes;
 
         // $kiplist = DB::select(
         //             DB::raw("
@@ -82,20 +68,6 @@ class DashboardController extends Controller
         return view('dashboard', [
             'KIPCount' => $KIPCount,
             'KIPMonth' => $KIPMonth,
-            'sumSpvMgr' => $sumSpvMgr,
-            'sumComitee' => $sumComitee,
-            'totalJan' => $totalJan,
-            'totalFeb' => $totalFeb,
-            'totalMar' => $totalMar,
-            'totalApr' => $totalApr,
-            'totalMei' => $totalMei,
-            'totalJun' => $totalJun,
-            'totalJul' => $totalJul,
-            'totalAgu' => $totalAgu,
-            'totalSep' => $totalSep,
-            'totalOkt' => $totalOkt,
-            'totalNov' => $totalNov,
-            'totalDes' => $totalDes
             // 'kiplist' => $kiplist
         ]);
     }
