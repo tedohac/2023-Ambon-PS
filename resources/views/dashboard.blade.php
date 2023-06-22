@@ -277,7 +277,7 @@
                 <td class="text-center">{{ $KIPRange[8]->to15+$KIPRange[8]->to25+$KIPRange[8]->to35+$KIPRange[8]->to45+$KIPRange[8]->to55+$KIPRange[8]->to60+$KIPRange[8]->to70 }}</td>
                 <td class="text-center">{{ $KIPRange[9]->to15+$KIPRange[9]->to25+$KIPRange[9]->to35+$KIPRange[9]->to45+$KIPRange[9]->to55+$KIPRange[9]->to60+$KIPRange[9]->to70 }}</td>
                 <td class="text-center">{{ $KIPRange[10]->to15+$KIPRange[10]->to25+$KIPRange[10]->to35+$KIPRange[10]->to45+$KIPRange[10]->to55+$KIPRange[10]->to60+$KIPRange[10]->to70 }}</td>
-                <td class="text-center">{{ $KIP11ange[0]->to15+$KIPR11nge[0]->to25+$KIPRa11ge[0]->to35+$KIPRan11e[0]->to45+$KIPRang11[0]->to55+$KIPRange110]->to60+$KIPRange[11]->to70 }}</td>
+                <td class="text-center">{{ $KIPRange[11]->to15+$KIPRange[11]->to25+$KIPRange[11]->to35+$KIPRange[11]->to45+$KIPRange[11]->to55+$KIPRange[11]->to60+$KIPRange[11]->to70 }}</td>
               </tr>
             </tbody>
           </table>
