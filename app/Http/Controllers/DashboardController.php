@@ -43,13 +43,13 @@ class DashboardController extends Controller
             DB::raw("
                 SELECT
                     bulan.bln,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 0 AND final<=15) 0_15,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 16 AND final<=25) 16_25,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 26 AND final<=35) 26_35,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 36 AND final<=45) 36_45,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 46 AND final<=55) 46_55,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 56 AND final<=60) 56_60,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 61 AND final<=60) 61_70
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 0 AND final<=15) 0to15,
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 16 AND final<=25) 16to25,
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 26 AND final<=35) 26to35,
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 36 AND final<=45) 36to45,
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 46 AND final<=55) 46to55,
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 56 AND final<=60) 56to60,
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 61 AND final<=60) 61to70
                 FROM
                     bulan
             ")

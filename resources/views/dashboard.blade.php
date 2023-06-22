@@ -205,8 +205,8 @@
                 <td class="text-center"><b>0-15</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->0_15 }}</td>
-                  @php($counter+=$kip->0_15)
+                  <td class="text-center">{{ $kip->0to15 }}</td>
+                  @php($counter+=$kip->0to15)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>
               </tr>
@@ -214,8 +214,8 @@
                 <td class="text-center"><b>16-25</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->16_25 }}</td>
-                  @php($counter+=$kip->16_25)
+                  <td class="text-center">{{ $kip->16to25 }}</td>
+                  @php($counter+=$kip->16to25)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>
               </tr>
@@ -223,8 +223,8 @@
                 <td class="text-center"><b>26-35</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->26_35 }}</td>
-                  @php($counter+=$kip->26_35)
+                  <td class="text-center">{{ $kip->26to35 }}</td>
+                  @php($counter+=$kip->26to35)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>
               </tr>
@@ -232,8 +232,8 @@
                 <td class="text-center"><b>36-45</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->36_45 }}</td>
-                  @php($counter+=$kip->36_45)
+                  <td class="text-center">{{ $kip->36to45 }}</td>
+                  @php($counter+=$kip->36to45)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>
               </tr>
@@ -241,8 +241,8 @@
                 <td class="text-center"><b>46-55</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->46_55 }}</td>
-                  @php($counter+=$kip->46_55)
+                  <td class="text-center">{{ $kip->46to55 }}</td>
+                  @php($counter+=$kip->46to55)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>
               </tr>
@@ -250,8 +250,8 @@
                 <td class="text-center"><b>56-60</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->56_60 }}</td>
-                  @php($counter+=$kip->56_60)
+                  <td class="text-center">{{ $kip->56to60 }}</td>
+                  @php($counter+=$kip->56to0)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>
               </tr>
@@ -259,8 +259,8 @@
                 <td class="text-center"><b>61-70</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->61_70 }}</td>
-                  @php($counter+=$kip->61_70)
+                  <td class="text-center">{{ $kip->61to70 }}</td>
+                  @php($counter+=$kip->61to70)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>
               </tr>
