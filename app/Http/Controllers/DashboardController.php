@@ -19,8 +19,9 @@ class DashboardController extends Controller
                          DB::raw("
                             select 
                                 a.status_code, 
-                                (select count(*) from kips where kip_status=a.status_code) as jlh
-                            from statuses a
+                                (select count(*) from kips where kip_status=a.status_code) as jlh 
+                            from statuses a 
+                            order by a.status_order
                          ")
                     );
 
