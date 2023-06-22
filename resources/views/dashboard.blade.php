@@ -143,35 +143,21 @@
               </tr>
               <tr>
                 <td class="text-center"><b>Telah dinilai SPV/MGR</b></td>
-                <td class="text-center">{{ $getJan }}</td>
-                <td class="text-center">{{ $getFeb }}</td>
-                <td class="text-center">{{ $getMar }}</td>
-                <td class="text-center">{{ $getApr }}</td>
-                <td class="text-center">{{ $getMei }}</td>
-                <td class="text-center">{{ $getJun }}</td>
-                <td class="text-center">{{ $getJul }}</td>
-                <td class="text-center">{{ $getAgu }}</td>
-                <td class="text-center">{{ $getSep }}</td>
-                <td class="text-center">{{ $getOkt }}</td>
-                <td class="text-center">{{ $getNov }}</td>
-                <td class="text-center">{{ $getDes }}</td>
-                <td class="text-center">{{ $sumSpvMgr }}</td>
+                @php($counter = 0)
+                @foreach($KIPMonth as $kip)
+                  <td class="text-center">{{ $kip->spvdepthead }}</td>
+                  @php($counter+=$kip->spvdepthead)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
                 <td class="text-center"><b>Telah dinilai komite</b></td>
-                <td class="text-center">{{ $getComiteeJan }}</td>
-                <td class="text-center">{{ $getComiteeFeb }}</td>
-                <td class="text-center">{{ $getComiteeMar }}</td>
-                <td class="text-center">{{ $getComiteeApr }}</td>
-                <td class="text-center">{{ $getComiteeMei }}</td>
-                <td class="text-center">{{ $getComiteeJun }}</td>
-                <td class="text-center">{{ $getComiteeJul }}</td>
-                <td class="text-center">{{ $getComiteeAgu }}</td>
-                <td class="text-center">{{ $getComiteeSep }}</td>
-                <td class="text-center">{{ $getComiteeOkt }}</td>
-                <td class="text-center">{{ $getComiteeNov }}</td>
-                <td class="text-center">{{ $getComiteeDes }}</td>
-                <td class="text-center">{{ $sumComitee }}</td>
+                @php($counter = 0)
+                @foreach($KIPMonth as $kip)
+                  <td class="text-center">{{ $kip->comitee }}</td>
+                  @php($counter+=$kip->comitee)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
                 <td class="text-center"><b>Total</b></td>

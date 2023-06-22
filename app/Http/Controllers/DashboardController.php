@@ -16,162 +16,30 @@ class DashboardController extends Controller
     public function list(){
 
         $KIPCount = DB::select(
-                         DB::raw("
-                            select 
-                                a.status_code, 
-                                (select count(*) from kips where kip_status=a.status_code) as jlh 
-                            from statuses a 
-                            order by a.status_order
-                         ")
+                DB::raw("
+                select 
+                    a.status_code, 
+                    (select count(*) from kips where kip_status=a.status_code) as jlh 
+                from statuses a 
+                order by a.status_order
+                ")
                     );
 
         //Get data where SPV/MGR
-        $getJan = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 01)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getFeb = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 02)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getMar = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 03)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getApr = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 04)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getMei = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 05)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getJun = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 06)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getJul = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 07)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getAgu = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 8)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getSep = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 9)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getOkt = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 10)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getNov = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 11)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-        $getDes = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 12)
-        ->where('kip_status', ['spv,depthead'])
-        ->count();
-
-        //Get data where comitee
-        $getComiteeJan = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 01)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeFeb = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 02)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeMar = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 03)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeApr = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 04)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeMei = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 05)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeJun = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 06)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeJul = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 07)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeAgu = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 8)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeSep = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 9)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeOkt = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 10)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeNov = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 11)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $getComiteeDes = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->whereYear('kip_created_on', date('Y'))
-        ->whereMonth('kip_created_on', 12)
-        ->where('kip_status', 'comitee')
-        ->count();
+        $KIPMonth = DB::select(
+            DB::raw("
+                create TEMPORARY table bulan (bln varchar(2));
+                insert into bulan values ('01'),('02'),('03'),('04'),('05'),('06'),('07'),('08'),('09'),('10'),('11'),('12');
+                
+                
+                SELECT
+                    bulan.bln,
+                    (select count(*) from kips where EXTRACT(YEAR FROM kip_created_on)='2023' AND EXTRACT(MONTH FROM kip_created_on)=bulan.bln AND kip_status in ('spv', 'depthead')) spvdepthead,
+                    (select count(*) from kips where EXTRACT(YEAR FROM kip_created_on)='2023' AND EXTRACT(MONTH FROM kip_created_on)=bulan.bln AND kip_status='comitee') comitee
+                FROM
+                    bulan
+            ")
+       );
 
         $sumSpvMgr = $getJan+$getFeb+$getMar+$getApr+$getMei+$getJun+$getJul+$getAgu+$getSep+$getOkt+$getNov+$getDes;
         $sumComitee = $getComiteeJan+$getComiteeFeb+$getComiteeMar+$getComiteeApr+$getComiteeMei+$getComiteeJun+$getComiteeJul+$getComiteeAgu+$getComiteeSep+$getComiteeOkt+$getComiteeNov+$getComiteeDes;
@@ -214,30 +82,7 @@ class DashboardController extends Controller
 
         return view('dashboard', [
             'KIPCount' => $KIPCount,
-            'getJan' => $getJan,
-            'getFeb' => $getFeb,
-            'getMar' => $getMar,
-            'getApr' => $getApr,
-            'getMei' => $getMei,
-            'getJun' => $getJun,
-            'getJul' => $getJul,
-            'getAgu' => $getAgu,
-            'getSep' => $getSep,
-            'getOkt' => $getOkt,
-            'getNov' => $getNov,
-            'getDes' => $getDes,
-            'getComiteeJan' => $getComiteeJan,
-            'getComiteeFeb' => $getComiteeFeb,
-            'getComiteeMar' => $getComiteeMar,
-            'getComiteeApr' => $getComiteeApr,
-            'getComiteeMei' => $getComiteeMei,
-            'getComiteeJun' => $getComiteeJun,
-            'getComiteeJul' => $getComiteeJul,
-            'getComiteeAgu' => $getComiteeAgu,
-            'getComiteeSep' => $getComiteeSep,
-            'getComiteeOkt' => $getComiteeOkt,
-            'getComiteeNov' => $getComiteeNov,
-            'getComiteeDes' => $getComiteeDes,
+            'KIPMonth' => $KIPMonth,
             'sumSpvMgr' => $sumSpvMgr,
             'sumComitee' => $sumComitee,
             'totalJan' => $totalJan,
