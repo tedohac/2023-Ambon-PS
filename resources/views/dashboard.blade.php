@@ -161,18 +161,18 @@
               </tr>
               <tr>
                 <td class="text-center"><b>Total</b></td>
-                <td class="text-center">{{ $KIPMonth[0]->spvdepthead+$KIPMonth[1]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[1]->spvdepthead+$KIPMonth[2]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[2]->spvdepthead+$KIPMonth[3]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[3]->spvdepthead+$KIPMonth[4]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[4]->spvdepthead+$KIPMonth[5]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[5]->spvdepthead+$KIPMonth[6]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[6]->spvdepthead+$KIPMonth[7]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[7]->spvdepthead+$KIPMonth[8]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[8]->spvdepthead+$KIPMonth[9]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[9]->spvdepthead+$KIPMonth[10]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[10]->spvdepthead+$KIPMonth[11]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[11]->spvdepthead+$KIPMonth[12]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[0]->spvdepthead+$KIPMonth[0]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[1]->spvdepthead+$KIPMonth[1]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[2]->spvdepthead+$KIPMonth[2]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[3]->spvdepthead+$KIPMonth[3]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[4]->spvdepthead+$KIPMonth[4]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[5]->spvdepthead+$KIPMonth[5]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[6]->spvdepthead+$KIPMonth[6]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[7]->spvdepthead+$KIPMonth[7]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[8]->spvdepthead+$KIPMonth[8]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[9]->spvdepthead+$KIPMonth[9]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[10]->spvdepthead+$KIPMonth[10]->comitee }}</td>
+                <td class="text-center">{{ $KIPMonth[11]->spvdepthead+$KIPMonth[11]->comitee }}</td>
               </tr>
             </tbody>
           </table>
