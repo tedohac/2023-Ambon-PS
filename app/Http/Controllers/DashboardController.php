@@ -15,30 +15,14 @@ class DashboardController extends Controller
 {
     public function list(){
 
-        $KIPdraft = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->where('kip_status', 'draft')
-        ->count();
-        $KIPsubmit = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->where('kip_status', 'submit')
-        ->count();
-        $KIPcomitee = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->where('kip_status', 'comitee')
-        ->count();
-        $KIPspv = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->where('kip_status', 'spv')
-        ->count();
-        $KIPdepthead = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->where('kip_status', 'depthead')
-        ->count();
-        $KIPrevision = DB::table('kips')
-        ->where('kip_created_by', Auth::user()->user_npk)
-        ->where('kip_status', 'revision')
-        ->count();
+        $KIPCount = DB::select(
+                         DB::raw("
+                            select 
+                                a.status_code, 
+                                (select count(*) from kips where kip_status=a.status_code) as jlh
+                            from statuses a
+                         ")
+                    );
 
         //Get data where SPV/MGR
         $getJan = DB::table('kips')
@@ -228,12 +212,7 @@ class DashboardController extends Controller
         // dd($count_man);
 
         return view('dashboard', [
-            'KIPdraft' => $KIPdraft,
-            'KIPsubmit' => $KIPsubmit,
-            'KIPcomitee' => $KIPcomitee,
-            'KIPspv' => $KIPspv,
-            'KIPdepthead' => $KIPdepthead,
-            'KIPrevision' => $KIPrevision,
+            'KIPCount' => $KIPCount,
             'getJan' => $getJan,
             'getFeb' => $getFeb,
             'getMar' => $getMar,

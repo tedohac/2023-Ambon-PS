@@ -40,7 +40,7 @@
           <div class="info-box-content">
             <span class="info-box-text">Draft Tersimpan</span>
             <span class="info-box-number">
-              {{ $KIPdraft }}
+              {{ $KIPCount['draft'] }}
               <!-- <small>%</small> -->
             </span>
           </div>
@@ -55,7 +55,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah di Submit</span>
-            <span class="info-box-number">{{ $KIPsubmit }}</span>
+            <span class="info-box-number">{{ $KIPCount['submit'] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -72,7 +72,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah dinilai komite</span>
-            <span class="info-box-number">{{ $KIPcomitee }}</span>
+            <span class="info-box-number">{{ $KIPCount['comitee'] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -85,7 +85,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah dinilai SPV</span>
-            <span class="info-box-number">{{ $KIPspv }}</span>
+            <span class="info-box-number">{{ $KIPCount['spv'] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -97,7 +97,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah dinilai MGR</span>
-            <span class="info-box-number">{{ $KIPdepthead }}</span>
+            <span class="info-box-number">{{ $KIPCount['depthead'] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -110,7 +110,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah di revisi</span>
-            <span class="info-box-number">{{ $KIPrevision }}</span>
+            <span class="info-box-number">{{ $KIPCount['revision'] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
