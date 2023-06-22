@@ -205,7 +205,7 @@
                 <td class="text-center"><b>0-15</b></td>
                 @php($counter = 0)
                 @foreach($KIPRange as $kip)
-                  <td class="text-center">{{ $kip->0to15 }}</td>
+                  <td class="text-center">{{ $kip->to15 }}</td>
                   @php($counter+=$kip->0to15)
                 @endforeach
                 <td class="text-center">{{ $counter }}</td>

@@ -43,7 +43,7 @@ class DashboardController extends Controller
             DB::raw("
                 SELECT
                     bulan.bln,
-                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 0 AND final<=15) 0to15,
+                    (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 0 AND final<=15) to15,
                     (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 16 AND final<=25) 16to25,
                     (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 26 AND final<=35) 26to35,
                     (select count(*) from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 36 AND final<=45) 36to45,
