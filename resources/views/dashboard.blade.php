@@ -40,7 +40,7 @@
           <div class="info-box-content">
             <span class="info-box-text">Draft Tersimpan</span>
             <span class="info-box-number">
-              {{ $KIPCount['draft'] }}
+            {{ $KIPCount[0][jlh] }}
               <!-- <small>%</small> -->
             </span>
           </div>
@@ -55,7 +55,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah di Submit</span>
-            <span class="info-box-number">{{ $KIPCount['submit'] }}</span>
+            <span class="info-box-number">{{ $KIPCount[0][jlh] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -72,7 +72,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah dinilai komite</span>
-            <span class="info-box-number">{{ $KIPCount['comitee'] }}</span>
+            <span class="info-box-number">{{ $KIPCount[0][jlh] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -85,7 +85,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah dinilai SPV</span>
-            <span class="info-box-number">{{ $KIPCount['spv'] }}</span>
+            <span class="info-box-number">{{ $KIPCount[0][jlh] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -97,7 +97,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah dinilai MGR</span>
-            <span class="info-box-number">{{ $KIPCount['depthead'] }}</span>
+            <span class="info-box-number">{{ $KIPCount[0][jlh] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
@@ -110,7 +110,7 @@
 
           <div class="info-box-content">
             <span class="info-box-text">Telah di revisi</span>
-            <span class="info-box-number">{{ $KIPCount['revision'] }}</span>
+            <span class="info-box-number">{{ $KIPCount[0][jlh] }}</span>
           </div>
           <!-- /.info-box-content -->
         </div>
