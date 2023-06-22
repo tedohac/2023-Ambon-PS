@@ -29,22 +29,15 @@ class KipController extends Controller
                         a.kip_no, 
                         a.kip_judul_tema, 
                         a.kip_status, 
-                        IFNULL(spv.vw_total, 0) as 'spv', 
-                        IFNULL(depthead.vw_total, 0) as 'depthead', 
-                        IFNULL(comitee.vw_total, 0) as 'comitee',
-                        CASE
-                            WHEN IFNULL(spv.vw_total, 0) >= 35 THEN
-                                TRUNCATE((((IFNULL(spv.vw_total, 0)+IFNULL(depthead.vw_total, 0))/2)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
-                            ELSE
-                                TRUNCATE((IFNULL(spv.vw_total, 0)*40/100)+(IFNULL(comitee.vw_total, 0)*60/100), 2)
-                        END as 'final',
+                        final.spv, 
+                        final.depthead, 
+                        final.comitee,
+                        final.final,
                         s.status_desc, 
                         s.status_color
                     FROM 
                         kips a 
-                        LEFT JOIN vw_sum_nilai spv ON a.kip_no=spv.vw_kip_no AND spv.vw_level='spv' 
-                        LEFT JOIN vw_sum_nilai depthead ON a.kip_no=depthead.vw_kip_no AND depthead.vw_level='depthead' 
-                        LEFT JOIN vw_sum_nilai comitee ON a.kip_no=comitee.vw_kip_no AND comitee.vw_level='comitee'
+                        LEFT JOIN vw_final final ON a.kip_no=final.kip_no
                         LEFT JOIN statuses s ON a.kip_status=s.status_code
                     WHERE
                         a.kip_created_by='".Auth::user()->user_npk."'

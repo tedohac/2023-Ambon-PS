@@ -28,8 +28,7 @@ class DashboardController extends Controller
         DB::statement("create TEMPORARY table bulan (bln varchar(2));");
         DB::statement("insert into bulan values ('01'),('02'),('03'),('04'),('05'),('06'),('07'),('08'),('09'),('10'),('11'),('12');");
         
-        
-        $KIPMonth = DB::select(
+        $KIPLevel = DB::select(
             DB::raw("
                 SELECT
                     bulan.bln,
@@ -39,6 +38,22 @@ class DashboardController extends Controller
                     bulan
             ")
        );
+       
+       $KIPRange = DB::select(
+        DB::raw("
+            SELECT
+                bulan.bln,
+                (select final from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 0 AND final<=15) 0_15,
+                (select final from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 16 final<=25) 16_25,
+                (select final from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 26 final<=35) 26_35,
+                (select final from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 36 final<=45) 36_45,
+                (select final from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 46 final<=55) 46_55,
+                (select final from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 56 final<=60) 56_60,
+                (select final from kips a LEFT JOIN vw_final final ON a.kip_no=final.kip_no WHERE EXTRACT(YEAR FROM a.kip_created_on)='2023' AND EXTRACT(MONTH FROM a.kip_created_on)=bulan.bln AND final > 61 final<=60) 61_70,
+            FROM
+                bulan
+        ")
+   );
 
 
         // $kiplist = DB::select(
@@ -67,7 +82,8 @@ class DashboardController extends Controller
 
         return view('dashboard', [
             'KIPCount' => $KIPCount,
-            'KIPMonth' => $KIPMonth,
+            'KIPLevel' => $KIPLevel,
+            'KIPRange' => $KIPRange
             // 'kiplist' => $kiplist
         ]);
     }

@@ -144,7 +144,7 @@
               <tr>
                 <td class="text-center"><b>Telah dinilai SPV/MGR</b></td>
                 @php($counter = 0)
-                @foreach($KIPMonth as $kip)
+                @foreach($KIPLevel as $kip)
                   <td class="text-center">{{ $kip->spvdepthead }}</td>
                   @php($counter+=$kip->spvdepthead)
                 @endforeach
@@ -153,7 +153,7 @@
               <tr>
                 <td class="text-center"><b>Telah dinilai komite</b></td>
                 @php($counter = 0)
-                @foreach($KIPMonth as $kip)
+                @foreach($KIPLevel as $kip)
                   <td class="text-center">{{ $kip->comitee }}</td>
                   @php($counter+=$kip->comitee)
                 @endforeach
@@ -161,18 +161,18 @@
               </tr>
               <tr>
                 <td class="text-center"><b>Total</b></td>
-                <td class="text-center">{{ $KIPMonth[0]->spvdepthead+$KIPMonth[0]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[1]->spvdepthead+$KIPMonth[1]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[2]->spvdepthead+$KIPMonth[2]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[3]->spvdepthead+$KIPMonth[3]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[4]->spvdepthead+$KIPMonth[4]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[5]->spvdepthead+$KIPMonth[5]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[6]->spvdepthead+$KIPMonth[6]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[7]->spvdepthead+$KIPMonth[7]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[8]->spvdepthead+$KIPMonth[8]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[9]->spvdepthead+$KIPMonth[9]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[10]->spvdepthead+$KIPMonth[10]->comitee }}</td>
-                <td class="text-center">{{ $KIPMonth[11]->spvdepthead+$KIPMonth[11]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[0]->spvdepthead+$KIPLevel[0]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[1]->spvdepthead+$KIPLevel[1]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[2]->spvdepthead+$KIPLevel[2]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[3]->spvdepthead+$KIPLevel[3]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[4]->spvdepthead+$KIPLevel[4]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[5]->spvdepthead+$KIPLevel[5]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[6]->spvdepthead+$KIPLevel[6]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[7]->spvdepthead+$KIPLevel[7]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[8]->spvdepthead+$KIPLevel[8]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[9]->spvdepthead+$KIPLevel[9]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[10]->spvdepthead+$KIPLevel[10]->comitee }}</td>
+                <td class="text-center">{{ $KIPLevel[11]->spvdepthead+$KIPLevel[11]->comitee }}</td>
               </tr>
             </tbody>
           </table>
@@ -203,115 +203,66 @@
               </tr>
               <tr>
                 <td class="text-center"><b>0-15</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                @php($counter = 0)
+                @foreach($KIPRange as $kip)
+                  <td class="text-center">{{ $kip->0_15 }}</td>
+                  @php($counter+=$kip->0_15)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
-                <td class="text-center"><b>15-25</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                <td class="text-center"><b>16-25</b></td>
+                @php($counter = 0)
+                @foreach($KIPRange as $kip)
+                  <td class="text-center">{{ $kip->16_25 }}</td>
+                  @php($counter+=$kip->16_25)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
-                <td class="text-center"><b>25-35</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                <td class="text-center"><b>26-35</b></td>
+                @php($counter = 0)
+                @foreach($KIPRange as $kip)
+                  <td class="text-center">{{ $kip->26_35 }}</td>
+                  @php($counter+=$kip->26_35)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
-                <td class="text-center"><b>35-45</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                <td class="text-center"><b>36-45</b></td>
+                @php($counter = 0)
+                @foreach($KIPRange as $kip)
+                  <td class="text-center">{{ $kip->36_45 }}</td>
+                  @php($counter+=$kip->36_45)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
-                <td class="text-center"><b>45-55</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                <td class="text-center"><b>46-55</b></td>
+                @php($counter = 0)
+                @foreach($KIPRange as $kip)
+                  <td class="text-center">{{ $kip->46_55 }}</td>
+                  @php($counter+=$kip->46_55)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
-                <td class="text-center"><b>55-60</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                <td class="text-center"><b>56-60</b></td>
+                @php($counter = 0)
+                @foreach($KIPRange as $kip)
+                  <td class="text-center">{{ $kip->56_60 }}</td>
+                  @php($counter+=$kip->56_60)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
-                <td class="text-center"><b>60-70</b></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
-                <td class="text-center"></td>
+                <td class="text-center"><b>61-70</b></td>
+                @php($counter = 0)
+                @foreach($KIPRange as $kip)
+                  <td class="text-center">{{ $kip->61_70 }}</td>
+                  @php($counter+=$kip->61_70)
+                @endforeach
+                <td class="text-center">{{ $counter }}</td>
               </tr>
               <tr>
                 <td class="text-center"><b>Total</b></td>
