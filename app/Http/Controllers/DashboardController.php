@@ -224,8 +224,8 @@ class DashboardController extends Controller
         //             ")
         //         );
 
-        $count_man = count($kiplist);
-        dd($count_man);
+        // $count_man = count($kiplist);
+        // dd($count_man);
 
         return view('dashboard', [
             'KIPdraft' => $KIPdraft,
@@ -271,7 +271,7 @@ class DashboardController extends Controller
             'totalSep' => $totalSep,
             'totalOkt' => $totalOkt,
             'totalNov' => $totalNov,
-            'totalDes' => $totalDes,
+            'totalDes' => $totalDes
             // 'kiplist' => $kiplist
         ]);
     }
